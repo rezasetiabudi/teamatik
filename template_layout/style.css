@@ -75,16 +75,17 @@ a {
   border: none;
 }
 .header__avatar {
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1609106/headshot.png");
+  /* background-image: url("https://static.rldcdn.com/images/loose-gemstones/245px/D/round.png");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2); */
   position: relative;
   margin: 0 26px;
-  width: 35px;
+  color: #394263;
+  /* width: 35px;
   height: 35px;
-  cursor: pointer;
+  cursor: pointer; */
 }
 .header__avatar:after {
   position: absolute;
@@ -128,7 +129,7 @@ a {
   background-color: rgba(0, 0, 0, 0.1);
 }
 .dropdown__icon {
-  color: #1BBAE1;
+  color: #394263;
 }
 .dropdown__title {
   margin-left: 10px;
@@ -198,11 +199,10 @@ a {
   background-color: rgba(255, 255, 255, 0.1);
 }
 .sidenav__profile-avatar {
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1609106/headshot.png");
+  background-image: url("https://static.rldcdn.com/images/loose-gemstones/245px/D/round.png");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.2);
   height: 64px;
   width: 64px;
   margin: 0 15px;
