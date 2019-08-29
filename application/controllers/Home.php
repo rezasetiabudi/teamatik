@@ -7,8 +7,8 @@ class Home extends CI_Controller {
 		$this->load->view('home_page');
 	}
 
-	public function tes()
+	public function login()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('login');
 	}
 }
