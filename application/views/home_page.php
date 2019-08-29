@@ -9,8 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <title>CSS Grid Modern Responsive Dashboard</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="shortcut icon" type="image/png" href="#"><link rel="stylesheet" href="<?php echo base_url();?>views/style.css">
+    <link rel="shortcut icon" type="image/png" href="#">
+    <link rel="stylesheet" href="<?php echo base_url();?>/assets/style.css">
 </head>
 <body>
 <!-- header & setting account -->
@@ -268,7 +268,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src='https://www.amcharts.com/lib/3/amcharts.js'></script>
 <script src='https://www.amcharts.com/lib/3/serial.js'></script>
 <script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
-<script  src="application/views/script.js"></script>
+<script  src="<?php echo base_url()?>/assets/script.js"></script>
 
 </body>
 </html>
