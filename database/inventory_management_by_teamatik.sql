@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 29, 2019 at 09:18 AM
+-- Generation Time: Aug 29, 2019 at 09:38 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `inventory_management_by_teamatik`
 --
+CREATE DATABASE IF NOT EXISTS `inventory_management_by_teamatik` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `inventory_management_by_teamatik`;
 
 -- --------------------------------------------------------
 
