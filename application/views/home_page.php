@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <link rel="shortcut icon" type="image/png" href="#">
-  <link rel="stylesheet" href="/assets/style.css" type="text/css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/style.css" type="text/css">
 </head>
 
 <body>
