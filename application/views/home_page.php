@@ -36,7 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </li>
             <li class="dropdown__list-item">
               <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
-              <span class="dropdown__title">log out</span>
+              <a class="dropdown__title" href="<?= base_url('')?>">log out</a>
             </li>
           </ul>
         </div>

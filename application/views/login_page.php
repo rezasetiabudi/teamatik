@@ -73,7 +73,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             Username / Password?
                         </a>
                     </div>
-
                     <!-- <div class="text-center p-t-50">
                         <a class="txt2" href="#">
                             Create your Account
