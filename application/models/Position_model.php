@@ -8,4 +8,8 @@ class Position_model extends CI_Model {
         $x = $data->result_array();
         return $data->result_array();
     }
+
+    public function saverecords($name,$department_id){
+        $query="insert into position(name,department_id) values('$name','$department_id')";
+    }
 }
