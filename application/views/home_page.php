@@ -65,7 +65,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <span class="navList__subheading-title">Technology</span>
             </div>
             <ul class="subList subList--hidden">
-            <a href = "<?php echo base_url()?>index.php/Employee/create"><li class="subList__item">Electronic</li></a>              <li class="subList__item">Account Priviledge</li>
+            <a href = "<?php echo base_url()?>index.php/Employee/index"><li class="subList__item">Electronic</li></a>              <li class="subList__item">Account Priviledge</li>
               <li class="subList__item">Room Access</li>
             </ul>
           </li>
