@@ -44,35 +44,53 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
       </div>
     </header>
-  <!-- SIDEBAR sidebar -->
-  <aside class="sidenav">
-    <div class="sidenav__brand">
-      <i class="fas fa-box-open sidenav__brand-icon"></i>
-      <a class="sidenav__brand-link" href="#">My<span class="text-light">Box</span></a>
-      <i class="fas fa-times sidenav__brand-close"></i>
-    </div>
-    <div class="sidenav__profile">
-      <div class="sidenav__profile-avatar"></div>
-      <div class="sidenav__profile-title text-light">Brilliant Diamonds</div>
-    </div>
-    <div class="row row--align-v-center row--align-h-center">
-      <ul class="navList">
-        <li class="navList__heading">Data Log<i class="fas fa-database"></i></li>
+
+    <!-- SIDEBAR sidebar -->
+    <aside class="sidenav">
+      <div class="sidenav__brand">
+        <i class="fas fa-box-open sidenav__brand-icon"></i>
+        <a class="sidenav__brand-link" href="#">My<span class="text-light">Box</span></a>
+        <i class="fas fa-times sidenav__brand-close"></i>
+      </div>
+      <div class="sidenav__profile">
+        <div class="sidenav__profile-avatar"></div>
+        <div class="sidenav__profile-title text-light">Brilliant Diamonds</div>
+      </div>
+      <div class="row row--align-v-center row--align-h-center">
+        <ul class="navList">
+          <li class="navList__heading">Data Log<i class="fas fa-database"></i></li>
           <li>
-          <div class="navList__subheading row row--align-v-center">
-            <span class="navList__subheading-icon"><i class="fas fa-keyboard"></i></span>
-            <span class="navList__subheading-title">Technology</span>
-          </div>
-          <ul class="subList subList--hidden">
-          <a href = "<?php echo base_url()?>index.php/Employee/create"><li class="subList__item">Electronic</li></a>
-            <li class="subList__item">Account Priviledge</li>
-            <li class="subList__item">Room Access</li>
-          </ul>
-        </li>
-        <li>
-          <div class="navList__subheading row row--align-v-center">
-            <span class="navList__subheading-icon"><i class="fas fa-building"></i></span>
-            <span class="navList__subheading-title">Facility</span>
+            <div class="navList__subheading row row--align-v-center">
+              <span class="navList__subheading-icon"><i class="fas fa-keyboard"></i></span>
+              <span class="navList__subheading-title">Technology</span>
+            </div>
+            <ul class="subList subList--hidden">
+            <a href = "<?php echo base_url()?>index.php/Employee/create"><li class="subList__item">Electronic</li></a>              <li class="subList__item">Account Priviledge</li>
+              <li class="subList__item">Room Access</li>
+            </ul>
+          </li>
+          <li>
+            <div class="navList__subheading row row--align-v-center">
+              <span class="navList__subheading-icon"><i class="fas fa-building"></i></span>
+              <span class="navList__subheading-title">Facility</span>
+            </div>
+            <ul class="subList subList--hidden">
+              <li class="subList__item">Meeting Room</li>
+              <li class="subList__item">Event List</li>
+              <li class="subList__item">Entertainment Center</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- BANNER banner -->
+    <main class="main">
+      <div class="main-header">
+        <div class="main-header__intro-wrapper">
+          <div class="main-header__welcome">
+            <div class="main-header__welcome-title text-light">Welcome, on <strong>Dashboard</strong></div>
+            <div class="main-header__welcome-subtitle text-light">How are you today?</div>
           </div>
           <div class="quickview">
             <div class="quickview__item">
