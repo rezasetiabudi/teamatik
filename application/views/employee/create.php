@@ -36,5 +36,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </form>
     </div>
 
-    <a href = "<?php echo base_url()?>">BACK</a>
+    <a href = "<?php echo base_url()?>index.php/Employee/index">BACK</a>
 </html>
