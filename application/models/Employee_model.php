@@ -7,8 +7,8 @@ class Employee_model extends CI_Model {
         return $data->result_array();
     }
 
-    public function saverecords($name,$email,$phone,$position){
-        $query="insert into employee(name,email,phone,position_id) values('$name','$email','$phone','$position')";
+    public function saverecords($name,$email,$phone,$position,$status){
+        $query="insert into employee(name,email,phone,position_id,status) values('$name','$email','$phone','$position','$status')";
 	    $this->db->query($query);
     }
 }

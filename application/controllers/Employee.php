@@ -4,7 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Employee extends CI_Controller {
 	public function index()
 	{
-            $this->load->view('employee/index');
+            $this->load->model('employee_model');
+            $employee['list'] = $this->employee_model->getEmployee();
+            $this->load->view('employee/index',$employee);
 	}
 
 	public function create()
@@ -19,10 +21,11 @@ class Employee extends CI_Controller {
                   $email=$this->input->post('email');
                   $phone=$this->input->post('phone');
                   $position=$this->input->post('position');
+                  $status=$this->input->post('status');
 
                   $this->load->model('employee_model');
                   //call saverecords method of Hello_Model and pass variables as parameter
-                  $this->employee_model->saverecords($name,$email,$phone,$position);	
+                  $this->employee_model->saverecords($name,$email,$phone,$position,$status);	
                   echo "Records Saved Successfully";
             }
 	}
