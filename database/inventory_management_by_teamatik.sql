@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 29, 2019 at 09:38 AM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.3.5
+-- Host: localhost:3306
+-- Waktu pembuatan: 03 Sep 2019 pada 07.29
+-- Versi server: 5.7.19
+-- Versi PHP: 7.1.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,13 +21,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `inventory_management_by_teamatik`
 --
-CREATE DATABASE IF NOT EXISTS `inventory_management_by_teamatik` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `inventory_management_by_teamatik`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Struktur dari tabel `category`
 --
 
 CREATE TABLE `category` (
@@ -38,7 +36,7 @@ CREATE TABLE `category` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `department`
+-- Struktur dari tabel `department`
 --
 
 CREATE TABLE `department` (
@@ -49,7 +47,7 @@ CREATE TABLE `department` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Struktur dari tabel `employee`
 --
 
 CREATE TABLE `employee` (
@@ -64,7 +62,7 @@ CREATE TABLE `employee` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `position`
+-- Struktur dari tabel `position`
 --
 
 CREATE TABLE `position` (
@@ -76,7 +74,7 @@ CREATE TABLE `position` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Struktur dari tabel `product`
 --
 
 CREATE TABLE `product` (
@@ -90,7 +88,7 @@ CREATE TABLE `product` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_history_electronic`
+-- Struktur dari tabel `product_history_electronic`
 --
 
 CREATE TABLE `product_history_electronic` (
@@ -105,7 +103,7 @@ CREATE TABLE `product_history_electronic` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_history_furniture`
+-- Struktur dari tabel `product_history_furniture`
 --
 
 CREATE TABLE `product_history_furniture` (
@@ -120,7 +118,7 @@ CREATE TABLE `product_history_furniture` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -130,78 +128,85 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `category`
+-- Indeks untuk tabel `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `department`
+-- Indeks untuk tabel `department`
 --
 ALTER TABLE `department`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `employee`
+-- Indeks untuk tabel `employee`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `position`
+-- Indeks untuk tabel `position`
 --
 ALTER TABLE `position`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Indeks untuk tabel `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`product_code`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT untuk tabel `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `department`
+-- AUTO_INCREMENT untuk tabel `department`
 --
 ALTER TABLE `department`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `employee`
+-- AUTO_INCREMENT untuk tabel `employee`
 --
 ALTER TABLE `employee`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `position`
+-- AUTO_INCREMENT untuk tabel `position`
 --
 ALTER TABLE `position`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

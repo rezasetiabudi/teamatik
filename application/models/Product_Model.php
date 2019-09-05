@@ -3,7 +3,7 @@
     {
         function saverecords($name, $email, $mobile)
         {
-            
+            $query = ""
         }
     }
 ?>
