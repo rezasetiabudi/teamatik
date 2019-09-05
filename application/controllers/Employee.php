@@ -10,7 +10,7 @@ class Employee extends CI_Controller {
 	public function create()
 	{
             $this->load->model('position_model');
-            $position = $this->position_model->getList();
+            $position['posisi'] = $this->position_model->getList();
             $this->load->view('employee/create',$position);
             if($this->input->post('save'))
             {
