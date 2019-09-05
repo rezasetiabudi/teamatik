@@ -34,10 +34,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
               <span class="dropdown__title">my account</span>
             </li>
-            <li class="dropdown__list-item">
+            <a class="dropdown__title" href="<?= base_url()?>">
+              <li class="dropdown__list-item">
               <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
-              <a class="dropdown__title" href="<?= base_url('')?>">log out</a>
-            </li>
+              log out
+              </li>
+            </a>
           </ul>
         </div>
       </div>
@@ -63,8 +65,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <span class="navList__subheading-title">Technology</span>
             </div>
             <ul class="subList subList--hidden">
-              <li class="subList__item">Electronic</li>
-              <li class="subList__item">Account Priviledge</li>
+            <a href = "<?php echo base_url()?>index.php/Employee/create"><li class="subList__item">Electronic</li></a>              <li class="subList__item">Account Priviledge</li>
               <li class="subList__item">Room Access</li>
             </ul>
           </li>
@@ -83,6 +84,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
     </aside>
 
+<<<<<<< HEAD
   <!-- SIDEBAR sidebar -->
   <aside class="sidenav">
     <div class="sidenav__brand">
@@ -112,6 +114,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <div class="navList__subheading row row--align-v-center">
             <span class="navList__subheading-icon"><i class="fas fa-building"></i></span>
             <span class="navList__subheading-title">Facility</span>
+=======
+    <!-- BANNER banner -->
+    <main class="main">
+      <div class="main-header">
+        <div class="main-header__intro-wrapper">
+          <div class="main-header__welcome">
+            <div class="main-header__welcome-title text-light">Welcome, on <strong>Dashboard</strong></div>
+            <div class="main-header__welcome-subtitle text-light">How are you today?</div>
+>>>>>>> 97b5cf976e4f4d88a8be94c655df54fe590cad89
           </div>
           <div class="quickview">
             <div class="quickview__item">

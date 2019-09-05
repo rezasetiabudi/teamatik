@@ -9,7 +9,9 @@ class Employee extends CI_Controller {
 
 	public function create()
 	{
-            $this->load->view('employee/create');
+            $this->load->model('position_model');
+            $position['posisi'] = $this->position_model->getList();
+            $this->load->view('employee/create',$position);
             if($this->input->post('save'))
             {
                   //get form's data and store in local varable
