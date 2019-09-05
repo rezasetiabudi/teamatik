@@ -9,14 +9,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             E-mail: <input type="text" name="email"><br>
             Phone: <input type="text" name="phone"><br>
             <select class = "form-control" name="position">
-                <?php 
-                $this->load->model('position_model');
-                $position = $this->position_model->getList();
+            <?php 
+                echo $position;
                 $count = count($position);
                 for($i = 0; $i<$count; $i++){
                     echo '<option value="'.$position[$i][id].'">'.$position[$i][name].'</option>';
                 }
-                ?>
+            ?>
             </select>
             <input type="submit" name="save" value="save">
         </form>
