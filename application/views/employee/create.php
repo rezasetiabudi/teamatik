@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             Phone: <input type="text" name="phone"><br>
             <select class = "form-control" name="position">
             <?php 
-                echo $position;
+                echo 'a';
                 $count = count($position);
                 for($i = 0; $i<$count; $i++){
                     echo '<option value="'.$position[$i][id].'">'.$position[$i][name].'</option>';
