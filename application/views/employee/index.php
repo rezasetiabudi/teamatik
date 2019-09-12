@@ -35,4 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     ?>
 </table>
 
+<a href = "<?php echo base_url()?>">BACK</a>
+
+
 
