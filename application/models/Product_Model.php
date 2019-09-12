@@ -1,19 +1,19 @@
 <?php
     class Product_model extends CI_Model
     {
-        function getProduct(){
+        public function getProduct(){
             $data = $this->db->query("SELECT * FROM product");
             return $data->result_array();
         }
 
-        function saverecords($name, $category_id, $prefix, $product, $purchase, $price) {
+        public function saverecords($name, $category_id, $prefix, $product, $purchase, $price) {
             $query = "insert into employee(name, category_id, prefix_code, product_code, purchase_year, price, status) values('$name', '$category_id', '$prefix_code', '$product', '$purchase', '$price')";
 
 	        $this->db->query($query);
 
         }
 
-        function generatePrefix($category_id){
+        public function generatePrefix($category_id){
             if($category_id == 1){
                 return 'E';
             }
@@ -22,7 +22,7 @@
             }
         }
         
-        function generateCode($prefix_code){
+        public function generateCode($prefix_code){
             $query = "SELECT MAX(product_code) AS 'max' FROM product WHERE prefix LIKE ".$prefix_code;
             $data = $this->db->query($query);
 

@@ -84,37 +84,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
     </aside>
 
-<<<<<<< HEAD
-  <!-- SIDEBAR sidebar -->
-  <aside class="sidenav">
-    <div class="sidenav__brand">
-      <i class="fas fa-box-open sidenav__brand-icon"></i>
-      <a class="sidenav__brand-link" href="#">My<span class="text-light">Box</span></a>
-      <i class="fas fa-times sidenav__brand-close"></i>
-    </div>
-    <div class="sidenav__profile">
-      <div class="sidenav__profile-avatar"></div>
-      <div class="sidenav__profile-title text-light">Brilliant Diamonds</div>
-    </div>
-    <div class="row row--align-v-center row--align-h-center">
-      <ul class="navList">
-        <li class="navList__heading">Data Log<i class="fas fa-database"></i></li>
-          <li>
-          <div class="navList__subheading row row--align-v-center">
-            <span class="navList__subheading-icon"><i class="fas fa-keyboard"></i></span>
-            <span class="navList__subheading-title">Technology</span>
-          </div>
-          <ul class="subList subList--hidden">
-            <li class="subList__item"><a href = "<?php echo base_url()?>Employee/create">Electronic</a></li>
-            <li class="subList__item">Account Priviledge</li>
-            <li class="subList__item">Room Access</li>
-          </ul>
-        </li>
-        <li>
-          <div class="navList__subheading row row--align-v-center">
-            <span class="navList__subheading-icon"><i class="fas fa-building"></i></span>
-            <span class="navList__subheading-title">Facility</span>
-=======
     <!-- BANNER banner -->
     <main class="main">
       <div class="main-header">
@@ -122,7 +91,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <div class="main-header__welcome">
             <div class="main-header__welcome-title text-light">Welcome, on <strong>Dashboard</strong></div>
             <div class="main-header__welcome-subtitle text-light">How are you today?</div>
->>>>>>> 97b5cf976e4f4d88a8be94c655df54fe590cad89
           </div>
           <div class="quickview">
             <div class="quickview__item">

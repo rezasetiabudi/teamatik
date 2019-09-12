@@ -7,15 +7,15 @@ class Product extends CI_Controller {
     }
 
     public function create() {
-        $this->load->model('category_model');
-        $category['kategori'] = $this->category_model->getList();
+        $this->load->model('Category_model');
+        $category['kategori'] = $this->Category_model->getList();
         $this->load->view('product/create',$category);
 
         if($this->input->post('save')) {
             $name = $this->input->post('name');
             $category_id = $this->input->post('category_id');
-            $prefix_code = $this->product_model->generatePrefix($category_id);
-            $product_code = $this->product_model->generateCode($prefix_code);
+            $prefix_code = $this->Product_model->generatePrefix($category_id);
+            $product_code = $this->Product_model->generateCode($prefix_code);
             $purchase_year = $this->input->post('purchase_year');
             $price = $this->input->post('price');
 
