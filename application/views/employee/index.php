@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>/css/main.css">
 
-<a href="<?php echo base_url()?>index.php/Employee/create">Add</a>
+<a href="<?php echo base_url()?>Employee/create">Add</a>
 <table class = "table table-bordered">
     <th>
         #
