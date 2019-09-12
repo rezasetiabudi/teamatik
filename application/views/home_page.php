@@ -34,7 +34,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
               <span class="dropdown__title">my account</span>
             </li>
-            <a class="dropdown__title" href="<?= base_url()?>">
+            <a class="dropdown__title" href="<?= base_url('/index.php/Home/logout')?>">
               <li class="dropdown__list-item">
               <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
               log out
