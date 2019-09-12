@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
@@ -15,14 +15,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>/css/main.css">
 
-    <a href="<?php echo base_url()?>index.php/Product/create">Add</a>
-    <table class = "table table-bordered">
-        <th>#</th>
-        <th>Prefix Code</th>
-        <th>Product Code</th>
-        <th>Name</th>
-        <th>Category Id</th>
-        <th>Purchase Year</th>
-        <th>Price</th>
-    </table>
+<a href="<?php echo base_url()?>Product/create">Tabel</a>
+<table class = "table table-bordered">
+    <th>#</th>
+    <th>Prefix Code</th>
+    <th>Product Code</th>
+    <th>Name</th>
+    <th>Category ID</th>
+    <th>Purchase Year</th>
+    <th>Price</th>
+    <th>Status</th>
+    <?php 
+        $count = count($list);
+        for($i = 0; $i<$count; $i++){
+            $x = $i + 1;
+            echo '<tr>';
+            echo '<td>'.$x.'</td>';
+            echo '<td>'.$list[$i]["name"].'</td>';
+            echo '</tr>';
+        }
+    ?>
+</table>
 
+<a href = "<?php echo base_url()?>">BACK</a>
