@@ -36,7 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <img src="<?php echo base_url('assets') ?>/images/img-01.png" alt="IMG">
                 </div>
 
-                <form class="login100-form validate-form" method="post" action="<?= base_url('/index.php/Home/login') ?>">
+                <form class="login100-form validate-form" method="post" action="<?= base_url('/Home/login') ?>">
                     <span class="login100-form-title">
                         Member Login
                     </span>
