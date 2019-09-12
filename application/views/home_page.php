@@ -34,7 +34,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
               <span class="dropdown__title">my account</span>
             </li>
-            <a class="dropdown__title" href="<?= base_url()?>">
+            <a class="dropdown__title" href="<?= base_url('/Home/logout')?>">
               <li class="dropdown__list-item">
               <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
               log out
@@ -62,10 +62,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <li>
             <div class="navList__subheading row row--align-v-center">
               <span class="navList__subheading-icon"><i class="fas fa-keyboard"></i></span>
-              <span class="navList__subheading-title">Technology</span>
+              <span class="navList__subheading-title">Data</span>
             </div>
             <ul class="subList subList--hidden">
-            <a href = "<?php echo base_url()?>index.php/Employee/index"><li class="subList__item">Electronic</li></a>              <li class="subList__item">Account Priviledge</li>
+            <a href = "<?php echo base_url()?>Employee/index"><li class="subList__item">Employee</li></a> 
+            <a href = "<?php echo base_url()?>Position/index"><li class="subList__item">Position</li></a> 
               <li class="subList__item">Room Access</li>
             </ul>
           </li>
