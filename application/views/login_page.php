@@ -6,7 +6,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <html lang="en">
 
 <head>
-    <title><?= $title; ?></title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -36,7 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <img src="<?php echo base_url('assets') ?>/images/img-01.png" alt="IMG">
                 </div>
 
-                <form class="login100-form validate-form" method="post" action="<?= base_url('') ?>">
+                <form class="login100-form validate-form" method="post" action="<?= base_url('/index.php/Home/login') ?>">
                     <span class="login100-form-title">
                         Member Login
                     </span>
