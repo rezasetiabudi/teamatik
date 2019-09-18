@@ -7,8 +7,8 @@ class Position_model extends CI_Model {
         return $data->result_array();
     }
 
-    public function saverecords($name,$department_id){
-        $query="insert into position(name,department_id) values('$name','$department_id')";
-        $this->db->query($query);
+    public function saverecords($name,$departmentid){
+        $query="insert into position(name,department_id) values('$name','$departmentid')";
+	    $this->db->query($query);
     }
 }
