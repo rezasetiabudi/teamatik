@@ -7,6 +7,8 @@
     <title>Add Product</title>
 </head>
 <body>
+<h1>ADD PRODUCT</h1>
+
 <div class="form-group">
         <form method="post">
             Product Name: <input type="text" name="name"><br>
@@ -23,6 +25,6 @@
             <input type="submit" name="save" value="save">
         </form>
     </div>
-    <a href = "<?php echo base_url()?>">BACK</a>
+    <a href = "<?php echo base_url()?>/Product/index">BACK</a>
 </body>
 </html>

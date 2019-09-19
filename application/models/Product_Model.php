@@ -7,7 +7,7 @@
         }
 
         public function saverecords($name, $category_id, $prefix, $product, $purchase, $price) {
-            $query = "insert into employee(name, category_id, prefix_code, product_code, purchase_year, price, status) values('$name', '$category_id', '$prefix_code', '$product', '$purchase', '$price')";
+            $query = "insert into product(name, category_id, prefix_code, product_code, purchase_year, price) values('$name', '$category_id', '$prefix', '$product', '$purchase', '$price')";
 
 	        $this->db->query($query);
 
@@ -23,10 +23,10 @@
         }
         
         public function generateCode($prefix_code){
-            $query = "SELECT MAX(product_code) AS 'max' FROM product WHERE prefix LIKE ".$prefix_code;
+            $query = "SELECT MAX(product_code) AS 'max' FROM product WHERE prefix_code ='".$prefix_code."'";
             $data = $this->db->query($query);
-
-            $newnumber = $data['max']+1;
+            $data = $data->result_array();
+            $newnumber = $data[0]['max']+1;
             return $newnumber;
         }
     }

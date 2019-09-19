@@ -15,7 +15,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>/css/util.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>/css/main.css">
 
-<a href="<?php echo base_url()?>Product/create">Tabel</a>
+<h1 class="center">PRODUCTS</h1>
+<a href="<?php echo base_url()?>Product/create">
+<button type="button" class="btn btn-success">
+    Tabel
+</button>
+</a>
 <table class = "table table-bordered">
     <th>#</th>
     <th>Prefix Code</th>
@@ -25,16 +30,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <th>Purchase Year</th>
     <th>Price</th>
     <th>Status</th>
-    <?php 
-        $count = count($list);
-        for($i = 0; $i<$count; $i++){
-            $x = $i + 1;
-            echo '<tr>';
-            echo '<td>'.$x.'</td>';
-            echo '<td>'.$list[$i]["name"].'</td>';
-            echo '</tr>';
-        }
-    ?>
 </table>
 
 <a href = "<?php echo base_url()?>">BACK</a>
