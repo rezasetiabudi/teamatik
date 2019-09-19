@@ -34,12 +34,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
               <span class="dropdown__title">my account</span>
             </li>
-            <a class="dropdown__title" href="<?= base_url('/Home/logout')?>">
-              <li class="dropdown__list-item">
+            <li class="dropdown__list-item">
               <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
-              log out
-              </li>
-            </a>
+              <a class="dropdown__title" href="<?= base_url('/Home/logout') ?>">Logout</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -65,11 +63,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <span class="navList__subheading-title">Data</span>
             </div>
             <ul class="subList subList--hidden">
-            <a href = "<?php echo base_url()?>Employee/index"><li class="subList__item">Employee</li></a> 
-            <a href = "<?php echo base_url()?>Position/index"><li class="subList__item">Position</li></a> 
-            <a href = "<?php echo base_url()?>Department/index"><li class="subList__item">Department</li></a>
-            <a href = "<?php echo base_url()?>Product/index"><li class="subList__item">Products</li></a> 
-              
+              <a href="<?php echo base_url() ?>Employee/index">
+                <li class="subList__item">Employee</li>
+              </a>
+              <a href="<?php echo base_url() ?>Position/index">
+                <li class="subList__item">Position</li>
+              </a>
+              <a href="<?php echo base_url() ?>Department/index">
+                <li class="subList__item">Department</li>
+              </a>
+
             </ul>
           </li>
           <li>
