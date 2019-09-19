@@ -8,9 +8,22 @@ class Home extends CI_Controller
 		$this->load->model('login_model');
 
 	}
+<<<<<<< HEAD
+
+	public function index()
+	{
+		$this->load->view('home_page');
+	}
+
+	public function homepage()
+	{
+		if ($this->form_validation->run() == true) {
+			$this->load->view('home_page');
+=======
 	function index(){
 		if($this->session->userdata('status') != "login"){
 			$this->load->view('login_page');
+>>>>>>> 63c1bc1bffb7f19aaf756a3a265697828de41820
 		}
 		else $this->load->view('home_page');
 	}
