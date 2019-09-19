@@ -67,7 +67,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <ul class="subList subList--hidden">
             <a href = "<?php echo base_url()?>Employee/index"><li class="subList__item">Employee</li></a> 
             <a href = "<?php echo base_url()?>Position/index"><li class="subList__item">Position</li></a> 
-              <li class="subList__item">Room Access</li>
+            <a href = "<?php echo base_url()?>Department/index"><li class="subList__item">Department</li></a> 
+              
             </ul>
           </li>
           <li>
@@ -263,8 +264,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </main>
 
     <footer class="footer">
-      <p><span class="footer__copyright">&copy;</span> 2018 MTH</p>
-      <p>Crafted with <i class="fas fa-heart footer__icon"></i> by <a href="https://www.linkedin.com/in/matt-holland/" target="_blank" class="footer__signature">Matt H</a></p>
+      <p><span class="footer__copyright">&copy;</span> 2019 Teamatik</p>
     </footer>
   </div>
   <!-- partial -->

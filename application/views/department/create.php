@@ -18,17 +18,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="form-group">
         <form method="post" class="form-control">
         <input class="input100" type="text" name="name" placeholder="Name"?>
-            <select class = "form-control" name="department">
-            <?php
-                $count = count($department);
-                for($i = 0; $i<$count; $i++){
-                    echo '<option value="'.$department[$i][id].'">'.$department[$i][name].'</option>';
-                }
-            ?>
-            </select>
             <input type="submit" name="save" value="save">
         </form>
     </div>
 
-    <a href = "<?php echo base_url()?>Position/index">BACK</a>
+    <a href = "<?php echo base_url()?>/Department/index">BACK</a>
 </html>

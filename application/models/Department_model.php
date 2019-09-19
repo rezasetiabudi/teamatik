@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Department_model extends CI_Model {
-    public function getList(){
+    public function getDepartment(){
         $data = $this->db->query("SELECT * FROM department");
         return $data->result_array();
     }
