@@ -12,6 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <link rel="shortcut icon" type="image/png" href="#">
   <link rel="stylesheet" href="<?php echo base_url('assets') ?>/style.css" type="text/css">
+
 </head>
 
 <body>
@@ -43,52 +44,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
     </header>
 
-    <!-- SIDEBAR sidebar -->
-    <aside class="sidenav">
-      <div class="sidenav__brand">
-        <i class="fas fa-box-open sidenav__brand-icon"></i>
-        <a class="sidenav__brand-link" href="#">My<span class="text-light">Box</span></a>
-        <i class="fas fa-times sidenav__brand-close"></i>
-      </div>
-      <div class="sidenav__profile">
-        <div class="sidenav__profile-avatar"></div>
-        <div class="sidenav__profile-title text-light">Brilliant Diamonds</div>
-      </div>
-      <div class="row row--align-v-center row--align-h-center">
-        <ul class="navList">
-          <li class="navList__heading">Data Log<i class="fas fa-database"></i></li>
-          <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-icon"><i class="fas fa-keyboard"></i></span>
-              <span class="navList__subheading-title">Data</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <a href="<?php echo base_url() ?>Employee/index">
-                <li class="subList__item">Employee</li>
-              </a>
-              <a href="<?php echo base_url() ?>Position/index">
-                <li class="subList__item">Position</li>
-              </a>
-              <a href="<?php echo base_url() ?>Department/index">
-                <li class="subList__item">Department</li>
-              </a>
-
-            </ul>
-          </li>
-          <li>
-            <div class="navList__subheading row row--align-v-center">
-              <span class="navList__subheading-icon"><i class="fas fa-building"></i></span>
-              <span class="navList__subheading-title">Facility</span>
-            </div>
-            <ul class="subList subList--hidden">
-              <li class="subList__item">Meeting Room</li>
-              <li class="subList__item">Event List</li>
-              <li class="subList__item">Entertainment Center</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </aside>
+    <?php $this->load->view("template/sidenavbar.php") ?>
 
     <!-- BANNER banner -->
     <main class="main">
