@@ -13,6 +13,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="shortcut icon" type="image/png" href="#">
     <link rel="stylesheet" href="<?php echo base_url('assets') ?>/style.css" type="text/css">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 
 </head>
 
@@ -49,9 +53,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <!-- BANNER banner -->
         <main class="main">
+        <div class="container">
+            <a href="<?php echo base_url() ?>Position/index" class="backButton btn btn-danger">BACK</a>
             <div class="form-group">
-                <form method="post" class="form-control">
-                    <input class="input100" type="text" name="name" placeholder="Name" ?>
+                <form method="post">
+                    <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
                     <select class="form-control" name="department">
                         <?php
                         $count = count($department);
@@ -60,11 +66,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         }
                         ?>
                     </select>
-                    <input type="submit" name="save" value="save">
+                    <input type="submit" name="save" value="save" class="form-control btn btn-info">
                 </form>
             </div>
-
-            <a href="<?php echo base_url() ?>Position/index">BACK</a>
+            </div>
         </main>
 
         <footer class="footer">

@@ -727,6 +727,19 @@ a {
   border: 3px solid #dfdfdf;
 }
 
+.form-group{
+  display: inherit;
+  margin-top: 50px;
+}
+
+.form-control{
+  margin-top: 20px;
+}
+
+.submitButton{
+  align: center;
+}
+
 .addButton{
   float: right;
 }

@@ -13,6 +13,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="shortcut icon" type="image/png" href="#">
     <link rel="stylesheet" href="<?php echo base_url('assets') ?>/style.css" type="text/css">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -49,28 +52,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <!-- BANNER banner -->
         <main class="main">
-            <div class="form-group">
-                <form method="post" class="form-control">
-                    <input class="input100" type="text" name="name" placeholder="Name" ?>
-                    <input class="input100" type="text" name="email" placeholder="E-mail" ?>
-                    <input class="input100" type="text" name="phone" placeholder="Phone" ?>
-                    <select class="form-control" name="position">
-                        <?php
-                        $count = count($posisi);
-                        for ($i = 0; $i < $count; $i++) {
-                            echo '<option value="' . $posisi[$i][id] . '">' . $posisi[$i][name] . '</option>';
-                        }
-                        ?>
-                    </select>
-                    <select class="form-control" name="status">
-                        <option value="0">Inactive</option>
-                        <option value="1">Active</option>
-                    </select>
-                    <input type="submit" name="save" value="save">
-                </form>
-            </div>
 
-            <a href="<?php echo base_url() ?>/Employee/index">BACK</a>
+            <div class="container">
+
+                <a href="<?php echo base_url() ?>/Employee/index" class="backButton btn btn-danger">BACK</a>
+                <div class="form-group">
+                    <form method="post">
+                        <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+                        <input class="form-control input100" type="text" name="email" placeholder="E-mail" ?>
+                        <input class="form-control input100" type="text" name="phone" placeholder="Phone" ?>
+                        <select class="form-control" name="position">
+                            <?php
+                            $count = count($posisi);
+                            for ($i = 0; $i < $count; $i++) {
+                                echo '<option value="' . $posisi[$i][id] . '">' . $posisi[$i][name] . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <select class="form-control" name="status">
+                            <option value="0">Inactive</option>
+                            <option value="1">Active</option>
+                        </select>
+                        <input type="submit" name="save" value="save" class="form-control btn btn-info">
+                    </form>
+                </div>
+
+            </div>
         </main>
 
         <footer class="footer">
