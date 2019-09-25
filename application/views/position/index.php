@@ -13,6 +13,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="shortcut icon" type="image/png" href="#">
     <link rel="stylesheet" href="<?php echo base_url('assets') ?>/style.css" type="text/css">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -49,31 +52,35 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         <!-- BANNER banner -->
         <main class="main">
-            <a href="<?php echo base_url() ?>Position/create">Add</a>
-            <table class="table table-bordered">
-                <th>
-                    #
-                </th>
-                <th>
-                    Position
-                </th>
-                <th>
-                    Department_id
-                </th>
-                <?php
-                $count = count($list);
-                for ($i = 0; $i < $count; $i++) {
-                    $x = $i + 1;
-                    echo '<tr>';
-                    echo '<td>' . $x . '</td>';
-                    echo '<td>' . $list[$i]["name"] . '</td>';
-                    echo '<td>' . $list[$i]["department_id"] . '</td>';
-                    echo '</tr>';
-                }
-                ?>
-            </table>
 
-            <a href="<?php echo base_url() ?>">BACK</a>
+            <div class="container">
+                <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a>
+                <a href="<?php echo base_url() ?>Position/create" class="addButton btn btn-primary">Add</a>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Position
+                        </th>
+                        <th>
+                            Department_id
+                        </th>
+                        <?php
+                        $count = count($list);
+                        for ($i = 0; $i < $count; $i++) {
+                            $x = $i + 1;
+                            echo '<tr>';
+                            echo '<td>' . $x . '</td>';
+                            echo '<td>' . $list[$i]["name"] . '</td>';
+                            echo '<td>' . $list[$i]["department_id"] . '</td>';
+                            echo '</tr>';
+                        }
+                        ?>
+                    </table>
+                </div>
+            </div>
         </main>
 
         <footer class="footer">
