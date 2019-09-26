@@ -27,6 +27,9 @@
                     <a href="<?php echo base_url() ?>Department/index">
                         <li class="subList__item">Department</li>
                     </a>
+                    <a href="<?php echo base_url() ?>Product/index">
+                        <li class="subList__item">Product</li>
+                    </a> 
 
                 </ul>
             </li>

@@ -21,15 +21,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     Tabel
 </button>
 </a>
+
 <table class = "table table-bordered">
     <th>#</th>
-    <th>Prefix Code</th>
-    <th>Product Code</th>
     <th>Name</th>
     <th>Category ID</th>
     <th>Purchase Year</th>
     <th>Price</th>
-    <th>Status</th>
+    <?php 
+            $count = count($product);
+            for($i = 0; $i<$count; $i++){
+                $x = $i + 1;
+                echo '<tr>';
+                echo '<td>'.$x.'</td>';
+                echo '<td>'.$product[$i]["name"].'</td>';
+                echo '<td>'.$product[$i]["category_id"].'</td>';
+                echo '<td>'.$product[$i]["purchase_year"].'</td>';
+                echo '<td>'.$product[$i]["price"].'</td>';
+                echo '</tr>';
+            }
+        ?>
 </table>
 
 <a href = "<?php echo base_url()?>">BACK</a>

@@ -7,9 +7,9 @@
     <title>Add Product</title>
 </head>
 <body>
-<h1>ADD PRODUCT</h1>
+<h1 class="enter">ADD PRODUCT</h1>
 
-<div class="form-group">
+    <div class="form-group">
         <form method="post">
             Product Name: <input type="text" name="name"><br>
             <select class = "form-control" name="category_id">
@@ -17,6 +17,7 @@
                 $count = count($kategori);
                 for($i = 0; $i<$count; $i++){
                     echo '<option value="'.$kategori[$i][id].'">'.$kategori[$i][name].'</option>';
+                    
                 }
             ?>
             </select>
