@@ -17,6 +17,7 @@
                 $count = count($kategori);
                 for($i = 0; $i<$count; $i++){
                     echo '<option value="'.$kategori[$i][id].'">'.$kategori[$i][name].'</option>';
+                    
                 }
             ?>
             </select>
