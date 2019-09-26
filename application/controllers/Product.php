@@ -31,7 +31,7 @@ class Product extends CI_Controller {
                 $purchase_year = $this->input->post('purchase');
                 $price = $this->input->post('price');
 
-                $this->product_model->saverecords($prefix_code, $product_code, $name, $category_id, $purchase_year, $price);	
+                $this->product_model->saverecords($name, $category_id, $prefix_code, $product_code, $purchase_year, $price);	
                 echo "Records Saved Successfully";
             }
         }

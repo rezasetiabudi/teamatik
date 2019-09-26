@@ -12,7 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/png" href="#">
     <link rel="stylesheet" href="<?php echo base_url('assets') ?>/style.css" type="text/css">
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -59,7 +59,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             <!-- /.main__overview -->
 
-            
+
             <div class="container">
                 <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a>
                 <a href="<?php echo base_url() ?>Employee/create" class="addButton btn btn-primary">Add</a>
@@ -71,6 +71,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <th>
                             Name
                         </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Phone Number
+                        </th>
                         <?php
                         $count = count($list);
                         for ($i = 0; $i < $count; $i++) {
@@ -78,6 +84,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             echo '<tr>';
                             echo '<td>' . $x . '</td>';
                             echo '<td>' . $list[$i]["name"] . '</td>';
+                            echo '<td>' . $list[$i]["email"] . '</td>';
+                            if($list[$i]["phone"] == null){
+                                echo '<td> - </td>';
+                            }else{
+                                echo '<td>' . $list[$i]["phone"] . '</td>';
+                            }
                             echo '</tr>';
                         }
                         ?>
@@ -85,7 +97,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
             </div>
 
-           
+
 
         </main>
 
