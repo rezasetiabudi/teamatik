@@ -20,14 +20,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input class="input100" type="text" name="name" placeholder="Name"?>
         <input class="input100" type="text" name="email" placeholder="E-mail"?>
         <input class="input100" type="text" name="phone" placeholder="Phone"?>
-            <select class = "form-control" name="position">
-            <?php
-                $count = count($posisi);
-                for($i = 0; $i<$count; $i++){
-                    echo '<option value="'.$posisi[$i][id].'">'.$posisi[$i][name].'</option>';
-                }
-            ?>
-            </select>
+        <select class = "form-control" name="position">
+        <?php
+            $count = count($posisi);
+            for($i = 0; $i<$count; $i++){
+                echo '<option value="'.$posisi[$i][id].'">'.$posisi[$i][name].'</option>';
+            }
+        ?>
+        </select>
             <select class = "form-control" name="status">
                 <option value="0">Inactive</option>
                 <option value="1">Active</option>
