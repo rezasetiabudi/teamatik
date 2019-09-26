@@ -12,6 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <link rel="shortcut icon" type="image/png" href="#">
   <link rel="stylesheet" href="<?php echo base_url('assets') ?>/style.css" type="text/css">
+
 </head>
 
 <body>
@@ -43,6 +44,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </div>
     </header>
 
+<<<<<<< HEAD
     <!-- SIDEBAR sidebar -->
     <aside class="sidenav">
       <div class="sidenav__brand">
@@ -92,6 +94,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </ul>
       </div>
     </aside>
+=======
+    <?php $this->load->view("template/sidenavbar.php") ?>
+>>>>>>> cff2969c19785fbd6a6d822701cd47a8e6fc58a7
 
     <!-- BANNER banner -->
     <main class="main">
