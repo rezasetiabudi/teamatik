@@ -58,9 +58,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <a href="<?php echo base_url() ?>/Employee/index" class="backButton btn btn-danger">BACK</a>
                 <div class="form-group">
                     <form method="post">
+                        <label for="name">Nama</label>
                         <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+                        <label for="email">E-Mail</label>
                         <input class="form-control input100" type="text" name="email" placeholder="E-mail" ?>
+                        <label for="phone">Phone Number</label>
                         <input class="form-control input100" type="text" name="phone" placeholder="Phone" ?>
+                        <label for="position">Position</label>
                         <select class="form-control" name="position">
                             <?php
                             $count = count($posisi);
@@ -69,6 +73,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             }
                             ?>
                         </select>
+                        <label for="status">Status Karyawan</label>
                         <select class="form-control" name="status">
                             <option value="0">Inactive</option>
                             <option value="1">Active</option>
