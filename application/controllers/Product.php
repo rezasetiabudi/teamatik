@@ -28,10 +28,10 @@ class Product extends CI_Controller {
                 $category_id = $this->input->post('category_id');
                 $prefix_code = $this->product_model->generatePrefix($category_id);
                 $product_code = $this->product_model->generateCode($prefix_code);
-                $purchase_year = $this->input->post('purchase_year');
+                $purchase_year = $this->input->post('purchase');
                 $price = $this->input->post('price');
 
-                $this->product_model->saverecords($prefix_code, $product_code, $name, $category_id, $purchase_year, $price);	
+                $this->product_model->saverecords($name, $category_id, $prefix_code, $product_code, $purchase_year, $price);	
                 echo "Records Saved Successfully";
             }
         }
