@@ -57,7 +57,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a href="<?php echo base_url() ?>Position/index" class="backButton btn btn-danger">BACK</a>
             <div class="form-group">
                 <form method="post">
+                <label for="name">Position Name</label>
                     <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+                    <label for="department">Department</label>
                     <select class="form-control" name="department">
                         <?php
                         $count = count($department);
