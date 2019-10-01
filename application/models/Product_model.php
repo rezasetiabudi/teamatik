@@ -2,7 +2,7 @@
     class Product_model extends CI_Model
     {
         public function getProduct(){
-            $data = $this->db->query("SELECT * FROM product");
+            $data = $this->db->query("SELECT p.name, p.purchase_year, p.price, c.name as category_id FROM product p LEFT JOIN category c ON p.category_id = c.id");
             return $data->result_array();
         }
 

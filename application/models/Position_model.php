@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Position_model extends CI_Model {
     public function getList(){
-        $data = $this->db->query("SELECT * FROM position");
+        $data = $this->db->query("SELECT p.name , d.name as department_id FROM position p LEFT JOIN department d ON p.department_id = d.id");
         return $data->result_array();
     }
 
