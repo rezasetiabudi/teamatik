@@ -17,6 +17,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets') ?>datatables.css">
+    <script type="text/javascript" charset="utf8" src="<?php echo base_url('assets') ?>datatables.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
 </head>
 
@@ -63,20 +69,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="container">
                 <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a>
                 <a href="<?php echo base_url() ?>Employee/create" class="addButton btn btn-primary">Add</a>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <th>
-                            #
-                        </th>
-                        <th>
-                            Name
-                        </th>
-                        <th>
-                            Email
-                        </th>
-                        <th>
-                            Phone Number
-                        </th>
+                <div class="table">
+                    <table id="Employee_table" class="display">
+                        
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Name </th>
+                                <th> Email </th>
+                                <th> Phone Number </th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <?php
                         $count = count($list);
                         for ($i = 0; $i < $count; $i++) {
@@ -93,6 +97,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             echo '</tr>';
                         }
                         ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -111,6 +116,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script src='https://www.amcharts.com/lib/3/serial.js'></script>
     <script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
     <script src="<?php echo base_url() ?>/assets/script.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#Employee_table').DataTable();
+        } );
+    </script>
 
 </body>
 
