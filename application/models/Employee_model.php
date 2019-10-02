@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Employee_model extends CI_Model {
     public function getEmployee(){
-        $data = $this->db->query("SELECT * FROM employee");
+        $data = $this->db->query("SELECT e.name, e.email, e.phone, e.status, p.name as position_id FROM employee e LEFT JOIN position p ON e.position_id = p.id");
         return $data->result_array();
     }
 
