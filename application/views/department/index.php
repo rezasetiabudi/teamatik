@@ -58,7 +58,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a>
                 <a href="<?php echo base_url() ?>Department/create" class="addButton btn btn-primary">Add</a>
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                    <table  id="example" class="table table-striped table-bordered" style="width:100%">
                             <th>
                                 #
                             </th>
