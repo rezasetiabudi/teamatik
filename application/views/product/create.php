@@ -63,6 +63,8 @@
                 <input class="form-control input100" type="date" name="purchase"><br>
                 <label for="price">Product Price</label>
                 <input class="form-control input100" type="text" name="price" placeholder="Product Price"><br>
+                <label for="price">Qty</label>
+                <input class="form-control input100" type="text" name="qty" placeholder="Qty"><br>
                 <input type="submit" name="save" value="save" class="form-control btn btn-info">
                 </form>
             </div>
