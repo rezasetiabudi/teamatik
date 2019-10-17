@@ -48,9 +48,9 @@
             <a href="<?php echo base_url() ?>/Product/index" class="backButton btn btn-danger">BACK</a>
             <div class="form-group">
                 <form method="post">
-                <label for="name">Product Name</label>
+                <label>Name</label>
                 <input  class="form-control input100" type="text" name="name" placeholder="Product Name"><br>
-                <label for="category_id">Category</label>
+                <label>Category</label>
                 <select class = "form-control" name="category_id">
                     <?php
                         $count = count($kategori);
@@ -59,9 +59,9 @@
                         }
                     ?>
                 </select>
-                <label for="purchase">Purchase Date</label>
+                <label>Purchase at</label>
                 <input class="form-control input100" type="date" name="purchase"><br>
-                <label for="price">Product Price</label>
+                <label>Product Price</label>
                 <input class="form-control input100" type="text" name="price" placeholder="Product Price"><br>
                 <label for="price">Qty</label>
                 <input class="form-control input100" type="text" name="qty" placeholder="Qty"><br>

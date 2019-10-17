@@ -57,7 +57,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a>
                 <a href="<?php echo base_url() ?>Position/create" class="addButton btn btn-primary">Add</a>
                 <div class="table-responsive">
-                    <table class="table table-striped   ">
+                <table  id="example" class="table table-striped table-bordered" style="width:100%">
                         <th>
                             #
                         </th>
@@ -65,7 +65,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             Position
                         </th>
                         <th>
-                            Department_id
+                            Department
                         </th>
                         <?php
                         $count = count($list);
