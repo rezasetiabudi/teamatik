@@ -72,7 +72,7 @@
     </main>
 
     <footer class="footer">
-            <p><span class="footer__copyright">&copy;</span> 2019 Teamatik</p>
+        <p><span class="footer__copyright">&copy;</span> 2019 Teamatik</p>
         </footer>
     </div>
     <!-- partial -->

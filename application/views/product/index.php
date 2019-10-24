@@ -10,11 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a href="<?php echo base_url() ?>Product/create" class="addButton btn btn-primary">Add</a>
 
                 <div class="table-responsive">
-<<<<<<< HEAD
                     <!-- <table class = "table table-striped">
-=======
-                <table  id="example" class="table table-striped table-bordered" style="width:100%">
->>>>>>> bc81a6d27eaaebefaa9aa9d97f53660158018ed4
                         <th>#</th>
                         <th>Name</th>
                         <th>Category</th>
@@ -23,7 +19,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <th>Action</th> -->
                         
                         <?php 
-<<<<<<< HEAD
                             // $count = count($product);
                             // for($i = 0; $i<$count; $i++){
                             //     $x = $i + 1;
@@ -39,19 +34,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             // }
 
                             echo $output;
-=======
-                            $count = count($product);
-                            for($i = 0; $i<$count; $i++){
-                                $x = $i + 1;
-                                echo '<tr>';
-                                echo '<td>'.$x.'</td>';
-                                echo '<td>'.$product[$i]["name"].'</td>';
-                                echo '<td>'.$product[$i]["category_id"].'</td>';
-                                echo '<td>'.$product[$i]["purchase_year"].'</td>';
-                                echo '<td> Rp. '.number_format($product[$i]["price"]).'</td>';
-                                echo '</tr>';
-                            }
->>>>>>> bc81a6d27eaaebefaa9aa9d97f53660158018ed4
                         ?>
                     <!-- </table> -->
                 </div>
