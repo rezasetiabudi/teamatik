@@ -7,9 +7,21 @@ class Product extends CI_Controller {
 			$this->load->view('login_page');
         }
         else {
-            $this->load->model('Product_model');
-            $product['product'] = $this->Product_model->getProduct();
-            $this->load->view('product/index',$product);
+            //grocery_crud
+            $this->load->library('Grocery_CRUD');
+            $this->load->helper('url');
+            $crud = new Grocery_CRUD();
+            $crud->set_theme('datatables');
+            $crud->set_table('product');
+            $crud->columns('name', 'category_id', 'purchase_year', 'price', 'total_price');
+            $crud->display_as('category_id', 'Category');
+            $crud->set_relation('category_id', 'category', 'name');
+            $output = $crud->render();
+            $this->load->view('product/index',$output);
+
+            // $this->load->model('Product_model');
+            // $product['product'] = $this->Product_model->getProduct();
+            // $this->load->view('product/index',$product);
         }   
     }
 
@@ -30,8 +42,10 @@ class Product extends CI_Controller {
                 $product_code = $this->product_model->generateCode($prefix_code);
                 $purchase_year = $this->input->post('purchase');
                 $price = $this->input->post('price');
+                $qty = $this->input->post('qty');
+                $total_price = $this->product_model->getTotalprice($price, $qty);
 
-                $this->product_model->saverecords($name, $category_id, $prefix_code, $product_code, $purchase_year, $price);	
+                $this->product_model->saverecords($name, $category_id, $prefix_code, $product_code, $purchase_year, $price, $qty, $total_price);	
                 echo "Records Saved Successfully";
             }
         }
