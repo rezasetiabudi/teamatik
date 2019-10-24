@@ -6,6 +6,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <html lang="en">
 
 <head>
+    <?php
+    foreach ($css_files as $file) : ?>
+        <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+
+    <?php endforeach; ?>
+
     <meta charset="UTF-8">
     <title>Inventory Management System | Teamatik</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
@@ -17,7 +23,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
 
 </head>
 
@@ -62,44 +67,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
             <div class="container">
-                <!-- <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a> -->
-                <!-- <a href="<?php echo base_url() ?>Employee/create" class="addButton btn btn-primary">Add</a> -->
-                        <?php
-                        // $count = count($list);
-                        // for ($i = 0; $i < $count; $i++) {
-                        //     $x = $i + 1;
-                        //     echo '<tr>';
-                        //     echo '<td>' . $x . '</td>';
-                        //     echo '<td>' . $list[$i]["name"] . '</td>';
-                        //     echo '<td>' . $list[$i]["email"] . '</td>';
-                        //     if($list[$i]["phone"] == null){
-                        //         echo '<td> - </td>';
-                        //     }else{
-                        //         echo '<td>' . $list[$i]["phone"] . '</td>';
-                        //     }
-                        //     echo '<td>' . $list[$i]["position_id"] . '</td>';
-
-                        //     echo '</tr>';
-                        // }
-
-                        echo $output;
-                        ?>
+                <?php echo $output; ?>
             </div>
-
-
-
-        </main>
-
-        <footer class="footer">
-            <p><span class="footer__copyright">&copy;</span> 2019 Teamatik</p>
-        </footer>
     </div>
-    <!-- partial -->
-    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-    <script src='https://www.amcharts.com/lib/3/amcharts.js'></script>
-    <script src='https://www.amcharts.com/lib/3/serial.js'></script>
-    <script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
-    <script src="<?php echo base_url() ?>/assets/script.js"></script>
+
+
+
+    </main>
+
+    <footer class="footer">
+        <p><span class="footer__copyright">&copy;</span> 2019 Teamatik</p>
+    </footer>
+    </div>
 </body>
+<?php foreach ($js_files as $file) : ?>
+    <script src="<?php echo $file; ?>"></script>
+<?php endforeach; ?>
+<script src="<?php echo base_url() ?>/assets/script.js"></script>
 
 </html>
