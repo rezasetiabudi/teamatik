@@ -2,15 +2,42 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Position extends CI_Controller {
+
+      function __construct()
+      {
+            parent::__construct();
+
+            /* Standard Libraries of codeigniter are required */
+            $this->load->database();
+            $this->load->helper('url');
+            /* ------------------ */
+
+            $this->load->library('grocery_CRUD');
+      }
 	public function index()
 	{
             if($this->session->userdata('status') != "login"){
 			$this->load->view('login_page');
-            }
-            else {
-                  $this->load->model('position_model');
-                  $position['list'] = $this->position_model->getList();
-                  $this->load->view('position/index',$position);
+            }else {
+                  // $this->load->model('employee_model');
+                  // $employee['list'] = $this->employee_model->getEmployee();
+                  // $this->load->view('employee/index', $employee);
+                  $crud = new grocery_CRUD();
+
+                  // Seriously! This is all the code you need!
+                  $crud->set_table('position');
+                  $crud->set_subject('position');
+                  $crud->set_relation('department_id', 'department', 'name');
+                  $output = $crud->render();
+
+                  $this->load->view('template/header');
+                  $this->load->view('template/sidebar',$output);
+                  $this->load->view('template/footer');
+
+                  // echo "<pre>";
+                  // print_r($output);
+                  // echo "</pre>";
+                  // die();
             }
 	}
 
