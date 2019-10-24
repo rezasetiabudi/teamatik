@@ -4,15 +4,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Employee extends CI_Controller {
 	public function index()
 	{
+            $this->load->helper('url'); 
+            $this->load->library('Grocery_CRUD');   
             if($this->session->userdata('status') != "login"){
 			$this->load->view('login_page');
             }
             else {
-                  $this->load->model('employee_model');
-                  $employee['list'] = $this->employee_model->getEmployee();
-                  $this->load->view('employee/index',$employee);
+                  $crud = new Grocery_CRUD();  
+                  $crud->set_theme('datatables');    
+                  $crud->set_table('employee');
+                  $output = $crud->render();
+                  $this->load->view('employee/index',$output);
+                  // $this->_example_output(output);
+                  // $this->load->view('template/sidenavbar.php',$output);
             }
-	}
+      }
+      
+      // public function _example_output($output){
+      //       $this->load->view('template/sidenavbar.php',$output);
+      // }
 
 	public function create()
 	{

@@ -17,6 +17,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
 
 </head>
 
@@ -61,41 +62,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
             <div class="container">
-                <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a>
-                <a href="<?php echo base_url() ?>Employee/create" class="addButton btn btn-primary">Add</a>
-                <div class="table">
-	                <table  id="example" class="table table-striped table-bordered" style="width:100%">                        
-                        <thead>
-                            <tr>
-                                <th> # </th>
-                                <th> Name </th>
-                                <th> Email </th>
-                                <th> Phone Number </th>
-                                <th> Position </th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <!-- <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a> -->
+                <!-- <a href="<?php echo base_url() ?>Employee/create" class="addButton btn btn-primary">Add</a> -->
                         <?php
-                        $count = count($list);
-                        for ($i = 0; $i < $count; $i++) {
-                            $x = $i + 1;
-                            echo '<tr>';
-                            echo '<td>' . $x . '</td>';
-                            echo '<td>' . $list[$i]["name"] . '</td>';
-                            echo '<td>' . $list[$i]["email"] . '</td>';
-                            if($list[$i]["phone"] == null){
-                                echo '<td> - </td>';
-                            }else{
-                                echo '<td>' . $list[$i]["phone"] . '</td>';
-                            }
-                            echo '<td>' . $list[$i]["position_id"] . '</td>';
+                        // $count = count($list);
+                        // for ($i = 0; $i < $count; $i++) {
+                        //     $x = $i + 1;
+                        //     echo '<tr>';
+                        //     echo '<td>' . $x . '</td>';
+                        //     echo '<td>' . $list[$i]["name"] . '</td>';
+                        //     echo '<td>' . $list[$i]["email"] . '</td>';
+                        //     if($list[$i]["phone"] == null){
+                        //         echo '<td> - </td>';
+                        //     }else{
+                        //         echo '<td>' . $list[$i]["phone"] . '</td>';
+                        //     }
+                        //     echo '<td>' . $list[$i]["position_id"] . '</td>';
 
-                            echo '</tr>';
-                        }
+                        //     echo '</tr>';
+                        // }
+
+                        echo $output;
                         ?>
-                        </tbody>
-                    </table>
-                </div>
             </div>
 
 
