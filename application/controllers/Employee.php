@@ -19,9 +19,6 @@ class Employee extends CI_Controller
             if ($this->session->userdata('status') != "login") {
                   $this->load->view('login_page');
             } else {
-                  // $this->load->model('employee_model');
-                  // $employee['list'] = $this->employee_model->getEmployee();
-                  // $this->load->view('employee/index', $employee);
                   $crud = new grocery_CRUD();
 
                   // Seriously! This is all the code you need!
@@ -30,9 +27,12 @@ class Employee extends CI_Controller
                   $crud->set_relation('position_id', 'position', 'name');
                   $output = $crud->render();
 
+
                   $this->load->view('template/header');
                   $this->load->view('template/sidebar',$output);
                   $this->load->view('template/footer');
+
+                  // $this->load->view('employee/index',$output);
 
                   // echo "<pre>";
                   // print_r($output);

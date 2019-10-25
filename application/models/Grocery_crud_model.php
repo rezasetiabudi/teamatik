@@ -32,7 +32,7 @@ class Grocery_crud_model  extends CI_Model
 {
 
 	protected $primary_key = null;
-	protected $table_name = null;
+	protected $table_name = 'employee';
 	protected $relation = array();
 	protected $relation_n_n = array();
 	protected $primary_keys = array();

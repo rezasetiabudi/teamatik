@@ -1,6 +1,15 @@
 <?php
 $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
 ?>
+<?php 
+foreach($css_files as $file): ?>
+    <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+    
+<?php endforeach; ?>
+<?php foreach($js_files as $file): ?>
+    <script src="<?php echo $file; ?>"></script>
+    
+<?php endforeach; ?>
 
 <!DOCTYPE html>
 <html>
@@ -78,7 +87,7 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
       <!-- sidebar menu: : style can be found in sidebar.less -->
 
       <?php
-        $dashboard = ($curr_action == 'Home/index');
+        $dashboard = ($curr_action == 'Home/index' || $curr_action == base_url());
         $employee = ($curr_action == 'Employee/index' || $curr_action == 'Employee/create') ;
         $position = ($curr_action == 'Position/index' || $curr_action == 'Position/create');
         $department = ($curr_action == 'Department/index' || $curr_action == 'Department/create');
