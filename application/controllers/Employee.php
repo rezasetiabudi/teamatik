@@ -27,12 +27,11 @@ class Employee extends CI_Controller
                   $crud->set_relation('position_id', 'position', 'name');
                   $output = $crud->render();
 
-
                   $this->load->view('template/header');
-                  $this->load->view('template/sidebar',$output);
+                  $this->load->view('template/sidebar');
+                  $this->load->view('employee/index',$output);
                   $this->load->view('template/footer');
 
-                  // $this->load->view('employee/index',$output);
 
                   // echo "<pre>";
                   // print_r($output);

@@ -1,16 +1,6 @@
 <?php
 $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
 ?>
-<?php 
-foreach($css_files as $file): ?>
-    <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
-    
-<?php endforeach; ?>
-<?php foreach($js_files as $file): ?>
-    <script src="<?php echo $file; ?>"></script>
-    
-<?php endforeach; ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -125,30 +115,6 @@ foreach($css_files as $file): ?>
     </section>
     <!-- /.sidebar -->
   </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-    <section class="content">
-        <div class="container">
-            <?php 
-            if(isset($output)){
-              echo $output;
-            }
-            ?>
-        </div>
-    </section>
-    </div>
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url();?>adminlte2/bower_components/jquery/dist/jquery.min.js"></script>
