@@ -20,10 +20,10 @@ class Position extends CI_Controller {
 			$this->load->view('login_page');
             }else {
                   $this->load->model('position_model');
-                  $position['list'] = $this->position_model->getPosition();
+                  $position['list'] = $this->position_model->getList();
                   $this->load->view('template/header');
                   $this->load->view('template/sidebar');
-                  $this->load->view('employee/index',$position);
+                  $this->load->view('Position/index',$position);
 
                   $this->load->view('template/footer');
 
