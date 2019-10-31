@@ -19,18 +19,13 @@ class Department extends CI_Controller {
 			$this->load->view('login_page');
             }
             else {
-                  // $this->load->model('employee_model');
-                  // $employee['list'] = $this->employee_model->getEmployee();
-                  // $this->load->view('employee/index', $employee);
-                  $crud = new grocery_CRUD();
 
-                  // Seriously! This is all the code you need!
-                  $crud->set_table('department');
-                  $crud->set_subject('department');
-                  $output = $crud->render();
-
+                  $this->load->model('department_model');
+                  $department['list'] = $this->department_model->getDepartment();
                   $this->load->view('template/header');
-                  $this->load->view('template/sidebar',$output);
+                  $this->load->view('template/sidebar');
+                  $this->load->view('department/index',$department);
+
                   $this->load->view('template/footer');
 
                   // echo "<pre>";

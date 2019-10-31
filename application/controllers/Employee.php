@@ -51,7 +51,6 @@ class Employee extends CI_Controller
                         $phone = $this->input->post('phone');
                         $position = $this->input->post('position');
                         $status = $this->input->post('status');
-
                         $this->load->model('employee_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
                         $this->employee_model->saverecords($name, $email, $phone, $position, $status);
@@ -59,29 +58,59 @@ class Employee extends CI_Controller
                   }
             }
       }
-      public function update()
+      public function update($id)
       {
-
             if ($this->session->userdata('status') != "login") {
                   $this->load->view('login_page');
             } else {
                   $this->load->model('position_model');
+                  $this->load->model('employee_model');
+                  $row = $this->employee_model->getById($id);
                   $position['posisi'] = $this->position_model->getList();
-                  $this->load->view('employee/create', $position);
-                  if ($this->input->post('save')) {
-                        //get form's data and store in local varable
-                        $name = $this->input->post('name');
-                        $email = $this->input->post('email');
-                        $phone = $this->input->post('phone');
-                        $position = $this->input->post('position');
-                        $status = $this->input->post('status');
+                  if ($row) {
+                        $data = array(
+                              'id' => set_value('id', $row->id),
+                              'name' => set_value('name', $row->name),
+                              'email' => set_value('email', $row->email),
+                              'phone' => set_value('email', $row->phone),
+                              'position' => set_value('email', $row->position_id),
+                        );
+                        $this->load->view('employee/update', $data, $position);
+                        if ($this->input->post('save')) {
+                              //get form's data and store in local varable
+                              $name = $this->input->post('name');
+                              $email = $this->input->post('email');
+                              $phone = $this->input->post('phone');
+                              $position = $this->input->post('position');
+                              $status = $this->input->post('status');
 
-                        $this->load->model('employee_model');
-                        //call saverecords method of Hello_Model and pass variables as parameter
-                        $this->employee_model->saverecords($name, $email, $phone, $position, $status);
+                              //call saverecords method of Hello_Model and pass variables as parameter
+                              $this->employee_model->saverecords($name, $email, $phone, $position, $status);
+                        }
                   }
-                  else{
+                  else {
+                        $this->session->set_flashdata('message', 'Record Not Found');
+                        redirect(base_url('Employee/index'));
                   }
             }
+      }
+
+
+  
+      public function update_action()
+      {
+          $this->_rules();
+  
+          if ($this->form_validation->run() == FALSE) {
+              $this->update($this->input->post('id_class', TRUE));
+          } else {
+              $data = array(
+                  'classification' => $this->input->post('classification', TRUE),
+              );
+  
+              $this->Master_doc_class_model->update($this->input->post('id_class', TRUE), $data);
+              $this->session->set_flashdata('message', 'Update Record Success');
+              redirect(site_url('master_doc_class'));
+          }
       }
 }
