@@ -1,1 +1,1 @@
-<?php $this->load->view("template/sidenavbar.php") ?>
+<?php $this->load->view("template/sidebar.php") ?>

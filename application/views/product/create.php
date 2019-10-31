@@ -41,7 +41,7 @@
         </div>
     </header>
 
-    <?php $this->load->view("template/sidenavbar.php") ?>
+    <?php $this->load->view("template/sidebar.php") ?>
 
     <main class="main">
         <div class="container">

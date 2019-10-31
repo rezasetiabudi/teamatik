@@ -17,6 +17,7 @@ class Product extends CI_Controller {
             $crud->display_as('category_id', 'Category');
             $crud->set_relation('category_id', 'category', 'name');
             $output = $crud->render();
+            $this->load->view('template/sidebar',$output);
             $this->load->view('product/index',$output);
 
             // $this->load->model('Product_model');

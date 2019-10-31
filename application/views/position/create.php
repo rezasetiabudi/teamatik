@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </header>
 
-        <?php $this->load->view("template/sidenavbar.php") ?>
+        <?php $this->load->view("template/sidebar.php") ?>
 
         <!-- BANNER banner -->
         <main class="main">

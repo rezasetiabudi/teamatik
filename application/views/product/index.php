@@ -1,54 +1,40 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-        <?php $this->load->view("template/sidenavbar.php") ?>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        <main class="main">
-            <div class="container">
-                <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a>
-                <h2>Product</h2>
-                <a href="<?php echo base_url() ?>Product/create" class="addButton btn btn-primary">Add</a>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/bower_components/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="<?php echo base_url();?>adminlte2/plugins//bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-                <div class="table-responsive">
-                    <!-- <table class = "table table-striped">
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Purchase Year</th>
-                        <th>Price</th>
-                        <th>Action</th> -->
-                        
-                        <?php 
-                            // $count = count($product);
-                            // for($i = 0; $i<$count; $i++){
-                            //     $x = $i + 1;
-                            //     echo '<tr>';
-                            //     echo '<td>'.$x.'</td>';
-                            //     echo '<td>'.$product[$i]["name"].'</td>';
-                            //     echo '<td>'.$product[$i]["category_id"].'</td>';
-                            //     echo '<td>'.$product[$i]["purchase_year"].'</td>';
-                            //     echo '<td> Rp. '.number_format($product[$i]["price"]).'</td>';
-                            //     echo '<td> $product[$i]["qty"].'</td>';
-                            //     echo '<td>'..'</td>';
-                            //     echo '</tr>';
-                            // }
-
-                            echo $output;
-                        ?>
-                    <!-- </table> -->
-                </div>
-            </div>
-        </main>
-        <footer class="footer">
-            <p><span class="footer__copyright">&copy;</span> 2019 Teamatik</p>
-        </footer>
-</div>
-    <!-- partial -->
-    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-    <script src='https://www.amcharts.com/lib/3/amcharts.js'></script>
-    <script src='https://www.amcharts.com/lib/3/serial.js'></script>
-    <script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
-    <script src="<?php echo base_url() ?>/assets/script.js"></script>
-
-</body>
-</html>
+<!-- Main content -->
+<section class="content">
+    <div class="container">
+        <?php 
+        echo $output; 
+        ?>
+    </div>
+</section>
+<!-- /.content -->
