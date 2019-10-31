@@ -21,18 +21,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <section class="content">
     <div class="form-group">
         <form method="post">
-        <label for="name">Position Name</label>
+        <label for="name"> Name</label>
             <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
-            <label for="department">Department</label>
-            <select class="form-control" name="department" id = "department">
-                <option>-Select Department-</option>
-                <?php
-                $count = count($department);
-                for ($i = 0; $i < $count; $i++) {
-                    echo '<option value="' . $department[$i][id] . '">' . $department[$i][name] . '</option>';
-                }
-                ?>
-            </select>
+        <label for="department">Department</label>
+        <select class="form-control" name="department" id = "department">
+            <option>-Select Kategori-</option>
+            <?php
+            $count = count($department);
+            for ($i = 0; $i < $count; $i++) {
+                echo '<option value="' . $department[$i][id] . '">' . $department[$i][name] . '</option>';
+            }
+            ?>
+        </select>
             <p id="multiple_value"></p>
             <div id = "depts">
 

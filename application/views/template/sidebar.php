@@ -74,7 +74,7 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class=""><a href="<?php echo base_url()?>Home/index"><i class="fa fa-circle-o"></i> <span>Category (buat kategori)</span></a></li>
+          <li class=""><a href="<?php echo base_url()?>Category/index"><i class="fa fa-circle-o"></i> <span>Category (buat kategori)</span></a></li>
           <li class=""><a href="<?php echo base_url()?>Product/index"><i class="fa fa-circle-o"></i> <span>List (belom di template)</span></a></li>
           </ul>
         </li>

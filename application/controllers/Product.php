@@ -43,7 +43,7 @@ class Product extends CI_Controller
             $this->load->view('login_page');
         } else {
             $this->load->model('category_model');
-            $category['kategori'] = $this->category_model->getList();
+            $category['category'] = $this->category_model->getList();
             $this->load->view('product/create', $category);
 
             if ($this->input->post('save')) {
@@ -52,14 +52,54 @@ class Product extends CI_Controller
                 $category_id = $this->input->post('category_id');
                 $prefix_code = $this->product_model->generatePrefix($category_id);
                 $product_code = $this->product_model->generateCode($prefix_code);
-                $purchase_year = $this->input->post('purchase');
+                $purchase_date = $this->input->post('purchase_date');
                 $price = $this->input->post('price');
-                $qty = $this->input->post('qty');
-                $total_price = $this->product_model->getTotalprice($price, $qty);
 
-                $this->product_model->saverecords($name, $category_id, $prefix_code, $product_code, $purchase_year, $price, $qty, $total_price);
-                echo "Records Saved Successfully";
+                $this->product_model->saverecords($name, $category_id, $prefix_code, $product_code, $purchase_date, $price);
+                redirect(base_url('Product/index'));
             }
         }
     }
+
+    public function update($id)
+      {
+            if ($this->session->userdata('status') != "login") {
+                  $this->load->view('login_page');
+            } else {
+                  $this->load->model('product_model');
+                  $this->load->model('category_model');
+                  $row = $this->product_model->getById($id);
+                  if ($row) {
+                        $data = array(
+                              'id' => set_value('id', $row->id),
+                              'name' => set_value('name', $row->name),
+                              'category_id' => set_value('category_id', $row->category_id),
+                              'status' => set_value('status', $row->status),
+                              'price' => set_value('price',$row->price),
+                              'purchase_date' => set_value('purchase_date', $row->purchase_year),
+                              'category' => $this->category_model->getList(),
+                        );
+                        $this->load->view('product/update', $data);
+                        if ($this->input->post('save')) {
+                            //get form's data and store in local varable
+                            $name = $this->input->post('name');
+                            $category_id = $this->input->post('category_id');
+                            if($category_id != $row->category_id){
+                                $prefix_code = $this->product_model->generatePrefix($category_id);
+                                $product_code = $this->product_model->generateCode($prefix_code);
+                            }
+                            $purchase_date = $this->input->post('purchase_date');
+                            $price = $this->input->post('price');
+                            //call saverecords method of Hello_Model and pass variables as parameter
+
+                            $this->product_model->updaterecords($id, $name, $category_id, $prefix_code, $product_code, $purchase_date, $price);
+                            redirect(base_url('product/index'));
+                        }
+                  }
+                  else {
+                        $this->session->set_flashdata('message', 'Record Not Found');
+                        redirect(base_url('position/index'));
+                  }
+            }
+      }
 }

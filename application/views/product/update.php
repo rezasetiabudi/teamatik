@@ -23,17 +23,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="form-group">
             <form method="post">
                 <label for="name">Name</label>
-                <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+                <input class="form-control input100" type="text" name="name" placeholder="Name" value = "<?php echo $name?>"?>
                 <label for="email">Price</label>
-                <input class="form-control input100" type="text" name="price" placeholder="Price" ?>
+                <input class="form-control input100" type="text" name="price" placeholder="Price" value = "<?php echo $price?>"?>
                 <label for="phone">Purchase date</label>
-                <input class="form-control input100" type="date" name="purchase_date" placeholder="Purchasing Date" ?>
+                <input class="form-control input100" type="date" name="purchase_date" placeholder="Purchasing Date" value = "<?php echo $purchase_date?>"?>
                 <label for="position">Category</label>
                 <select class="form-control" name="position">
                 <option>--SELECT CATEGORY--</option>
                     <?php
                     $count = count($category);
                     for ($i = 0; $i < $count; $i++) {
+                        if($category_id == $category[$i]['id']){
+                            echo '<option selected value="' . $category[$i]['id'] . '">' . $category[$i][name] . '</option>';
+                        }
                         echo '<option value="' . $category[$i]['id'] . '">' . $category[$i][name] . '</option>';
                     }
                     ?>
@@ -41,8 +44,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <label for="status">Status</label>
                 <select class="form-control" name="status">
                     <option>--SELECT STATUS--</option>
-                    <option value="0">Unavailable</option>
-                    <option value="1">Available</option>
+                    <?php if($status == 0){?>
+                        <option selected value="0">Unavailable</option>
+                        <option value="1">Available</option>
+                    <?php } else {?>
+                        <option value="0">Unavailable</option>
+                        <option selected value="1">Available</option>
+                    <?php }?>
                 </select>
                 <input type="submit" name="save" value="save" class="form-control btn btn-info">
             </form>
