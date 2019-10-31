@@ -29,7 +29,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <label for="phone">Purchase date</label>
                 <input class="form-control input100" type="date" name="purchase_date" placeholder="Purchasing Date" ?>
                 <label for="position">Category</label>
-                <select class="form-control" name="position">
+                <select class="form-control" name="category_id">
                 <option>--SELECT CATEGORY--</option>
                     <?php
                     $count = count($category);

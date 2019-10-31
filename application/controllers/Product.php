@@ -54,8 +54,12 @@ class Product extends CI_Controller
                 $product_code = $this->product_model->generateCode($prefix_code);
                 $purchase_date = $this->input->post('purchase_date');
                 $price = $this->input->post('price');
+                $status = $this->input->post('status');
 
-                $this->product_model->saverecords($name, $category_id, $prefix_code, $product_code, $purchase_date, $price);
+                var_dump($category_id);
+                die();
+
+                $this->product_model->saverecords($name, $category_id, $prefix_code, $product_code, $purchase_date, $price, $status);
                 redirect(base_url('Product/index'));
             }
         }
@@ -88,18 +92,34 @@ class Product extends CI_Controller
                                 $prefix_code = $this->product_model->generatePrefix($category_id);
                                 $product_code = $this->product_model->generateCode($prefix_code);
                             }
+                            else {
+                                $product_code = $row->product_code;
+                                $prefix_code = $row->prefix_code;
+                            }
                             $purchase_date = $this->input->post('purchase_date');
                             $price = $this->input->post('price');
+                            $status = $this->input->post('status');
                             //call saverecords method of Hello_Model and pass variables as parameter
 
-                            $this->product_model->updaterecords($id, $name, $category_id, $prefix_code, $product_code, $purchase_date, $price);
+                            $this->product_model->updaterecords($id, $name, $category_id, $prefix_code, $product_code, $purchase_date, $price, $status);
                             redirect(base_url('product/index'));
                         }
                   }
                   else {
                         $this->session->set_flashdata('message', 'Record Not Found');
-                        redirect(base_url('position/index'));
+                        redirect(base_url('product/index'));
                   }
             }
       }
+
+        public function delete($id){
+            if ($this->session->userdata('status') != "login") {
+                    $this->load->view('login_page');
+            } else {
+                    $this->load->model('product_model');
+
+                    $this->product_model->deleterecords($id);
+                    redirect(base_url('Product/index'));
+            }
+        }
 }

@@ -29,7 +29,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <label for="phone">Purchase date</label>
                 <input class="form-control input100" type="date" name="purchase_date" placeholder="Purchasing Date" value = "<?php echo $purchase_date?>"?>
                 <label for="position">Category</label>
-                <select class="form-control" name="position">
+                <select class="form-control" name="category_id">
                 <option>--SELECT CATEGORY--</option>
                     <?php
                     $count = count($category);
@@ -37,7 +37,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         if($category_id == $category[$i]['id']){
                             echo '<option selected value="' . $category[$i]['id'] . '">' . $category[$i][name] . '</option>';
                         }
-                        echo '<option value="' . $category[$i]['id'] . '">' . $category[$i][name] . '</option>';
+                        else {
+                            echo '<option value="' . $category[$i]['id'] . '">' . $category[$i][name] . '</option>';
+                        }
                     }
                     ?>
                 </select>

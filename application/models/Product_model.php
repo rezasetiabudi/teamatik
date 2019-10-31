@@ -11,9 +11,9 @@ class Product_model extends CI_Model
         return $data->result_array();
     }
 
-    public function saverecords($name, $category_id, $prefix, $product, $purchase, $price)
+    public function saverecords($name, $category_id, $prefix, $product, $purchase, $price, $status)
     {
-        $query = "insert into product(name, category_id, prefix_code, product_code, purchase_year, price) values('$name', '$category_id', '$prefix', '$product', '$purchase', '$price')";
+        $query = "insert into product(name, category_id, prefix_code, product_code, purchase_year, price, status) values('$name', '$category_id', '$prefix', '$product', '$purchase', '$price', '$status')";
 
         $this->db->query($query);
     }
@@ -41,8 +41,8 @@ class Product_model extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
-    public function updaterecords($id,$name,$category_id,$prefix_code,$product_code,$purchase_date,$price){
-        $query = "UPDATE ".$this->table." SET name = '".$name."' , category_id = '".$category_id."', prefix_code = '".$prefix_code."' , product_code = '".$product_code."' , purchase_year = '".$purchase_date."' , price = '".$price."' where ".$this->id." = ".$id;
+    public function updaterecords($id,$name,$category_id,$prefix_code,$product_code,$purchase_date,$price,$status){
+        $query = "UPDATE ".$this->table." SET name = '".$name."' , category_id = '".$category_id."', prefix_code = '".$prefix_code."' , product_code = '".$product_code."' , purchase_year = '".$purchase_date."' , price = '".$price."', status = '".$status."' where ".$this->id." = ".$id;
         $this->db->query($query);
     }
     
