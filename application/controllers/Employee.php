@@ -19,17 +19,12 @@ class Employee extends CI_Controller
             if ($this->session->userdata('status') != "login") {
                   $this->load->view('login_page');
             } else {
-                  $crud = new grocery_CRUD();
-
-                  // Seriously! This is all the code you need!
-                  $crud->set_table('employee');
-                  $crud->set_subject('employee');
-                  $crud->set_relation('position_id', 'position', 'name');
-                  $output = $crud->render();
-
+                  $this->load->model('employee_model');
+                  $employee['list'] = $this->employee_model->getEmployee();
                   $this->load->view('template/header');
                   $this->load->view('template/sidebar');
-                  $this->load->view('employee/index',$output);
+                  $this->load->view('employee/index',$employee);
+
                   $this->load->view('template/footer');
 
 
@@ -60,7 +55,32 @@ class Employee extends CI_Controller
                         $this->load->model('employee_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
                         $this->employee_model->saverecords($name, $email, $phone, $position, $status);
-                        echo "Records Saved Successfully";
+                        redirect(base_url('Employee/index'));
+                  }
+            }
+      }
+      public function update()
+      {
+
+            if ($this->session->userdata('status') != "login") {
+                  $this->load->view('login_page');
+            } else {
+                  $this->load->model('position_model');
+                  $position['posisi'] = $this->position_model->getList();
+                  $this->load->view('employee/create', $position);
+                  if ($this->input->post('save')) {
+                        //get form's data and store in local varable
+                        $name = $this->input->post('name');
+                        $email = $this->input->post('email');
+                        $phone = $this->input->post('phone');
+                        $position = $this->input->post('position');
+                        $status = $this->input->post('status');
+
+                        $this->load->model('employee_model');
+                        //call saverecords method of Hello_Model and pass variables as parameter
+                        $this->employee_model->saverecords($name, $email, $phone, $position, $status);
+                  }
+                  else{
                   }
             }
       }

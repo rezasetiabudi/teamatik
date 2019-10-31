@@ -1,50 +1,33 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 ?>
-        <?php $this->load->view("template/sidenavbar.php") ?>
 
-        <main class="main">
-            <div class="container">
-                <a href="<?php echo base_url() ?>" class="backButton btn btn-danger">BACK</a>
-                <h2>Product</h2>
-                <a href="<?php echo base_url() ?>Product/create" class="addButton btn btn-primary">Add</a>
+<?php 
+foreach($css_files as $file): ?>
+    <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+    
+<?php endforeach; ?>
+<?php foreach($js_files as $file): ?>
+    <script src="<?php echo $file; ?>"></script>
+    
+<?php endforeach; ?>
 
-                <div class="table-responsive">
-                <table  id="example" class="table table-striped table-bordered" style="width:100%">
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Purchase Year</th>
-                        <th>Price</th>
-                        <th>Action</th> -->
-                        
-                        <?php 
-                            $count = count($product);
-                            for($i = 0; $i<$count; $i++){
-                                $x = $i + 1;
-                                echo '<tr>';
-                                echo '<td>'.$x.'</td>';
-                                echo '<td>'.$product[$i]["name"].'</td>';
-                                echo '<td>'.$product[$i]["category_id"].'</td>';
-                                echo '<td>'.$product[$i]["purchase_year"].'</td>';
-                                echo '<td> Rp. '.number_format($product[$i]["price"]).'</td>';
-                                echo '</tr>';
-                            }
-                        ?>
-                    <!-- </table> -->
-                </div>
-            </div>
-        </main>
-        <footer class="footer">
-            <p><span class="footer__copyright">&copy;</span> 2019 Teamatik</p>
-        </footer>
-</div>
-    <!-- partial -->
-    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-    <script src='https://www.amcharts.com/lib/3/amcharts.js'></script>
-    <script src='https://www.amcharts.com/lib/3/serial.js'></script>
-    <script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
-    <script src="<?php echo base_url() ?>/assets/script.js"></script>
-
-</body>
-</html>
+<!-- Main content -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Product
+        <small>List</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Product</li>
+      </ol>
+    </section>
+    <section class="content">
+        <?php echo $output?>
+    </section>
+    </div>
+<!-- /.content -->
