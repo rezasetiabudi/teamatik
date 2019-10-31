@@ -12,8 +12,11 @@ class Position_model extends CI_Model {
     }
 
     public function saverecords($name,$departmentid){
-        $query="insert into position (name,department_id) values ('$name',$departmentid)";
-	    $this->db->query($query);
+        var_dump($departmentid);
+        foreach($departmentid as $depts){
+            $query="insert into position (name,department_id) values ('$name',$depts)";
+            $this->db->query($query);
+        }
     }
 
     public function getById($id){ 

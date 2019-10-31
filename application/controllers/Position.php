@@ -44,16 +44,22 @@ class Position extends CI_Controller {
                   $this->load->model('department_model');
                   $department['department'] = $this->department_model->getList();
                   $this->load->view('position/create',$department);
+                  $departments = [];
                   if($this->input->post('save'))
                   {
                         //get form's data and store in local varable
                         $name = $this->input->post('name');
-                        $department_id = $this->input->post('department');
-
+                        $department_id = $this->input->post('penampung');
+                        $penampung = explode(',',$department_id);
+                        $i = 0;
+                        foreach($penampung as $depts){
+                              $departments[$i] = $depts;
+                              $i++;
+                        }
                         $this->load->model('position_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
-                        $this->position_model->saverecords($name,$department_id);	
-                        echo "Records Saved Successfully";
+                        $this->position_model->saverecords($name,$departments);	
+                        redirect(base_url('Position/index'));
                   }
             }
       }

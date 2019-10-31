@@ -24,7 +24,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <label for="name">Position Name</label>
             <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
             <label for="department">Department</label>
-            <select class="form-control" name="department">
+            <select class="form-control" name="department" id = "department">
+                <option>-Select Department-</option>
                 <?php
                 $count = count($department);
                 for ($i = 0; $i < $count; $i++) {
@@ -32,10 +33,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 }
                 ?>
             </select>
+            <p id="multiple_value"></p>
+            <div id = "depts">
+
+            </div>
+            <input class="form-control input100" type="hidden" name="penampung" placeholder="penampung" id="penampung" ?>
+
             <input type="submit" name="save" value="save" class="form-control btn btn-info">
         </form>
     </div>
     </section>
     </div>
 
+    <script>
+    var arrTitle = [];
+    var arrId= [];
+    $(function(){
+        $('#department').change(function(){
+            var selectedText = $("#department option:selected").html();
+            var selectedId = document.getElementById("department").value;
+            arrTitle.push(selectedText);
+            arrId.push(selectedId);
+
+            document.getElementById("penampung").value = arrId;
+            // document.getElementById("multiple_value").innerHTML = arrTitle;
+        });
+    });
+    </script>
 <?php $this->load->view("template/footer.php") ?>
