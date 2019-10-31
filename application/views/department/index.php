@@ -31,27 +31,49 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <thead>
             <tr>
                 <th>#</th>
+<<<<<<< HEAD
                 <th>Name</th>
                 <th>Action</th>
+=======
+                <th>Position Name</th>
+                <th>Department</th>
+>>>>>>> 78294f53ec8d7a32a53bd1c7da8d09fd2535bcc2
             </tr>
         </thead>
         <tbody>
           <?php 
+<<<<<<< HEAD
           $i = 1;
+=======
+>>>>>>> 78294f53ec8d7a32a53bd1c7da8d09fd2535bcc2
             foreach($list as $rows){
           ?>
             <tr>
               <td>
+<<<<<<< HEAD
                 <?php echo $i?>
+=======
+                <?php echo 1?>
+>>>>>>> 78294f53ec8d7a32a53bd1c7da8d09fd2535bcc2
               </td>
               <td>
                 <?php echo $rows['name']?>
               </td>
               <td>
+<<<<<<< HEAD
                 <a href="<?php echo base_url('Department/update/')?><?php echo $rows['id']?>">Update</a>
               </td>
             </tr>
           <?php $i++;}?>
+=======
+                <?php echo $rows['department_id']?>
+              </td>
+              <td>
+                <a href="<?php echo base_url('Position/update/')?><?php echo $rows['id']?>">Update</a>
+              </td>
+            </tr>
+          <?php }?>
+>>>>>>> 78294f53ec8d7a32a53bd1c7da8d09fd2535bcc2
         </tbody>
     </table>
     </section>

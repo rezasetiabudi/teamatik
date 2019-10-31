@@ -19,19 +19,12 @@ class Position extends CI_Controller {
             if($this->session->userdata('status') != "login"){
 			$this->load->view('login_page');
             }else {
-                  // $this->load->model('employee_model');
-                  // $employee['list'] = $this->employee_model->getEmployee();
-                  // $this->load->view('employee/index', $employee);
-                  $crud = new grocery_CRUD();
-
-                  // Seriously! This is all the code you need!
-                  $crud->set_table('position');
-                  $crud->set_subject('position');
-                  $crud->set_relation('department_id', 'department', 'name');
-                  $output = $crud->render();
-
+                  $this->load->model('position_model');
+                  $position['list'] = $this->position_model->getList();
                   $this->load->view('template/header');
-                  $this->load->view('template/sidebar',$output);
+                  $this->load->view('template/sidebar');
+                  $this->load->view('Position/index',$position);
+
                   $this->load->view('template/footer');
 
                   // echo "<pre>";
@@ -49,13 +42,13 @@ class Position extends CI_Controller {
             }
             else {
                   $this->load->model('department_model');
-                  $department['department'] = $this->department_model->getDepartment();
+                  $department['department'] = $this->department_model->getList();
                   $this->load->view('position/create',$department);
                   if($this->input->post('save'))
                   {
                         //get form's data and store in local varable
-                        $name=$this->input->post('name');
-                        $department_id=$this->input->post('department');
+                        $name = $this->input->post('name');
+                        $department_id = $this->input->post('department');
 
                         $this->load->model('position_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
@@ -63,5 +56,27 @@ class Position extends CI_Controller {
                         echo "Records Saved Successfully";
                   }
             }
-	}
+      }
+      public function update()
+      {
+
+            if ($this->session->userdata('status') != "login") {
+                  $this->load->view('login_page');
+            } else {
+                  $this->load->model('department_model');
+                  $department['department'] = $this->department_model->getList();
+                  $this->load->view('position/create',$department);
+                  if($this->input->post('save'))
+                  {
+                        //get form's data and store in local varable
+                        $name = $this->input->post('name');
+                        $department_id = $this->input->post('department');
+
+                        $this->load->model('position_model');
+                        //call saverecords method of Hello_Model and pass variables as parameter
+                        $this->position_model->saverecords($name,$department_id);	
+                        echo "Records Saved Successfully";
+                  }
+            }
+      }
 }
