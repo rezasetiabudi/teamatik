@@ -20,11 +20,8 @@ class Product_model extends CI_Model
 
     public function generatePrefix($category_id)
     {
-        if ($category_id == 1) {
-            return 'E';
-        } else if ($category_id == 2) {
-            return 'F';
-        }
+        $query = "select code from category where id = ".$category_id;
+        $this->db->query($query);
     }
 
     public function generateCode($prefix_code)

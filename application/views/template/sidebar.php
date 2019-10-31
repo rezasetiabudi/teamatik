@@ -51,9 +51,11 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
 
       <?php
         $dashboard = ($curr_action == 'Home/index' || $curr_action == base_url());
-        $employee = ($curr_action == 'Employee/index' || $curr_action == 'Employee/create') ;
-        $position = ($curr_action == 'Position/index' || $curr_action == 'Position/create');
-        $department = ($curr_action == 'Department/index' || $curr_action == 'Department/create');
+        $employee = ($curr_action == 'Employee/index' || $curr_action == 'Employee/create' || $curr_action == 'Employee/update') ;
+        $position = ($curr_action == 'Position/index' || $curr_action == 'Position/create' || $curr_action == 'Position/update');
+        $department = ($curr_action == 'Department/index' || $curr_action == 'Department/create' || $curr_action == 'Department/update');
+        $category = ($curr_action == 'Category/index' || $curr_action == 'Category/create' || $curr_action == 'Category/update');
+        $products = ($curr_action == 'Product/index' || $curr_action == 'Product/create' || $curr_action == 'Product/update');
       ?>
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Navigation Menu</li>
@@ -66,7 +68,7 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
           </a>
         </li>
         
-        <li class="treeview">
+        <li class="<?= $products || $category? 'active':''?> treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Product</span>
             <span class="pull-right-container">
@@ -74,8 +76,8 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class=""><a href="<?php echo base_url()?>Category/index"><i class="fa fa-circle-o"></i> <span>Category (buat kategori)</span></a></li>
-          <li class=""><a href="<?php echo base_url()?>Product/index"><i class="fa fa-circle-o"></i> <span>List (belom di template)</span></a></li>
+          <li class="<?= $category? 'active':''?>"><a href="<?php echo base_url()?>Category/index"><i class="fa fa-circle-o"></i> <span>Category</span></a></li>
+          <li class="<?= $products? 'active':''?>"><a href="<?php echo base_url()?>Product/index"><i class="fa fa-circle-o"></i> <span>List</span></a></li>
           </ul>
         </li>
 

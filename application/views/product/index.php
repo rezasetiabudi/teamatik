@@ -65,7 +65,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 else echo 'Inactive'; ?>
             </td>
             <td>
-            <a class="btn" href="<?php echo base_url('Employee/update/') ?><?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
+            <a class="btn" href="<?php echo base_url('Product/update/') ?><?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
 
             <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>            </td>
           </tr>
