@@ -27,11 +27,6 @@ class Department extends CI_Controller {
                   $this->load->view('department/index',$department);
 
                   $this->load->view('template/footer');
-
-                  // echo "<pre>";
-                  // print_r($output);
-                  // echo "</pre>";
-                  // die();
             }
 	}
 
@@ -54,5 +49,32 @@ class Department extends CI_Controller {
                         echo "Records Saved Successfully";
                   }
             }
-	}
+      }
+      public function update($id)
+      {
+            if ($this->session->userdata('status') != "login") {
+                  $this->load->view('login_page');
+            } else {
+                  $this->load->model('department_model');
+                  $row = $this->department_model->getById($id);
+                  if ($row) {
+                        $data = array(
+                              'id' => set_value('id', $row->id),
+                              'name' => set_value('name', $row->name),
+                        );
+                        $this->load->view('department/update', $data);
+                        if ($this->input->post('save')) {
+                              //get form's data and store in local varable
+                              $name = $this->input->post('name');
+                              //call saverecords method of Hello_Model and pass variables as parameter
+                              $this->department_model->updaterecords($id, $name);
+                              redirect(base_url('department/index'));
+                        }
+                  }
+                  else {
+                        $this->session->set_flashdata('message', 'Record Not Found');
+                        redirect(base_url('department/index'));
+                  }
+            }
+      }
 }

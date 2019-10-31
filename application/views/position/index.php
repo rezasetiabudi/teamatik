@@ -25,7 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </section>
     <section class="content">
       <div class="pull-right" style="margin:10px">
-        <a href="<?php echo base_url('Employee/create')?>" class="btn btn-success">Add+</a>
+        <a href="<?php echo base_url('Position/create')?>" class="btn btn-success">Add+</a>
       </div>
     <table id="myTable" class="display">
         <thead>
@@ -51,7 +51,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php echo $rows['department_id']?>
               </td>
               <td>
-                <a href="">Update</a>
+              <a href="<?php echo base_url('Position/update/')?><?php echo $rows['id']?>">Update</a>
               </td>
             </tr>
           <?php }?>

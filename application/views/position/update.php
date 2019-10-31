@@ -22,7 +22,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="form-group">
         <form method="post">
         <label for="name">Position Name</label>
-            <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+            <input class="form-control input100" type="text" name="name" placeholder="Name" value = "<?php echo $name?>"?>
             <label for="department">Department</label>
             <select class="form-control" name="department">
                 <?php
