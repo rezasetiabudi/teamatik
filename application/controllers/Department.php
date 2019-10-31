@@ -21,7 +21,7 @@ class Department extends CI_Controller {
             else {
 
                   $this->load->model('department_model');
-                  $department['list'] = $this->department_model->getDepartment();
+                  $department['list'] = $this->department_model->getList();
                   $this->load->view('template/header');
                   $this->load->view('template/sidebar');
                   $this->load->view('department/index',$department);
