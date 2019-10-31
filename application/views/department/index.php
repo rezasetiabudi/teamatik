@@ -48,8 +48,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php echo $rows['name']?>
               </td>
               <td>
-                <a href="<?php echo base_url('Department/update/')?><?php echo $rows['id']?>">Update</>
-              </td>
+              <a href="<?php echo base_url('Department/update/')?><?php echo $rows['id']?>"><span class="glyphicon glyphicon-cog"></span></a>
+              &nbsp
+              &nbsp
+              &nbsp
+              &nbsp
+              &nbsp
+              <a href="<?php echo base_url('Department/delete/')?><?php echo $rows['id']?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>              </td>
             </tr>
           <?php $i++;}?>
         </tbody>

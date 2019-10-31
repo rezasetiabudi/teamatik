@@ -28,4 +28,9 @@ class Position_model extends CI_Model {
         $query = "UPDATE ".$this->table." SET name = '".$name."' , department_id = '".$department_id."' where ".$this->id." = ".$id;
         $this->db->query($query);
     }
+    
+    public function deleterecords($id){
+        $this->db->where($this->id, $id);
+        $this->db->delete($this->table);
+    }
 }

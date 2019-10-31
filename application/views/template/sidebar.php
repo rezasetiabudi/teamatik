@@ -55,11 +55,17 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
         $position = ($curr_action == 'Position/index' || $curr_action == 'Position/create');
         $department = ($curr_action == 'Department/index' || $curr_action == 'Department/create');
       ?>
-
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Navigation Menu</li>
-        <li class="<?= $dashboard? 'active':''?>"><a href="<?php echo base_url()?>Home/index"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="<?= $employee? 'active':''?>"><a href="<?php echo base_url()?>Employee/index"><i class="fa fa-dashboard"></i> Employee</a></li>
+        <li class="<?= $dashboard? 'active':''?>"><a href="<?php echo base_url()?>Home/index"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        
+        <li class=" <?= $employee? 'active':''?>">
+          <a href="<?php echo base_url()?>Employee/index">
+            <i class="fa fa-dashboard"></i>
+            <span> Employee</span>
+          </a>
+        </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Product</span>
@@ -68,10 +74,11 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class=""><a href="<?php echo base_url()?>Home/index"><i class="fa fa-circle-o"></i> Category (buat kategori)</a></li>
-          <li class=""><a href="<?php echo base_url()?>Product/index"><i class="fa fa-circle-o"></i> List (belom di template)</a></li>
+          <li class=""><a href="<?php echo base_url()?>Home/index"><i class="fa fa-circle-o"></i> <span>Category (buat kategori)</span></a></li>
+          <li class=""><a href="<?php echo base_url()?>Product/index"><i class="fa fa-circle-o"></i> <span>List (belom di template)</span></a></li>
           </ul>
         </li>
+
         <li class="<?= $position || $department? 'active':''?> treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Position</span>
@@ -80,10 +87,11 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class="<?= $department? 'active':''?>"><a href="<?php echo base_url()?>Department/index"><i class="fa fa-circle-o"></i> Department</a></li>
-          <li class="<?= $position? 'active':''?>"><a href="<?php echo base_url()?>Position/index"><i class="fa fa-circle-o"></i> List</a></li>
+          <li class="<?= $department? 'active':''?>"><a href="<?php echo base_url()?>Department/index"><i class="fa fa-circle-o"></i> <span>Department</span></a></li>
+          <li class="<?= $position? 'active':''?>"><a href="<?php echo base_url()?>Position/index"><i class="fa fa-circle-o"></i> <span>List</span></a></li>
           </ul>
         </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->

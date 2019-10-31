@@ -28,7 +28,7 @@ class Home extends CI_Controller
 				'status' => "login"
 			);
 			$this->session->set_userdata($data_session);
-			redirect(base_url());		
+			redirect(base_url('Home/index'));		
 		} else {
 			echo "Username atau password salah !";
 		}

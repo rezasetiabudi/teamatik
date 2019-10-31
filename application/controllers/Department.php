@@ -77,4 +77,15 @@ class Department extends CI_Controller {
                   }
             }
       }
+
+      public function delete($id){
+            if ($this->session->userdata('status') != "login") {
+                  $this->load->view('login_page');
+            } else {
+                  $this->load->model('department_model');
+
+                  $this->department_model->deleterecords($id);
+                  redirect(base_url('Department/index'));
+            }
+      }
 }
