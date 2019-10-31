@@ -21,20 +21,16 @@ class Home extends CI_Controller
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$cek = $this->login_model->login($username, $password);
-		echo '<script>console.log("true")</script>';
 		if ($cek > 0) {
 			echo "Berhasil";
 			$data_session = array(
 				'nama' => $username,
 				'status' => "login"
 			);
-
 			$this->session->set_userdata($data_session);
-
-			redirect(base_url());
+			redirect(base_url());		
 		} else {
-			echo "Username dan password salah !";
-			die();
+			echo "Username atau password salah !";
 		}
 	}
 

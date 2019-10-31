@@ -1,10 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
-
 <?php $this->load->view("template/header.php") ?>
 <?php $this->load->view("template/sidebar.php") ?>
-
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -22,17 +20,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="form-group">
         <form method="post">
             <label for="name">Nama</label>
-            <input class="form-control input100" type="text" name="name" placeholder="Name"?>
+            <input class="form-control input100" type="text" name="name"  value = "<?php echo $name?>"?>
             <label for="email">E-Mail</label>
-            <input class="form-control input100" type="text" name="email" placeholder="E-mail"?>
+            <input class="form-control input100" type="text" name="email" placeholder="E-mail" value = "<?php echo $email?>"?>
             <label for="phone">Phone Number</label>
-            <input class="form-control input100" type="text" name="phone" placeholder="Phone"?>
+            <input class="form-control input100" type="text" name="phone" placeholder="Phone" value = "<?php echo $phone?>"?>
             <label for="position">Position</label>
-            <select class="form-control" name="position">
+            <select class="form-control" name="position" value = "<?php echo $position?>">
                 <?php
                 $count = count($posisi);
                 for ($i = 0; $i < $count; $i++) {
-                    echo '<option value="' . $posisi[$i]['id'] . '">' . $posisi[$i][name] . '</option>';
+                    echo '<option value="' . $posisi[$i][id] . '">' . $posisi[$i][name] . '</option>';
                 }
                 ?>
             </select>
