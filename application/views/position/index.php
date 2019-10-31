@@ -38,11 +38,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </thead>
         <tbody>
           <?php   
+          $i= 1;
             foreach($list as $rows){
           ?>
             <tr>
               <td>
-                <?php echo 1?>
+                <?php echo $i?>
               </td>
               <td>
                 <?php echo $rows['name']?>
@@ -51,10 +52,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php echo $rows['department_id']?>
               </td>
               <td>
-              <a href="<?php echo base_url('Position/update/')?><?php echo $rows['id']?>">Update</a>
-              </td>
+              <a href="<?php echo base_url('Position/update/')?><?php echo $rows['id']?>"><span class="glyphicon glyphicon-cog"></span></a>
+              &nbsp
+              &nbsp
+              &nbsp
+              &nbsp
+              &nbsp
+              <a href="<?php echo base_url('Position/delete/')?><?php echo $rows['id']?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>              </td>
             </tr>
-          <?php }?>
+          <?php $i++;}?>
         </tbody>
     </table>
     </section>
