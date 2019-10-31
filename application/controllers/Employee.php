@@ -74,8 +74,10 @@ class Employee extends CI_Controller
                               'email' => set_value('email', $row->email),
                               'phone' => set_value('email', $row->phone),
                               'position' => set_value('email', $row->position_id),
+                              'status' => set_value('status', $row->status),
+                              'posisi' => $this->position_model->getList(),
                         );
-                        $this->load->view('employee/update', $data, $position);
+                        $this->load->view('employee/update', $data);
                         if ($this->input->post('save')) {
                               //get form's data and store in local varable
                               $name = $this->input->post('name');
@@ -93,6 +95,17 @@ class Employee extends CI_Controller
                         $this->session->set_flashdata('message', 'Record Not Found');
                         redirect(base_url('Employee/index'));
                   }
+            }
+      }
+
+      public function delete($id){
+            if ($this->session->userdata('status') != "login") {
+                  $this->load->view('login_page');
+            } else {
+                  $this->load->model('employee_model');
+
+                  $this->employee_model->deleterecords($id);
+                  redirect(base_url('Employee/index'));
             }
       }
 }

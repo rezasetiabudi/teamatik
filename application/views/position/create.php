@@ -38,6 +38,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             </div>
             <input class="form-control input100" type="hidden" name="penampung" placeholder="penampung" id="penampung" ?>
+            <p id="validation" style="color:red"></p>
 
             <input type="submit" name="save" value="save" class="form-control btn btn-info">
         </form>
@@ -52,11 +53,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
         $('#department').change(function(){
             var selectedText = $("#department option:selected").html();
             var selectedId = document.getElementById("department").value;
-            arrTitle.push(selectedText);
-            arrId.push(selectedId);
+
+            if(arrId.includes(selectedId)){
+                document.getElementById("validation").innerHTML = "sudah ada"
+            }else{
+                document.getElementById("validation").innerHTML = ""
+                arrTitle.push(selectedText);
+                arrId.push(selectedId);
+            }
 
             document.getElementById("penampung").value = arrId;
-            // document.getElementById("multiple_value").innerHTML = arrTitle;
+            document.getElementById("depts").innerHTML = arrTitle;
         });
     });
     </script>
