@@ -85,7 +85,8 @@ class Employee extends CI_Controller
                               $status = $this->input->post('status');
 
                               //call saverecords method of Hello_Model and pass variables as parameter
-                              $this->employee_model->saverecords($name, $email, $phone, $position, $status);
+                              $this->employee_model->updaterecords($id, $name, $email, $phone, $position, $status);
+                              redirect(base_url('Employee/index'));
                         }
                   }
                   else {
@@ -93,24 +94,5 @@ class Employee extends CI_Controller
                         redirect(base_url('Employee/index'));
                   }
             }
-      }
-
-
-  
-      public function update_action()
-      {
-          $this->_rules();
-  
-          if ($this->form_validation->run() == FALSE) {
-              $this->update($this->input->post('id_class', TRUE));
-          } else {
-              $data = array(
-                  'classification' => $this->input->post('classification', TRUE),
-              );
-  
-              $this->Master_doc_class_model->update($this->input->post('id_class', TRUE), $data);
-              $this->session->set_flashdata('message', 'Update Record Success');
-              redirect(site_url('master_doc_class'));
-          }
       }
 }

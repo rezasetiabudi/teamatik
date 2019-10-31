@@ -20,4 +20,9 @@ class Employee_model extends CI_Model {
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
+
+    public function updaterecords($id,$name,$email,$phone,$position,$status){
+        $query = "UPDATE ".$this->table." SET name = '".$name."', email = '".$email."', phone = '".$phone."', status = ".$status." where ".$this->id." = ".$id;
+        $this->db->query($query);
+    }
 }
