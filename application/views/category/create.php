@@ -23,6 +23,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <form method="post">
             <label for="name">Nama</label>
             <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+            <label for="name">Code</label>
+            <input class="form-control input100" type="text" name="code" placeholder="Code" ?>
             <input type="submit" name="save" value="save" class="form-control btn btn-info">
         </form>
     </div>

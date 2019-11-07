@@ -25,17 +25,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
   </section>
   <section class="content">
     <div class="pull-right" style="margin:10px">
-      <a href="<?php echo base_url('Product/create') ?>" class="btn btn-success">Add+</a>
+      <a href="<?php echo base_url('Category/create') ?>" class="btn btn-success">Add+</a>
     </div>
     <table id="myTable" class="display">
       <thead>
         <tr>
           <th>#</th>
-          <th>Product Code</th>
           <th>Name</th>
-          <th>Category id</th>
-          <th>Purchase_year</th>
-          <th>status</th>
+          <th>Code</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -49,23 +46,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <?php echo $i ?>
             </td>
             <td>
-              <?php echo $rows['product_code'] ?>
-            </td>
-            <td>
               <?php echo $rows['name'] ?>
             </td>
             <td>
-              <?php echo $rows['category_id'] ?>
+              <?php echo $rows['code'] ?>
             </td>
             <td>
-              <?php echo $rows['purchase_year'] ?>
-            </td>
-            <td>
-              <?php if ($rows['status'] == 1) echo 'Active';
-                else echo 'Inactive'; ?>
-            </td>
-            <td>
-            <a class="btn" href="<?php echo base_url('Product/update/') ?><?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
+            <a class="btn" href="<?php echo base_url('Category/update/') ?><?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
 
             <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>            </td>
           </tr>
@@ -83,7 +70,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <a type="button" class="btn btn-danger" href="<?php echo base_url('Product/delete/') ?><?php echo $rows['id'] ?>">Delete</a>
+                  <a type="button" class="btn btn-danger" href="<?php echo base_url('Category/delete/') ?><?php echo $rows['id'] ?>">Delete</a>
                 </div>
               </div>
             </div>

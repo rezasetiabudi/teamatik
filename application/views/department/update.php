@@ -22,7 +22,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="form-group">
         <form method="post">
             <label for="name">Nama</label>
-            <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+            <input class="form-control input100" type="text" name="name" placeholder="Name" value = "<?php echo $name?>"?>
             <input type="submit" name="save" value="save" class="form-control btn btn-info">
         </form>
     </div>

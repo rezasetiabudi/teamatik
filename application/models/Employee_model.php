@@ -25,4 +25,9 @@ class Employee_model extends CI_Model {
         $query = "UPDATE ".$this->table." SET name = '".$name."', email = '".$email."', phone = '".$phone."', status = ".$status." where ".$this->id." = ".$id;
         $this->db->query($query);
     }
+    
+    public function deleterecords($id){
+        $this->db->where($this->id, $id);
+        $this->db->delete($this->table);
+    }
 }

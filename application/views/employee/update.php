@@ -26,18 +26,29 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <label for="phone">Phone Number</label>
             <input class="form-control input100" type="text" name="phone" placeholder="Phone" value = "<?php echo $phone?>"?>
             <label for="position">Position</label>
-            <select class="form-control" name="position" value = "<?php echo $position?>">
+            <select class="form-control" name="position">
                 <?php
                 $count = count($posisi);
                 for ($i = 0; $i < $count; $i++) {
-                    echo '<option value="' . $posisi[$i][id] . '">' . $posisi[$i][name] . '</option>';
+                  if($position == $posisi[$i][id])
+                    {
+                      echo '<option selected value="' . $posisi[$i][id] . '">' . $posisi[$i][name] . '</option>';
+                    }
+                    else {
+                      echo '<option value="' . $posisi[$i][id] . '">' . $posisi[$i][name] . '</option>';
+                    }
                 }
                 ?>
             </select>
             <label for="status">Status Karyawan</label>
             <select class="form-control" name="status">
-                <option value="0">Inactive</option>
+              <?php if($status == 0){?>
+                <option selected value="0">Inactive</option>
                 <option value="1">Active</option>
+              <?php } else {?>
+                <option value="0">Inactive</option>
+                <option selected value="1">Active</option>
+              <?php }?>
             </select>
             <input type="submit" name="save" value="save" class="form-control btn btn-info">
         </form>
