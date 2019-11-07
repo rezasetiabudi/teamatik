@@ -2,15 +2,13 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 
-<?php 
-foreach($css_files as $file): ?>
-    <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
-    
-<?php endforeach; ?>
-<?php foreach($js_files as $file): ?>
-    <script src="<?php echo $file; ?>"></script>
-    
-<?php endforeach; ?>
+<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready( function () {
+      $('#myTable').DataTable();
+      } );
+    </script>
 
 <!-- Main content -->
   <!-- Content Wrapper. Contains page content -->
@@ -27,7 +25,56 @@ foreach($css_files as $file): ?>
       </ol>
     </section>
     <section class="content">
-        <?php echo $output?>
+      <div class="pull-right" style="margin:10px">
+        <a href="<?php echo base_url('Employee/create')?>" class="btn btn-success">Add+</a>
+      </div>
+      <table id="myTable" class="display">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Purchase Year</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php 
+            $i = 1;
+            foreach($list as $rows){
+          ?>
+            <tr>
+              <td>
+                <?php echo $i?>
+              </td>
+              <td>
+                <?php echo $rows['name']?>
+              </td>
+              <td>
+                <?php echo $rows['category_id']?>
+              </td>
+              <td>
+                <?php echo $rows['purchase_year']?>
+              </td>
+              <td>
+                <?php echo $rows['price']?>
+              </td>
+              <td>
+                <?php echo $rows['qty']?>
+              </td>
+              <td>
+                <?php echo $rows['total_price']?>
+              </td>
+              <td>
+                <a href="<?php echo base_url('product/update/')?><?php echo $rows['name']?>">Update</a>
+              </td>
+            </tr>
+          <?php $i++;}?>
+        </tbody>
+      </table>
     </section>
     </div>
 <!-- /.content -->
