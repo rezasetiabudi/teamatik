@@ -14,6 +14,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
+  <div class ="box box-success">
+      <div class ="box-body">
     <h1>
       Dashboard
       <small>Control panel</small>
@@ -92,6 +94,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         } ?>
       </tbody>
     </table>
+      </div>
+      </div>
   </section>
 </div>
 <!-- /.content -->
