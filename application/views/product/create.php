@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Inventory Management System | Teamatik</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -12,66 +13,67 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-<!-- header & setting account -->
-<div class="grid">
-    <header class="header">
-        <i class="fas fa-bars header__menu"></i>
-        <div class="header__search">
-            <input class="header__input" placeholder="Search..." />
-        </div>
-        <div class="header__avatar">
-            <i class="fas fa-user-cog fa-2x"></i>
-            <div class="dropdown">
-                <ul class="dropdown__list">
-                    <li class="dropdown__list-item">
-                        <span class="dropdown__icon"><i class="far fa-user"></i></span>
-                        <span class="dropdown__title">my profile</span>
-                    </li>
-                    <li class="dropdown__list-item">
-                        <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
-                        <span class="dropdown__title">my account</span>
-                    </li>
-                    <li class="dropdown__list-item">
-                        <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
-                        <a class="dropdown__title" href="<?= base_url('/Home/logout') ?>">Logout</a>
-                    </li>
-                </ul>
+    <!-- header & setting account -->
+    <div class="grid">
+        <header class="header">
+            <i class="fas fa-bars header__menu"></i>
+            <div class="header__search">
+                <input class="header__input" placeholder="Search..." />
             </div>
-        </div>
-    </header>
-
-    <?php $this->load->view("template/sidenavbar.php") ?>
-
-    <main class="main">
-        <div class="container">
-            <a href="<?php echo base_url() ?>/Product/index" class="backButton btn btn-danger">BACK</a>
-            <div class="form-group">
-                <form method="post">
-                <label>Name</label>
-                <input  class="form-control input100" type="text" name="name" placeholder="Product Name"><br>
-                <label>Category</label>
-                <select class = "form-control" name="category_id">
-                    <?php
-                        $count = count($kategori);
-                        for($i = 0; $i<$count; $i++){
-                            echo '<option value="'.$kategori[$i][id].'">'.$kategori[$i][name].'</option>';
-                        }
-                    ?>
-                </select>
-                <label>Purchase at</label>
-                <input class="form-control input100" type="date" name="purchase"><br>
-                <label>Product Price</label>
-                <input class="form-control input100" type="text" name="price" placeholder="Product Price"><br>
-                <label for="price">Qty</label>
-                <input class="form-control input100" type="text" name="qty" placeholder="Qty"><br>
-                <input type="submit" name="save" value="save" class="form-control btn btn-info">
-                </form>
+            <div class="header__avatar">
+                <i class="fas fa-user-cog fa-2x"></i>
+                <div class="dropdown">
+                    <ul class="dropdown__list">
+                        <li class="dropdown__list-item">
+                            <span class="dropdown__icon"><i class="far fa-user"></i></span>
+                            <span class="dropdown__title">my profile</span>
+                        </li>
+                        <li class="dropdown__list-item">
+                            <span class="dropdown__icon"><i class="fas fa-clipboard-list"></i></span>
+                            <span class="dropdown__title">my account</span>
+                        </li>
+                        <li class="dropdown__list-item">
+                            <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
+                            <a class="dropdown__title" href="<?= base_url('/Home/logout') ?>">Logout</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </main>
+        </header>
 
-    <footer class="footer">
+        <?php $this->load->view("template/sidenavbar.php") ?>
+
+        <main class="main">
+            <div class="container">
+                <a href="<?php echo base_url() ?>/Product/index" class="backButton btn btn-danger">BACK</a>
+                <div class="form-group">
+                    <form method="post">
+                        <label>Name</label>
+                        <input class="form-control input100" type="text" name="name" placeholder="Product Name"><br>
+                        <label>Category</label>
+                        <select class="form-control" name="category_id">
+                            <?php
+                            $count = count($kategori);
+                            for ($i = 0; $i < $count; $i++) {
+                                echo '<option value="' . $kategori[$i][id] . '">' . $kategori[$i][name] . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <label>Purchase at</label>
+                        <input class="form-control input100" type="date" name="purchase"><br>
+                        <label>Product Price</label>
+                        <input class="form-control input100" type="text" name="price" placeholder="Product Price"><br>
+                        <label for="price">Qty</label>
+                        <input class="form-control input100" type="text" name="qty" placeholder="Qty"><br>
+                        <input type="submit" name="save" value="save" class="form-control btn btn-info">
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
             <p><span class="footer__copyright">&copy;</span> 2019 Teamatik</p>
         </footer>
     </div>
@@ -82,4 +84,5 @@
     <script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
     <script src="<?php echo base_url() ?>/assets/script.js"></script>
 </body>
+
 </html>
