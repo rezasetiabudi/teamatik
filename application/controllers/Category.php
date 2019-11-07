@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Department extends CI_Controller {
+class Category extends CI_Controller {
       function __construct()
       {
             parent::__construct();
@@ -10,8 +10,6 @@ class Department extends CI_Controller {
             $this->load->database();
             $this->load->helper('url');
             /* ------------------ */
-
-            $this->load->library('grocery_CRUD');
       }
 	public function index()
 	{
@@ -20,11 +18,11 @@ class Department extends CI_Controller {
             }
             else {
 
-                  $this->load->model('department_model');
-                  $department['list'] = $this->department_model->getList();
+                  $this->load->model('category_model');
+                  $category['list'] = $this->category_model->getList();
                   $this->load->view('template/header');
                   $this->load->view('template/sidebar');
-                  $this->load->view('department/index',$department);
+                  $this->load->view('category/index',$category);
 
                   $this->load->view('template/footer');
             }
@@ -37,16 +35,17 @@ class Department extends CI_Controller {
 			$this->load->view('login_page');
             }
             else {
-                  $this->load->view('department/create');
+                  $this->load->view('category/create');
                   if($this->input->post('save'))
                   {
                         //get form's data and store in local varable
                         $name=$this->input->post('name');
+                        $code=$this->input->post('code');
 
-                        $this->load->model('department_model');
+                        $this->load->model('category_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
-                        $this->department_model->saverecords($name);	
-                        echo "Records Saved Successfully";
+                        $this->category_model->saverecords($name,$code);	
+                        redirect(base_url('Category/index'));
                   }
             }
       }
@@ -55,25 +54,26 @@ class Department extends CI_Controller {
             if ($this->session->userdata('status') != "login") {
                   $this->load->view('login_page');
             } else {
-                  $this->load->model('department_model');
-                  $row = $this->department_model->getById($id);
+                  $this->load->model('category_model');
+                  $row = $this->category_model->getById($id);
                   if ($row) {
                         $data = array(
                               'id' => set_value('id', $row->id),
                               'name' => set_value('name', $row->name),
+                              'code' => set_value('code', $row->code),
                         );
-                        $this->load->view('department/update', $data);
+                        $this->load->view('category/update', $data);
                         if ($this->input->post('save')) {
                               //get form's data and store in local varable
                               $name = $this->input->post('name');
                               //call saverecords method of Hello_Model and pass variables as parameter
-                              $this->department_model->updaterecords($id, $name);
-                              redirect(base_url('department/index'));
+                              $this->category_model->updaterecords($id, $name);
+                              redirect(base_url('Category/index'));
                         }
                   }
                   else {
                         $this->session->set_flashdata('message', 'Record Not Found');
-                        redirect(base_url('department/index'));
+                        redirect(base_url('Category/index'));
                   }
             }
       }
@@ -82,10 +82,10 @@ class Department extends CI_Controller {
             if ($this->session->userdata('status') != "login") {
                   $this->load->view('login_page');
             } else {
-                  $this->load->model('department_model');
+                  $this->load->model('category_model');
 
-                  $this->department_model->deleterecords($id);
-                  redirect(base_url('Department/index'));
+                  $this->category_model->deleterecords($id);
+                  redirect(base_url('Category/index'));
             }
       }
 }

@@ -24,6 +24,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </ol>
     </section>
     <section class="content">
+    <div class ="box box-success">
+      <div class ="box-body">
       <div class="pull-right" style="margin:10px">
         <a href="<?php echo base_url('Department/create')?>" class="btn btn-success">Add+</a>
       </div>
@@ -48,12 +50,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php echo $rows['name']?>
               </td>
               <td>
-                <a href="<?php echo base_url('Department/update/')?><?php echo $rows['id']?>">Update</>
-              </td>
+              <a href="<?php echo base_url('Department/update/')?><?php echo $rows['id']?>"><span class="glyphicon glyphicon-cog"></span></a>
+              &nbsp
+              &nbsp
+              &nbsp
+              &nbsp
+              &nbsp
+              <a href="<?php echo base_url('Department/delete/')?><?php echo $rows['id']?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>              </td>
             </tr>
           <?php $i++;}?>
         </tbody>
     </table>
+            </div>
+            </div>
     </section>
   </div>
 <!-- /.content -->

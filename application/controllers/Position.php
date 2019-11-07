@@ -92,4 +92,15 @@ class Position extends CI_Controller {
                   }
             }
       }
+
+      public function delete($id){
+            if ($this->session->userdata('status') != "login") {
+                  $this->load->view('login_page');
+            } else {
+                  $this->load->model('position_model');
+
+                  $this->position_model->deleterecords($id);
+                  redirect(base_url('Position/index'));
+            }
+      }
 }
