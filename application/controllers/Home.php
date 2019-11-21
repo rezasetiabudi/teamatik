@@ -15,7 +15,7 @@ class Home extends CI_Controller
 		} else {
 			$this->load->view('template/header');
 			$this->load->view('template/sidebar');
-			$this->load->view('dashboard/index');
+			// $this->load->view('dashboard/index');
 
 			$this->load->view('template/footer');		}
 	}
