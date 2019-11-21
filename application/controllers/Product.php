@@ -48,7 +48,7 @@ class Product extends CI_Controller
 
             if ($this->input->post('save')) {
                 $this->load->model('product_model');
-                $name = $this->input->post('name');
+                $name = $this->input->post('product_name');
                 $category_id = $this->input->post('category_id');
                 $prefix_code = $this->product_model->generatePrefix($category_id);
                 $product_code = $this->product_model->generateCode($prefix_code);
