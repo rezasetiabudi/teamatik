@@ -32,7 +32,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <label for="department">Department</label>
         <select class="form-control" name="department">
           <?php
-          echo $department_name;
+          $count = count($department);
           for ($i = 0; $i < $count; $i++) {
             echo '<option value="' . $department[$i][id_department] . '">' . $department[$i][department_name] . '</option>';
           }
