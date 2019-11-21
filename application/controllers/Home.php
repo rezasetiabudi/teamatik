@@ -13,8 +13,11 @@ class Home extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			$this->load->view('login_page');
 		} else {
-			$this->load->view('home_page');
-		}
+			$this->load->view('template/header');
+			$this->load->view('template/sidebar');
+			$this->load->view('dashboard/index');
+
+			$this->load->view('template/footer');		}
 	}
 	public function login()
 	{
@@ -30,6 +33,7 @@ class Home extends CI_Controller
 			$this->session->set_userdata($data_session);
 			redirect(base_url('Home/index'));		
 		} else {
+			$this->load->view('login_page');
 			echo "Username atau password salah !";
 		}
 	}
