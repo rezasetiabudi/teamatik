@@ -12,9 +12,9 @@ class Employee_model extends CI_Model
         return $data->result_array();
     }
 
-    public function saverecords($name, $email, $phone, $position, $status)
+    public function saverecords($name, $address, $phone, $position)
     {
-        $query = "INSERT INTO employee(employees_name,employees_address,employees_contact,id_position,status) values('$name','$email','$phone','$position','$status')";
+        $query = "INSERT INTO employee(employees_name,employees_address,employees_contact,id_position) values('$name','$address','$phone','$position')";
         $this->db->query($query);
     }
 
