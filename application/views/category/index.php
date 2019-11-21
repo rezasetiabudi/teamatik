@@ -24,6 +24,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </ol>
   </section>
   <section class="content">
+    <div class ="box box-success">
+      <div class ="box-body">
     <div class="pull-right" style="margin:10px">
       <a href="<?php echo base_url('Category/create') ?>" class="btn btn-success">Add+</a>
     </div>
@@ -79,6 +81,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         } ?>
       </tbody>
     </table>
+    </div>
+    </div>
   </section>
 </div>
 <!-- /.content -->

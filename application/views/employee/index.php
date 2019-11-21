@@ -24,6 +24,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </ol>
   </section>
   <section class="content">
+    <div class ="box box-success">
+      <div class ="box-body">
     <div class="pull-right" style="margin:10px">
       <a href="<?php echo base_url('Employee/create') ?>" class="btn btn-success"><b>Add</b> <span class="glyphicon glyphicon-plus"></span></a>
     </div>
@@ -93,6 +95,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         } ?>
       </tbody>
     </table>
+      </div>
+      </div>
   </section>
 </div>
 <!-- /.content -->

@@ -4,6 +4,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <?php $this->load->view("template/header.php") ?>
 <?php $this->load->view("template/sidebar.php") ?>
 
+<style>
+input[type=text]:focus {
+  border: 2px solid #555;
+}
+</style>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
