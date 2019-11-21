@@ -17,7 +17,9 @@ class Home extends CI_Controller
 			$this->load->view('template/sidebar');
 			// $this->load->view('dashboard/index');
 
-			$this->load->view('template/footer');		}
+			$this->load->view('template/footer');
+		}
+		// echo "test";
 	}
 	public function login()
 	{
@@ -31,7 +33,7 @@ class Home extends CI_Controller
 				'status' => "login"
 			);
 			$this->session->set_userdata($data_session);
-			redirect(base_url('Home/index'));		
+			redirect(base_url('Home/index'));
 		} else {
 			$this->load->view('login_page');
 			echo "Username atau password salah !";

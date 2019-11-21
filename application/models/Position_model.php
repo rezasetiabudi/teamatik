@@ -29,16 +29,19 @@ class Position_model extends CI_Model
         $data = $this->db->query("SELECT position.id_position, position.position_name, position.id_department, department.department_name FROM position LEFT JOIN department ON position.id_department = department.id_department WHERE id_position = '$id'");
         return $data->row();
     }
-
     public function updaterecords($id, $name, $department_id)
     {
-        $query = "UPDATE " . $this->table . " SET name = '" . $name . "' , department_id = '" . $department_id . "' where " . $this->id . " = " . $id;
+        $query = "UPDATE " . $this->table . " SET position_name = '" . $name . "' , id_department = '" . $department_id . "' where id_position = " . $id;
         $this->db->query($query);
     }
 
     public function deleterecords($id)
     {
-        $this->db->where($this->id, $id);
-        $this->db->delete($this->table);
+        // $this->db->where($this->id, $id);
+        // $this->db->delete($this->table);
+        $this->db->query("DELETE FROM position WHERE id_position = '$id'");
+        if ($this->getList() == NULL) {
+            $this->db->query("ALTER TABLE position AUTO_INCREMENT = 0");
+        }
     }
 }

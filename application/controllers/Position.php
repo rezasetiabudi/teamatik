@@ -69,14 +69,15 @@ class Position extends CI_Controller
             } else {
                   $this->load->model('position_model');
                   $row = $this->position_model->getById($id);
+                  $this->load->model('Department_model');
+                  $departmentlist = $this->Department_model->getList();
                   if ($row) {
                         $data = array(
                               'id' => set_value('id', $row->id_position),
                               'name' => set_value('name', $row->position_name),
-                              'department_name' => set_value('department_name', $row->department_name),
-                              'id_department' => set_value('id_department', $row->id_department)
+                              'department' => $departmentlist
                         );
-                        // echo var_dump($row);
+                        // echo var_dump($row->department_name);
                         $this->load->view('position/update', $data);
                         if ($this->input->post('save')) {
                               //get form's data and store in local varable

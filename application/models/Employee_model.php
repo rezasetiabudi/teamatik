@@ -7,14 +7,15 @@ class Employee_model extends CI_Model
     public $table = 'employee';
     public $id = 'id_employees';
 
-    public function getEmployee(){
-        $data = $this->db->query("SELECT e.id_employees, e.employees_name, e.employees_address, e.employees_contact, p.position_name as position_id FROM employee e LEFT JOIN position p ON e.id_position = p.id_position");
+    public function getEmployee()
+    {
+        $data = $this->db->query("SELECT e.id_employees, e.employees_name, e.employees_address, e.employees_contact, p.position_name as position_id, status FROM employee e LEFT JOIN position p ON e.id_position = p.id_position");
         return $data->result_array();
     }
 
-    public function saverecords($name, $email, $phone, $position, $status)
+    public function saverecords($name, $address, $phone, $position)
     {
-        $query = "INSERT INTO employee(employees_name,employees_address,employees_contact,id_position,status) values('$name','$email','$phone','$position','$status')";
+        $query = "INSERT INTO employee(employees_name,employees_address,employees_contact,id_position) values('$name','$address','$phone','$position')";
         $this->db->query($query);
     }
 

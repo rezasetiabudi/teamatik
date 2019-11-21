@@ -54,7 +54,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <?php echo $rows['employees_name'] ?>
                 </td>
                 <td>
-                  <?php echo $rows['id_position'] ?>
+                  <?php echo $rows['position_id'] ?>
                 </td>
                 <td>
                   <?php echo $rows['employees_contact'] ?>
