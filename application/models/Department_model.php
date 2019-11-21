@@ -13,7 +13,7 @@ class Department_model extends CI_Model {
     }
 
     public function saverecords($name){
-        $query="insert into department(name) values ('$name')";
+        $query="insert into department(department_name) values ('$name')";
         $this->db->query($query);
     }
 
