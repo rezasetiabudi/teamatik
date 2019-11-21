@@ -38,7 +38,7 @@ input[type=text]:focus {
           <input class="form-control input100" type="text" name="address" placeholder="Address" ?>
         </div>
         <div class="box-footer">
-          <a href="<?php echo base_url('supplier/index')?>" class="btn btn-default" ><span class="glyphicon glyphicon-menu-left"></span> Back</a>
+          <a href="<?php echo base_url('Supplier/index')?>" class="btn btn-default" ><span class="glyphicon glyphicon-menu-left"></span> Back</a>
           <div class = "pull-right">
             <input type="submit" name="save" value="save" class="form-control btn btn-info">
           </div>
