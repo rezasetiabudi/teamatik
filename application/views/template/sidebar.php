@@ -56,6 +56,7 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
         $department = ($curr_action == 'Department/index' || $curr_action == 'Department/create' || $curr_action == 'Department/update');
         $category = ($curr_action == 'Category/index' || $curr_action == 'Category/create' || $curr_action == 'Category/update');
         $products = ($curr_action == 'Product/index' || $curr_action == 'Product/create' || $curr_action == 'Product/update');
+        $supplier = ($curr_action == 'supplier/index' || $curr_action == 'supplier/create' || $curr_action == 'supplier/update');
       ?>
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Navigation Menu</li>
@@ -68,7 +69,7 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
           </a>
         </li>
         
-        <li class="<?= $products || $category? 'active':''?> treeview">
+        <li class="<?= $products || $category || $supplier? 'active':''?> treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Product</span>
             <span class="pull-right-container">
@@ -78,6 +79,7 @@ $curr_action = $this->uri->segment(1). '/'. $this->uri->segment(2);
           <ul class="treeview-menu">
           <li class="<?= $category? 'active':''?>"><a href="<?php echo base_url()?>Category/index"><i class="fa fa-circle-o"></i> <span>Category</span></a></li>
           <li class="<?= $products? 'active':''?>"><a href="<?php echo base_url()?>Product/index"><i class="fa fa-circle-o"></i> <span>List</span></a></li>
+          <li class="<?= $supplier? 'active':''?>"><a href="<?php echo base_url()?>supplier/index"><i class="fa fa-circle-o"></i> <span>Supllier</span></a></li>
           </ul>
         </li>
 

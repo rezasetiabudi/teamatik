@@ -39,7 +39,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <?php
               $count = count($posisi);
               for ($i = 0; $i < $count; $i++) {
-                echo '<option value="' . $posisi[$i]['id'] . '">' . $posisi[$i][name] . '</option>';
+                echo '<option value="' . $posisi[$i]['id_position'] . '">' . $posisi[$i]['position_name'] . '</option>';
               }
               ?>
             </select>
@@ -52,7 +52,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <div class="box-footer">
                 <a href="<?php echo base_url('Employee/index') ?>" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
                 <div class="pull-right">
-                  <button type="submit" class="btn btn-success">Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                  <input type="submit" name="save" value="save" class="form-control btn btn-info">
                 </div>
               </div>
         </form>
