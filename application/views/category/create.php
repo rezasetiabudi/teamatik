@@ -30,8 +30,8 @@ input[type=text]:focus {
         <div class="form-group well form-horizontal">
           <label for="name">Nama</label>
           <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
-          <label for="name">Code</label>
-          <input class="form-control input100" type="text" name="code" placeholder="Code" ?>
+          <label for="name">Depreciation Rates</label>
+          <input class="form-control input100" type="number" name="depreciation" placeholder="Depreciation Rates" ?>
         </div>
         <div class="box-footer">
           <a href="<?php echo base_url('Category/index')?>" class="btn btn-default" ><span class="glyphicon glyphicon-menu-left"></span> Back</a>
