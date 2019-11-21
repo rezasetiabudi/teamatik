@@ -7,7 +7,7 @@ class Employee_model extends CI_Model {
     public $id = 'id';
 
     public function getEmployee(){
-        $data = $this->db->query("SELECT e.id, e.name, e.email, e.phone, e.status, p.name as position_id FROM employee e LEFT JOIN position p ON e.position_id = p.id");
+        $data = $this->db->query("SELECT e.id_employees, e.employees_name, e.employees_address, e.employees_contact, p.position_name as position_id FROM employee e LEFT JOIN position p ON e.id_position = p.id_position");
         return $data->result_array();
     }
 
