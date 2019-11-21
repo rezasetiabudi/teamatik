@@ -13,22 +13,22 @@ class Department_model extends CI_Model {
     }
 
     public function saverecords($name){
-        $query="insert into department(name) values ('$name')";
+        $query="insert into department(department_name) values ('$name')";
         $this->db->query($query);
     }
 
-    public function getById($id){ 
-        $this->db->where($this->id, $id);
+    public function getById($id_department){ 
+        $this->db->where($this->id_department, $id_department);
         return $this->db->get($this->table)->row();
     }
 
-    public function updaterecords($id,$name){
-        $query = "UPDATE ".$this->table." SET name = '".$name."' where ".$this->id." = ".$id;
+    public function updaterecords($id_department, $department_name){
+        $query = "UPDATE ".$this->table." SET name = '".$department_name."' where ".$this->id_department." = ".$id_department;
         $this->db->query($query);
     }
 
-    public function deleterecords($id){
-        $this->db->where($this->id, $id);
+    public function deleterecords($id_department){
+        $this->db->where($this->id_department, $id_department);
         $this->db->delete($this->table);
     }
 }
