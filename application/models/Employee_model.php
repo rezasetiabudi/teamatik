@@ -1,33 +1,44 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Employee_model extends CI_Model {
+class Employee_model extends CI_Model
+{
 
     public $table = 'employee';
     public $id = 'id_employees';
 
     public function getEmployee(){
-        $data = $this->db->query("SELECT id_employees, employees_name, employees_address, employess_contact FROM employee");
+        $data = $this->db->query("SELECT e.id_employees, e.employees_name, e.employees_address, e.employees_contact, p.position_name as position_id FROM employee e LEFT JOIN position p ON e.id_position = p.id_position");
         return $data->result_array();
     }
 
-    public function saverecords($employees_name, $employees_address, $employess_contact){
-        $query="insert into employee(employees_name, employees_address, employess_contact) values('$employees_name','$employees_department','$employees_address','$employess_contact')";
-	    $this->db->query($query);
-    }
-
-    public function getById($id){ 
-        $this->db->where($this->id_employees, $id);
-        return $this->db->get($this->table)->row();
-    }
-
-    public function updaterecords($employees_name, $employees_address, $employess_contact){
-        $query = "UPDATE ".$this->table." SET name = '".$employees_name."', employees_address = '".$employees_address."', employess_contact = ".$employess_contact." where ".$this->id." = ".$id_employees;
+    public function saverecords($name, $email, $phone, $position, $status)
+    {
+        $query = "INSERT INTO employee(employees_name,employees_address,employees_contact,id_position,status) values('$name','$email','$phone','$position','$status')";
         $this->db->query($query);
     }
-    
-    public function deleterecords($id){
-        $this->db->where($this->id_employees, $id);
-        $this->db->delete($this->table);
+
+    public function getById($id)
+    {
+        $data = $this->db->query("SELECT * FROM employee WHERE id_employees=  '$id'");
+        // $this->db->where($this->id, $id);
+        // return $this->db->get($this->table)->row();
+        return $data->row();
+    }
+
+    public function updaterecords($id, $name, $email, $phone, $position, $status)
+    {
+        $query = "UPDATE " . $this->table . " SET employees_name = '" . $name . "', employees_address = '" . $email . "', employees_contact = '" . $phone . "', id_position = '" . $position . "', status = " . $status . " where  id_employees = " . $id;
+        $this->db->query($query);
+    }
+
+    public function deleterecords($id)
+    {
+        $this->db->query("DELETE FROM employee WHERE id_employees = '$id'");
+        if ($this->getEmployee() == NULL) {
+            $this->db->query("ALTER TABLE employee AUTO_INCREMENT = 0");
+        }
+        // $this->db->where($this->id, $id);
+        // $this->db->delete($this->table);
     }
 }
