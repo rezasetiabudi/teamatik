@@ -23,7 +23,7 @@ class Employee extends CI_Controller
                   $employee['list'] = $this->employee_model->getEmployee();
                   $this->load->view('template/header');
                   $this->load->view('template/sidebar');
-                  $this->load->view('employee/index',$employee);
+                  $this->load->view('employee/index', $employee);
 
                   $this->load->view('template/footer');
 
@@ -69,11 +69,11 @@ class Employee extends CI_Controller
                   $position['posisi'] = $this->position_model->getList();
                   if ($row) {
                         $data = array(
-                              'id' => set_value('id', $row->id),
-                              'name' => set_value('name', $row->name),
-                              'email' => set_value('email', $row->email),
-                              'phone' => set_value('email', $row->phone),
-                              'position' => set_value('email', $row->position_id),
+                              'id' => set_value('id', $row->id_employees),
+                              'name' => set_value('name', $row->employees_name),
+                              'email' => set_value('email', $row->employees_address),
+                              'phone' => set_value('email', $row->employees_contact),
+                              'position' => set_value('email', $row->id_position),
                               'status' => set_value('status', $row->status),
                               'posisi' => $this->position_model->getList(),
                         );
@@ -90,15 +90,15 @@ class Employee extends CI_Controller
                               $this->employee_model->updaterecords($id, $name, $email, $phone, $position, $status);
                               redirect(base_url('Employee/index'));
                         }
-                  }
-                  else {
+                  } else {
                         $this->session->set_flashdata('message', 'Record Not Found');
                         redirect(base_url('Employee/index'));
                   }
             }
       }
 
-      public function delete($id){
+      public function delete($id)
+      {
             if ($this->session->userdata('status') != "login") {
                   $this->load->view('login_page');
             } else {
