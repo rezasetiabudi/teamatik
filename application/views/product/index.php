@@ -14,8 +14,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-  <div class ="box box-success">
-      <div class ="box-body">
     <h1>
       Dashboard
       <small>Control panel</small>
@@ -26,6 +24,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </ol>
   </section>
   <section class="content">
+
+  <div class ="box box-success">
+      <div class ="box-body">
     <div class="pull-right" style="margin:10px">
       <a href="<?php echo base_url('Product/create') ?>" class="btn btn-success">Add+</a>
     </div>
