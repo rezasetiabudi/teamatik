@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category_model extends CI_Model {
+class Supplier_model extends CI_Model {
 
     public $table = 'supplier';
-    public $id = 'id';
+    public $id = 'id_supplier3';
 
     public function getList(){
         $data = $this->db->query("SELECT * FROM $this->table");
@@ -13,8 +13,8 @@ class Category_model extends CI_Model {
         return $data->result_array();
     }
 
-    public function saverecords($id,$supplier_name,$supplier_contact,$supplier_address){
-        $query="insert into category(id,supplier_name,supplier_contact,supplier_address) values ('$id','$supplier_name','$supplier_contact','$supplier_address')";
+    public function saverecords($supplier_name,$supplier_contact,$supplier_address){
+        $query="insert into supplier(supplier_name,supplier_contact,supplier_address) values ('$supplier_name','$supplier_contact','$supplier_address')";
         $this->db->query($query);
     }
 

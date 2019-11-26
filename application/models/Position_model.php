@@ -5,7 +5,7 @@ class Position_model extends CI_Model
 {
 
     public $table = 'position';
-    public $id = 'id';
+    public $id = 'id_position';
 
     public function getList()
     {

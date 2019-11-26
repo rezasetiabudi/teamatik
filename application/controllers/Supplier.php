@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category extends CI_Controller {
+class Supplier extends CI_Controller {
       function __construct()
       {
             parent::__construct();
@@ -19,7 +19,7 @@ class Category extends CI_Controller {
             else {
 
                   $this->load->model('Supplier_model');
-                  $supplier = $this->Supplier_model->getList();
+                  $supplier['list'] = $this->Supplier_model->getList();
                   $this->load->view('template/header');
                   $this->load->view('template/sidebar');
                   $this->load->view('supplier/index',$supplier);
@@ -39,14 +39,13 @@ class Category extends CI_Controller {
                   if($this->input->post('save'))
                   {
                         //get form's data and store in local varable
-                        $id=$this->input->post('id_supplier');
                         $name=$this->input->post('supplier_name');
                         $contact=$this->input->post('supplier_contact');
                         $address=$this->input->post('supplier_address');
 
                         $this->load->model('supplier_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
-                        $this->supplier_model->saverecords($id,$name,$contact,$address);	
+                        $this->supplier_model->saverecords($name,$contact,$address);	
                         redirect(base_url('Supplier/index'));
                   }
             }

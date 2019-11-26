@@ -28,14 +28,12 @@ input[type=text]:focus {
       <div class = "box-body">
       <form method="post">
         <div class="form-group well form-horizontal">
-          <label for="name">Id</label>
-          <input class="form-control input100" type="text" name="id" placeholder="Id" ?>
           <label for="name">Name</label>
-          <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+          <input class="form-control input100" type="text" name="supplier_name" placeholder="Name" ?>
           <label for="name">Contact</label>
-          <input class="form-control input100" type="text" name="contact" placeholder="Contact" ?>
+          <input class="form-control input100" type="text" name="supplier_contact" placeholder="Contact" ?>
           <label for="name">Address</label>
-          <input class="form-control input100" type="text" name="address" placeholder="Address" ?>
+          <input class="form-control input100" type="text" name="supplier_address" placeholder="Address" ?>
         </div>
         <div class="box-footer">
           <a href="<?php echo base_url('Supplier/index')?>" class="btn btn-default" ><span class="glyphicon glyphicon-menu-left"></span> Back</a>

@@ -33,7 +33,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <thead>
             <tr>
               <th>#</th>
-              <th>ID</th>
               <th>Supplier Name</th>
               <th>Contact</th>
               <th>Address</th>
@@ -48,9 +47,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <tr>
                 <td>
                   <?php echo $i ?>
-                </td>
-                <td>
-                  <?php echo $rows['supplier_id'] ?>
                 </td>
                 <td>
                   <?php echo $rows['supplier_name'] ?>
