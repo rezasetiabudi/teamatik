@@ -50,16 +50,13 @@ class Product extends CI_Controller
                 $this->load->model('product_model');
                 $name = $this->input->post('name');
                 $category_id = $this->input->post('category_id');
-                $prefix_code = $this->product_model->generatePrefix($category_id);
-                $product_code = $this->product_model->generateCode($prefix_code);
                 $purchase_date = $this->input->post('purchase_date');
-                $price = $this->input->post('price');
-                $status = $this->input->post('status');
-
-                var_dump($category_id);
-                die();
-
-                $this->product_model->saverecords($name, $category_id, $prefix_code, $product_code, $purchase_date, $price, $status);
+                $kategori = $this->category_model->getById($category_id);
+                $depreciation = $kategori[0]['depreciation'];
+                $expired_year = date('Y',strtotime($purchase_date)) + $depreciation;
+                $qty = $this->input->post('price');
+                $supplier = $this->input->post('status');
+                $this->product_model->saverecords($name, $category_id, $purchase_date, $expired_year, $qty, $supplier);
                 redirect(base_url('Product/index'));
             }
         }

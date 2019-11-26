@@ -32,7 +32,6 @@ class Department extends CI_Controller {
 
 	public function create()
 	{
-
             if($this->session->userdata('status') != "login"){
 			$this->load->view('login_page');
             }
@@ -45,7 +44,7 @@ class Department extends CI_Controller {
 
                         $this->load->model('department_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
-                        $this->department_model->saverecords($name);	
+                        $this->department_model->saverecords($name);
                         echo "Records Saved Successfully";
                   }
             }
@@ -59,8 +58,8 @@ class Department extends CI_Controller {
                   $row = $this->department_model->getById($id);
                   if ($row) {
                         $data = array(
-                              'id' => set_value('id', $row->id),
-                              'name' => set_value('name', $row->name),
+                              'id' => set_value('id', $row->id_department),
+                              'name' => set_value('name', $row->department_name),
                         );
                         $this->load->view('department/update', $data);
                         if ($this->input->post('save')) {

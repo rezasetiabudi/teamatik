@@ -5,7 +5,7 @@ class Department_model extends CI_Model {
 
     
     public $table = 'department';
-    public $id = 'id';
+    public $id = 'id_department';
 
     public function getList(){
         $data = $this->db->query("SELECT * FROM department");
@@ -13,8 +13,8 @@ class Department_model extends CI_Model {
     }
 
     public function saverecords($name){
-        $query="insert into department(name) values ('$name')";
-        $this->db->query($query);
+        $query="insert into department(department_name) values ('$name')";
+        $a = $this->db->query($query);
     }
 
     public function getById($id){ 
@@ -23,7 +23,7 @@ class Department_model extends CI_Model {
     }
 
     public function updaterecords($id,$name){
-        $query = "UPDATE ".$this->table." SET name = '".$name."' where ".$this->id." = ".$id;
+        $query = "UPDATE ".$this->table." SET department_name = '".$name."' where ".$this->id." = ".$id;
         $this->db->query($query);
     }
 

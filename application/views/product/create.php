@@ -39,7 +39,7 @@ input[type=text]:focus {
                     <?php
                     $count = count($category);
                     for ($i = 0; $i < $count; $i++) {
-                        echo '<option value="' . $category[$i]['id'] . '">' . $category[$i][name] . '</option>';
+                        echo '<option value="' . $category[$i]['id_category'] . '">' . $category[$i]['category_name'] . '</option>';
                     }
                     ?>
                 </select>

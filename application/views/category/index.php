@@ -34,7 +34,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <tr>
           <th>#</th>
           <th>Name</th>
-          <th>Code</th>
+          <th>Expired After</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -48,17 +48,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <?php echo $i ?>
             </td>
             <td>
-              <?php echo $rows['name'] ?>
+              <?php echo $rows['category_name'] ?>
             </td>
             <td>
-              <?php echo $rows['code'] ?>
+              <?php echo $rows['depreciation'].' years'?>
             </td>
             <td>
-            <a class="btn" href="<?php echo base_url('Category/update/') ?><?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
+            <a class="btn" href="<?php echo base_url('Category/update/') ?><?php echo $rows['id_category'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
 
-            <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>            </td>
+            <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id_category'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>            </td>
           </tr>
-          <div class="modal fade" id="deleteModal<?php echo $rows['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="deleteModal<?php echo $rows['id_category'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -72,7 +72,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <a type="button" class="btn btn-danger" href="<?php echo base_url('Category/delete/') ?><?php echo $rows['id'] ?>">Delete</a>
+                  <a type="button" class="btn btn-danger" href="<?php echo base_url('Category/delete/') ?><?php echo $rows['id_category'] ?>">Delete</a>
                 </div>
               </div>
             </div>

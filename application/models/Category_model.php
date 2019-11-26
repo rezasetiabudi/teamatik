@@ -4,23 +4,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Category_model extends CI_Model {
 
     public $table = 'product_category';
-    public $id = 'id';
+    public $id = 'id_category';
 
     public function getList(){
         $data = $this->db->query("SELECT * FROM $this->table");
-
-        $x = $data->result_array();
         return $data->result_array();
     }
 
     public function saverecords($category_name,$depreciation){
-        $query="insert into category(category_name,depreciation) values ('$category_name','$depreciation')";
+        $query="insert into $this->table(category_name,depreciation) values ('$category_name','$depreciation')";
         $this->db->query($query);
     }
 
     public function getById($id){ 
-        $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+        $data = $this->db->query("SELECT * FROM $this->table WHERE id_category = $id");
+        return $data->result_array();
     }
 
     public function updaterecords($id,$category_name,$depreciation){

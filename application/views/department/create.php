@@ -35,7 +35,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="box-footer">
               <a href="<?php echo base_url('Department/index') ?>" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
               <div class="pull-right">
-                <button type="submit" class="btn btn-success">Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                <button type="submit" name="save" value = "save" class="btn btn-success">Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
               </div>
             </div>
         </form>

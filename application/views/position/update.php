@@ -16,7 +16,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <section class="content-header">
     <h1>
       Dashboard
-      <?php echo var_dump($department); ?>
       <small>Control panel</small>
     </h1>
     <ol class="breadcrumb">

@@ -11,26 +11,11 @@ class Product_model extends CI_Model
         return $data->result_array();
     }
 
-    public function saverecords($name, $category_id, $prefix, $product, $purchase, $price, $status)
+    public function saverecords($name, $category_id, $purchase, $expired, $qty, $supplier)
     {
-        $query = "insert into product(name, category_id, prefix_code, product_code, purchase_year, price, status) values('$name', '$category_id', '$prefix', '$product', '$purchase', '$price', '$status')";
+        $query = "insert into product(product_name, id_category, date_encode, date_expired, product_qty, id_supplier) values('$name', '$category_id', '$purchase', '$expired', '$qty', '$supplier')";
 
         $this->db->query($query);
-    }
-
-    public function generatePrefix($category_id)
-    {
-        $query = "select code from category where id = ".$category_id;
-        $this->db->query($query);
-    }
-
-    public function generateCode($prefix_code)
-    {
-        $query = "SELECT MAX(product_code) AS 'max' FROM product WHERE prefix_code ='" . $prefix_code . "'";
-        $data = $this->db->query($query);
-        $data = $data->result_array();
-        $newnumber = $data[0]['max'] + 1;
-        return $newnumber;
     }
 
     public function getById($id){ 

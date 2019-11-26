@@ -40,7 +40,7 @@ class Category extends CI_Controller {
                   {
                         //get form's data and store in local varable
                         $name=$this->input->post('name');
-                        $code=$this->input->post('code');
+                        $code=$this->input->post('depreciation');
 
                         $this->load->model('category_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
@@ -58,16 +58,17 @@ class Category extends CI_Controller {
                   $row = $this->category_model->getById($id);
                   if ($row) {
                         $data = array(
-                              'id' => set_value('id', $row->id),
-                              'name' => set_value('name', $row->name),
-                              'code' => set_value('code', $row->code),
+                              'id' => set_value('id', $row->id_category),
+                              'name' => set_value('name', $row->category_name),
+                              'depreciation' => set_value('depreciation', $row->depreciation),
                         );
                         $this->load->view('category/update', $data);
                         if ($this->input->post('save')) {
                               //get form's data and store in local varable
                               $name = $this->input->post('name');
+                              $depreciation = $this->input->post('depreciation');
                               //call saverecords method of Hello_Model and pass variables as parameter
-                              $this->category_model->updaterecords($id, $name);
+                              $this->category_model->updaterecords($id, $name, $depreciation);
                               redirect(base_url('Category/index'));
                         }
                   }
