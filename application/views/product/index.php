@@ -34,12 +34,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <thead>
         <tr>
           <th>#</th>
-          <th>Product Code</th>
+          <th>id</th>
           <th>Name</th>
-          <th>Category id</th>
-          <th>Purchase_year</th>
-          <th>status</th>
-          <th>Action</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Date Encode</th>
+          <th>Date Recorded</th>
+          <th>Date Expired</th>
+          <th>Qty</th>
+          <th>Supplier</th>
         </tr>
       </thead>
       <tbody>
@@ -52,27 +55,39 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <?php echo $i ?>
             </td>
             <td>
-              <?php echo $rows['product_code'] ?>
+              <?php echo $rows['id_product'] ?>
             </td>
             <td>
-              <?php echo $rows['name'] ?>
+              <?php echo $rows['product_name'] ?>
             </td>
             <td>
-              <?php echo $rows['category_id'] ?>
+              <?php echo $rows['product_category'] ?>
             </td>
             <td>
-              <?php echo $rows['purchase_year'] ?>
+              <?php echo $rows['product_price'] ?>
             </td>
             <td>
-              <?php if ($rows['status'] == 1) echo 'Active';
-                else echo 'Inactive'; ?>
+              <?php echo $rows['date_encode'] ?>
             </td>
             <td>
-            <a class="btn" href="<?php echo base_url('Product/update/') ?><?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
+              <?php echo $rows['date_recorded'] ?>
+            </td>
+            <td>
+              <?php echo $rows['date_expired'] ?>
+            </td>
+            <td>
+              <?php echo $rows['product_qty'] ?>
+            </td>
+            <td>
+              <?php echo $rows['id_supplier'] ?>
+            </td>
+    
+            <td>
+            <a class="btn" href="<?php echo base_url('Product/update/') ?><?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
 
-            <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>            </td>
+            <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>            </td>
           </tr>
-          <div class="modal fade" id="deleteModal<?php echo $rows['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="deleteModal<?php echo $rows['id_product'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">

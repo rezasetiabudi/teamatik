@@ -28,19 +28,19 @@ input[type=text]:focus {
       <div class = "box-body">
       <form method="post">
         <div class="form-group well form-horizontal">
-          <label for="name">Nama</label>
-          <input class="form-control input100" type="text" name="name" placeholder="Nama" ?>
-          <label for="name">Umur Ekonomis Barang</label>
-          <input class="form-control input100" type="number" name="depreciation" placeholder="Umur Ekonomis" ?>
+          <label for="name">Id</label>
+          <input class="form-control input100" type="text" name="id" placeholder="Id" ?>
+          <label for="name">Name</label>
+          <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+          <label for="name">Contact</label>
+          <input class="form-control input100" type="text" name="contact" placeholder="Contact" ?>
+          <label for="name">Address</label>
+          <input class="form-control input100" type="text" name="address" placeholder="Address" ?>
         </div>
         <div class="box-footer">
-          <a href="<?php echo base_url('Category/index')?>" class="btn btn-default" ><span class="glyphicon glyphicon-menu-left"></span> Back</a>
+          <a href="<?php echo base_url('Supplier/index')?>" class="btn btn-default" ><span class="glyphicon glyphicon-menu-left"></span> Back</a>
           <div class = "pull-right">
-<<<<<<< HEAD
-            <button type="submit" value="save" name="save" class="btn btn-success" >Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
-=======
             <input type="submit" name="save" value="save" class="form-control btn btn-info">
->>>>>>> fa38e6d37e44dc8130abb5556228516fd7b88a22
           </div>
         </div>
       </form>

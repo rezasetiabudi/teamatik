@@ -5,7 +5,7 @@ class Employee_model extends CI_Model
 {
 
     public $table = 'employee';
-    public $id = 'id';
+    public $id = 'id_employees';
 
     public function getEmployee()
     {

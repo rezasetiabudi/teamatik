@@ -52,7 +52,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <div class="box-footer">
                 <a href="<?php echo base_url('Employee/index') ?>" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
                 <div class="pull-right">
+<<<<<<< HEAD
                   <button type="submit" value="save" name="save" class="btn btn-success">Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
+=======
+                  <input type="submit" name="save" value="save" class="form-control btn btn-info">
+>>>>>>> fa38e6d37e44dc8130abb5556228516fd7b88a22
                 </div>
               </div>
         </form>

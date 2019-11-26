@@ -40,33 +40,42 @@ class Department extends CI_Controller {
                   if($this->input->post('save'))
                   {
                         //get form's data and store in local varable
-                        $name=$this->input->post('name');
+                        $department_name=$this->input->post('department_name');
 
                         $this->load->model('department_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
+<<<<<<< HEAD
                         $this->department_model->saverecords($name);
+=======
+                        $this->department_model->saverecords($department_name);	
+>>>>>>> fa38e6d37e44dc8130abb5556228516fd7b88a22
                         echo "Records Saved Successfully";
                   }
             }
       }
-      public function update($id)
+      public function update($id_department)
       {
             if ($this->session->userdata('status') != "login") {
                   $this->load->view('login_page');
             } else {
                   $this->load->model('department_model');
-                  $row = $this->department_model->getById($id);
+                  $row = $this->department_model->getById($id_department);
                   if ($row) {
                         $data = array(
+<<<<<<< HEAD
                               'id' => set_value('id', $row->id_department),
                               'name' => set_value('name', $row->department_name),
+=======
+                              'id_department' => set_value('id_department', $row->id_department),
+                              'department_name' => set_value('department_name', $row->department_name),
+>>>>>>> fa38e6d37e44dc8130abb5556228516fd7b88a22
                         );
                         $this->load->view('department/update', $data);
                         if ($this->input->post('save')) {
                               //get form's data and store in local varable
-                              $name = $this->input->post('name');
+                              $department_name = $this->input->post('department_name');
                               //call saverecords method of Hello_Model and pass variables as parameter
-                              $this->department_model->updaterecords($id, $name);
+                              $this->department_model->updaterecords($id_department, $department_name);
                               redirect(base_url('department/index'));
                         }
                   }
@@ -77,13 +86,13 @@ class Department extends CI_Controller {
             }
       }
 
-      public function delete($id){
+      public function delete($id_department){
             if ($this->session->userdata('status') != "login") {
                   $this->load->view('login_page');
             } else {
                   $this->load->model('department_model');
 
-                  $this->department_model->deleterecords($id);
+                  $this->department_model->deleterecords($id_department);
                   redirect(base_url('Department/index'));
             }
       }
