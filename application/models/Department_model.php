@@ -28,7 +28,7 @@ class Department_model extends CI_Model {
     }
 
     public function deleterecords($id_department){
-        $this->db->where($this->id_department, $id_department);
+        $this->db->where($this->id, $id_department);
         $this->db->delete($this->table);
     }
 }

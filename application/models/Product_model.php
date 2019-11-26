@@ -3,7 +3,7 @@ class Product_model extends CI_Model
 {
     
     public $table = 'product';
-    public $id = 'id';
+    public $id = 'id_product';
 
     public function getProduct()
     {
@@ -29,7 +29,7 @@ class Product_model extends CI_Model
     }
     
     public function deleterecords($id_product){
-        $this->db->where($this->id_product, $id_product);
+        $this->db->where($this->id, $id_product);
         $this->db->delete($this->table);
     }
 }

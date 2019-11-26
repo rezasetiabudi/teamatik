@@ -44,11 +44,8 @@ class Department extends CI_Controller {
 
                         $this->load->model('department_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
-<<<<<<< HEAD
-                        $this->department_model->saverecords($name);
-=======
                         $this->department_model->saverecords($department_name);	
->>>>>>> fa38e6d37e44dc8130abb5556228516fd7b88a22
+                        redirect(base_url('department/index'));
                         echo "Records Saved Successfully";
                   }
             }
@@ -62,13 +59,8 @@ class Department extends CI_Controller {
                   $row = $this->department_model->getById($id_department);
                   if ($row) {
                         $data = array(
-<<<<<<< HEAD
-                              'id' => set_value('id', $row->id_department),
-                              'name' => set_value('name', $row->department_name),
-=======
                               'id_department' => set_value('id_department', $row->id_department),
                               'department_name' => set_value('department_name', $row->department_name),
->>>>>>> fa38e6d37e44dc8130abb5556228516fd7b88a22
                         );
                         $this->load->view('department/update', $data);
                         if ($this->input->post('save')) {
