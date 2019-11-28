@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Department extends CI_Controller {
+class Department extends CI_Controller
+{
       function __construct()
       {
             parent::__construct();
@@ -13,39 +14,37 @@ class Department extends CI_Controller {
 
             $this->load->library('grocery_CRUD');
       }
-	public function index()
-	{
-            if($this->session->userdata('status') != "login"){
-			$this->load->view('login_page');
-            }
-            else {
+      public function index()
+      {
+            if ($this->session->userdata('status') != "login") {
+                  $this->load->view('login_page');
+            } else {
 
                   $this->load->model('department_model');
                   $department['list'] = $this->department_model->getList();
                   $this->load->view('template/header');
                   $this->load->view('template/sidebar');
-                  $this->load->view('department/index',$department);
+                  $this->load->view('department/index', $department);
 
                   $this->load->view('template/footer');
             }
-	}
+      }
 
-	public function create()
-	{
-            if($this->session->userdata('status') != "login"){
-			$this->load->view('login_page');
-            }
-            else {
+      public function create()
+      {
+            if ($this->session->userdata('status') != "login") {
+                  $this->load->view('login_page');
+            } else {
                   $this->load->view('department/create');
-                  if($this->input->post('save'))
-                  {
+                  if ($this->input->post('save')) {
                         //get form's data and store in local varable
-                        $department_name=$this->input->post('department_name');
+                        $department_name = $this->input->post('department_name');
 
                         $this->load->model('department_model');
                         //call saverecords method of Hello_Model and pass variables as parameter
-                        $this->department_model->saverecords($name);
-                        echo "Records Saved Successfully";
+                        $this->department_model->saverecords($department_name);
+                        // echo "Records Saved Successfully";
+                        redirect(base_url('Department/index'));
                   }
             }
       }
@@ -69,15 +68,15 @@ class Department extends CI_Controller {
                               $this->department_model->updaterecords($id_department, $department_name);
                               redirect(base_url('department/index'));
                         }
-                  }
-                  else {
+                  } else {
                         $this->session->set_flashdata('message', 'Record Not Found');
                         redirect(base_url('department/index'));
                   }
             }
       }
 
-      public function delete($id_department){
+      public function delete($id_department)
+      {
             if ($this->session->userdata('status') != "login") {
                   $this->load->view('login_page');
             } else {
