@@ -81,11 +81,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <?php echo $rows['supplier_name'] ?>
                 </td>
                 <td>
-                  <div class="modal-body" id="qbody"></div>
+                  <a class="btn" data-toggle="modal" href="" data-target="#qrModal<?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-qrcode" style="color:black"></span></a>
                 </td>
                 <td>
                   <a class="btn" href="<?php echo base_url('Product/update/') ?><?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
-                  <a class="btn" data-toggle="modal" href="" data-target="#qrModal<?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-qrcode" style="color:black"></span></a>
                   <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a> </td>
               </tr>
               <div class="modal fade" id="deleteModal<?php echo $rows['id_product'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
