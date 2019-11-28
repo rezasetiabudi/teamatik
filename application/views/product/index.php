@@ -42,6 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <th>Date Expired</th>
               <th>Qty</th>
               <th>Supplier</th>
+              <th>qr</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -78,7 +79,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <td>
                   <?php echo $rows['supplier_name'] ?>
                 </td>
-
+                <td>
+                  <div class="modal-body" id="qbody"></div>
+                </td>
                 <td>
                   <a class="btn" href="<?php echo base_url('Product/update/') ?><?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
 
@@ -111,4 +114,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
   </section>
 </div>
+
+<script>
+$(function() {
+    $("#qbody").append("<p align='center'><img class='to-print' src='https://chart.apis.google.com/chart?cht=qr&chs=300x300&chld=H|0&chl='"+<?php echo $rows['id_product'] ?>+"'/></p>");
+})
+</script>
 <!-- /.content -->
