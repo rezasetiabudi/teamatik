@@ -30,6 +30,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="box-body">
         <div class="pull-right" style="margin:10px">
           <a href="<?php echo base_url('Product/create') ?>" class="btn btn-success">Add+</a>
+          <button id="bulkPrint" class="btn btn-success">print</button>
         </div>
         <table id="myTable" class="display">
           <thead>
@@ -82,6 +83,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </td>
                 <td>
                   <a class="btn" data-toggle="modal" href="" data-target="#qrModal<?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-qrcode" style="color:black"></span></a>
+                  <button type="button" href="" id="addThis<?php echo $rows['id_product'] ?>">add print</>
                 </td>
                 <td>
                   <a class="btn" href="<?php echo base_url('Product/update/') ?><?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
@@ -141,6 +143,43 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   $("#printThis<?php echo $rows['id_product'] ?>").append("<p align='center'><img class='to-print' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $rows['id_product'] ?>&chld=H|0'/></p>");
                 })
               </script>
+
+              <script>
+                var arr = [];
+
+                var $printSection = document.createElement("div");
+                $printSection.id = "printSection";
+                document.body.appendChild($printSection);
+
+                document.getElementById("addThis<?php echo $rows['id_product'] ?>").onclick = function() {
+                  console.log(<?php echo $rows['id_product'] ?>);
+                  arr.push(<?php echo $rows['id_product'] ?>);
+                  console.log(arr);
+                };
+
+                document.getElementById("bulkPrint").onclick = function() {
+                  printElementt();
+                };
+                
+                function printElementt() {
+                  var $printSection = document.getElementById("printSection");
+
+                  $printSection.innerHTML = "";
+                  
+                  if(arr.length > 0){
+                    for(let i = 0; i < arr.length; i++){
+                      document.getElementById("printSection").append( "<img class='to-print' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=test&chld=H|0'/>" );
+                    }
+                  }
+                  
+                  window.print();
+                }
+
+                
+
+              </script>
+
+              
 
             <?php $i++;
             } ?>
