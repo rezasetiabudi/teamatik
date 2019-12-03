@@ -30,6 +30,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="box-body">
         <div class="pull-right" style="margin:10px">
           <a href="<?php echo base_url('Product/create') ?>" class="btn btn-success">Add+</a>
+
         </div>
         <table id="myTable" class="display">
           <thead>
@@ -45,6 +46,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <th>Supplier</th>
               <th>qr</th>
               <th>Action</th>
+              <th>Select Print</th>
             </tr>
           </thead>
           <tbody>
@@ -83,9 +85,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <td>
                   <a class="btn" data-toggle="modal" href="" data-target="#qrModal<?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-qrcode" style="color:black"></span></a>
                 </td>
-                <td>
+                <td style="text-align: center">
                   <a class="btn" href="<?php echo base_url('Product/update/') ?><?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-cog"></span></a>
-                  <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a> </td>
+                  <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>
+                </td>
+                <td style="text-align:center">
+                  <input type="checkbox" name="movie[]" value="<?php echo $rows['id_product'] ?>" id="selectPrint<?php echo $i; ?>" />
+                </td>
               </tr>
               <div class="modal fade" id="deleteModal<?php echo $rows['id_product'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -112,6 +118,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div id="printThis<?php echo $rows['id_product'] ?>" class="modal-body">
                     </div>
                     <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       <button type="button" id="Print<?php echo $rows['id_product'] ?>" class="btn btn-primary">Print</button>
                     </div>
                   </div>
@@ -131,24 +138,74 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     var $printSection = document.createElement("div");
                     $printSection.id = "printSection";
                     document.body.appendChild($printSection);
+
                   }
 
                   $printSection.innerHTML = "";
                   $printSection.appendChild(domClone);
+                  // $printSection.appendChild(elem);
                   window.print();
                 }
                 $(function() {
-                  $("#printThis<?php echo $rows['id_product'] ?>").append("<p align='center'><img class='to-print' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $rows['id_product'] ?>&chld=H|0'/></p>");
+                  // for (i = 0; i < 3; i++) {
+                  $("#printThis<?php echo $rows['id_product'] ?>").append("<p align='center'><img class='to-print<?php echo $rows['id_product'] ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $rows['id_product'] ?>&chld=H|0'/></p><br>");
+                  // }
                 })
               </script>
-
+              <script>
+                var test<?php echo $i ?> = document.getElementById("selectPrint<?php echo $i ?>");
+                test<?php echo $i ?>.addEventListener('change', (event) => {
+                  if (test<?php echo $i ?>.checked) {
+                    $("#printSelectedItem").append("<p align='center'><img class='to-print<?php echo $i ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $rows['id_product'] ?>&chld=H|0'/></p><br>");
+                  } else {
+                    $('.to-print<?php echo $i ?>').remove();
+                  }
+                })
+              </script>
             <?php $i++;
             } ?>
           </tbody>
         </table>
+        <a class="btn btn-primary" data-toggle="modal" href="" data-target="#printModal"></span>Print Selected Item</a>
+        <div class="modal fade" id="printModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div id="printSelectedItem" class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="Print" class="btn btn-primary">Print</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          document.getElementById("Print").onclick = function() {
+            printSelected(document.getElementById("printSelectedItem"));
+          };
+
+          function printSelected(elem) {
+            var domClone = elem.cloneNode(true);
+
+            var $printSection = document.getElementById("printSection");
+
+            if (!$printSection) {
+              var $printSection = document.createElement("div");
+              $printSection.id = "printSection";
+              document.body.appendChild($printSection);
+
+            }
+
+            $printSection.innerHTML = "";
+            $printSection.appendChild(domClone);
+            // $printSection.appendChild(elem);
+            window.print();
+          }
+        </script>
       </div>
     </div>
   </section>
+
 </div>
 <style type="text/css">
   @media screen {
