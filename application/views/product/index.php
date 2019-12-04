@@ -148,7 +148,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 }
                 $(function() {
                   // for (i = 0; i < 3; i++) {
-                  $("#printThis<?php echo $rows['id_product'] ?>").append("<p align='center'><img class='to-print<?php echo $rows['id_product'] ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $rows['id_product'] ?>&chld=H|0'/></p><br>");
+                  $("#printThis<?php echo $rows['id_product'] ?>").append("<p class='to-print<?php echo $rows['id_product'] ?>'align='center'><img  src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $rows['id_product'] ?>&chld=H|0'/><br><?php echo $rows['product_name'] ?><br></p>");
                   // }
                 })
               </script>
@@ -156,7 +156,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 var test<?php echo $i ?> = document.getElementById("selectPrint<?php echo $i ?>");
                 test<?php echo $i ?>.addEventListener('change', (event) => {
                   if (test<?php echo $i ?>.checked) {
-                    $("#printSelectedItem").append("<p align='center'><img class='to-print<?php echo $i ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$i - 1]['id_product'] ?>&chld=H|0'/></p><br>");
+                    $("#printSelectedItem").append("<p class='to-print<?php echo $i ?>' align='center'><img  src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$i - 1]['id_product'] ?>&chld=H|0'/><br><?php echo $list[$i - 1]['product_name'] ?><br></p>");
                   } else {
                     $('.to-print<?php echo $i ?>').remove();
                   }
@@ -198,7 +198,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           function printAllitem() {
             if (check == 0) {
               <?php for ($j = 0; $j < count($list); $j++) { ?>
-                $("#printSelectedItem").append("<p align='center'><img class='to-print<?php echo $j ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$j]['id_product'] ?>&chld=H|0'/></p><br>");
+                $("#printSelectedItem").append("<p class='to-print<?php echo $j ?>' align='center'><img  src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$j]['id_product'] ?>&chld=H|0'/><br><?php echo $list[$j]['product_name'] ?><br></p>");
               <?php } ?>
               check = 1;
             } else {
@@ -228,7 +228,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
               var $printSection = document.createElement("div");
               $printSection.id = "printSection";
               document.body.appendChild($printSection);
-
             }
 
             $printSection.innerHTML = "";
