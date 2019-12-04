@@ -162,19 +162,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   }
                 })
               </script>
-              <script>
-                function printAllitem() {
-                  console.log(<?php echo count($list) ?>);
-                  <?php for ($j = 0; $j < count($list); $j++) { ?>
-                    $("#printSelectedItem").append("<p align='center'><img class='to-print<?php echo $j ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$j]['id_product'] ?>&chld=H|0'/></p><br>");
 
-                  <?php } ?>
-                }
-              </script>
             <?php $i++;
             } ?>
           </tbody>
         </table>
+        <script>
+          var check = 0;
+        </script>
         <a class="btn btn-primary" data-toggle="modal" href="" data-target="#printModal"></span>Print Selected Item</a>
         <a class="btn btn-danger" id="PrintAll"></span>Select All Item</a>
         <div class="modal fade" id="printModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -195,12 +190,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
             checkboxes = document.getElementsByName('item');
             for (var i = 0, n = checkboxes.length; i < n; i++) {
               checkboxes[i].checked = true;
-
             }
             printAllitem();
           };
         </script>
+        <script>
+          function printAllitem() {
+            if (check == 0) {
+              <?php for ($j = 0; $j < count($list); $j++) { ?>
+                $("#printSelectedItem").append("<p align='center'><img class='to-print<?php echo $j ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$j]['id_product'] ?>&chld=H|0'/></p><br>");
+              <?php } ?>
+              check = 1;
+            } else {
+              uncheckboxes = document.getElementsByName('item');
+              for (var i = 0, n = uncheckboxes.length; i < n; i++) {
+                checkboxes[i].checked = false;
+              }
+              <?php for ($k = 0; $k < count($list); $k++) { ?>
+                $('.to-print<?php echo $k ?>').remove();
 
+              <?php } ?>
+              check = 0;
+            }
+          }
+        </script>
         <script>
           document.getElementById("Print").onclick = function() {
             printSelected(document.getElementById("printSelectedItem"));
