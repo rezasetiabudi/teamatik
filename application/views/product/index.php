@@ -90,7 +90,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <a class="btn" data-toggle="modal" data-target="#deleteModal<?php echo $rows['id_product'] ?>"><span class="glyphicon glyphicon-trash" style="color:red"></span></a>
                 </td>
                 <td style="text-align:center">
-                  <input type="checkbox" name="movie[]" value="<?php echo $rows['id_product'] ?>" id="selectPrint<?php echo $i; ?>" />
+                  <input type="checkbox" name="item" value="<?php echo $rows['id_product'] ?>" id="selectPrint<?php echo $i; ?>" />
                 </td>
               </tr>
               <div class="modal fade" id="deleteModal<?php echo $rows['id_product'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -156,17 +156,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 var test<?php echo $i ?> = document.getElementById("selectPrint<?php echo $i ?>");
                 test<?php echo $i ?>.addEventListener('change', (event) => {
                   if (test<?php echo $i ?>.checked) {
-                    $("#printSelectedItem").append("<p align='center'><img class='to-print<?php echo $i ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $rows['id_product'] ?>&chld=H|0'/></p><br>");
+                    $("#printSelectedItem").append("<p align='center'><img class='to-print<?php echo $i ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$i - 1]['id_product'] ?>&chld=H|0'/></p><br>");
                   } else {
                     $('.to-print<?php echo $i ?>').remove();
                   }
                 })
+              </script>
+              <script>
+                function printAllitem() {
+                  console.log(<?php echo count($list) ?>);
+                  <?php for ($j = 0; $j < count($list); $j++) { ?>
+                    $("#printSelectedItem").append("<p align='center'><img class='to-print<?php echo $j ?>' src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$j]['id_product'] ?>&chld=H|0'/></p><br>");
+
+                  <?php } ?>
+                }
               </script>
             <?php $i++;
             } ?>
           </tbody>
         </table>
         <a class="btn btn-primary" data-toggle="modal" href="" data-target="#printModal"></span>Print Selected Item</a>
+        <a class="btn btn-danger" id="PrintAll"></span>Select All Item</a>
         <div class="modal fade" id="printModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -179,6 +189,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
           </div>
         </div>
+
+        <script>
+          document.getElementById("PrintAll").onclick = function() {
+            checkboxes = document.getElementsByName('item');
+            for (var i = 0, n = checkboxes.length; i < n; i++) {
+              checkboxes[i].checked = true;
+
+            }
+            printAllitem();
+          };
+        </script>
+
         <script>
           document.getElementById("Print").onclick = function() {
             printSelected(document.getElementById("printSelectedItem"));
