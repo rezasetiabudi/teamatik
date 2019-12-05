@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="<?= base_url('Assets/chart.js')?>"></script>
+<script type="text/javascript" src="<?= base_url('Assets/chart.js') ?>"></script>
 
 <script>
   $(document).ready(function() {
@@ -29,39 +29,35 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <section class="content">
     <div class="box box-success" style="width: 100%; height: 90%">
       <!-- <div class="box-body" style="width: 500px;height: 500px"> -->
-        <canvas id="myChart"></canvas>
+      <canvas id="myChart"></canvas>
       <!-- </div> -->
     </div>
   </section>
 </div>
 
 <!-- chartjs -->
+<?php
+$year = date("Y");
+// $data = array("[$year]", "[$year+1]");
+for ($test = 0; $test < 10; $test++) {
+  $data[] = $year + $test;
+}
+echo join($data, ',');
+?>
+<script>
+  var d = new Date();
+  var n = d.getFullYear();
+</script>
 <script>
   var ctx = document.getElementById("myChart").getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: [<?php echo join($data, ',') ?>],
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 23, 2, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
+        label: 'Depreciation',
+        data: [12, 30, 3, 23, 2, 3, 4, 2, 1, 4],
+        backgroundColor: 'rgba(54, 162, 235, 1)',
       }]
     },
     options: {

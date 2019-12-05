@@ -156,9 +156,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 var test<?php echo $i ?> = document.getElementById("selectPrint<?php echo $i ?>");
                 test<?php echo $i ?>.addEventListener('change', (event) => {
                   if (test<?php echo $i ?>.checked) {
-                    $("#printSelectedItem").append("<p class='to-print<?php echo $i ?>' align='center'><img  src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$i - 1]['id_product'] ?>&chld=H|0'/><br><?php echo $list[$i - 1]['product_name'] ?><br></p>");
+                    $("#printSelectedItem").append("<p class='to-print<?php echo $i - 1 ?>' align='center'><img  src='http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $list[$i - 1]['id_product'] ?>&chld=H|0'/><br><?php echo $list[$i - 1]['product_name'] ?><br></p>");
                   } else {
-                    $('.to-print<?php echo $i ?>').remove();
+                    $('.to-print<?php echo $i - 1 ?>').remove();
+                    console.log(<?php echo $i - 1; ?>);
                   }
                 })
               </script>
