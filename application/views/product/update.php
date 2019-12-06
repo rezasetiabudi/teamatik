@@ -31,6 +31,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <input class="form-control input100" type="text" name="name" placeholder="Name" value="<?php echo $name ?>" ?>
                 <label for="email">Price</label>
                 <input class="form-control input100" type="number" name="price" placeholder="Price" value="">
+                <label for="email">Residu value</label>
+                <input class="form-control input100" type="number" name="residu" placeholder="Residu" ?>
                 <label for="email">Quantity</label>
                 <input class="form-control input100" type="number" name="quantity" placeholder="Quantity" value="" ?>
                 <label for="phone">Purchase date</label>

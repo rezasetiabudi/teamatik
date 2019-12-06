@@ -28,7 +28,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <form method="post">
         <label for="name">Nama</label>
         <input class="form-control input100" type="text" name="name" placeholder="Name" value="<?php echo $name ?>" ?>
-        <label for="name">Code</label>
+        <label for="name">Depresiasi</label>
         <input class="form-control input100" type="number" name="depreciation" placeholder="Code" value="<?php echo $depreciation ?>" ?>
         <input type="submit" name="save" value="save" class="form-control btn btn-info">
       </form>

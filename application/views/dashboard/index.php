@@ -37,12 +37,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <!-- chartjs -->
 <?php
-$year = date("Y");
+$date = DateTime::createFromFormat("Y-m-d", $product[0]["date_encode"]);
+$year = $date->format("Y");
+// $idcategory = $product[0]["id_category"];
+$tahundepresiasi = $category[0]["depreciation"];
+$priceproduct = $product[0]["price"];
+$depresiasi = ($product[0]["price"] - $product[0]["residu"]) / $tahundepresiasi;
+// $year = date("Y");
 // $data = array("[$year]", "[$year+1]");
-for ($test = 0; $test < 10; $test++) {
+for ($test = 0; $test < $tahundepresiasi; $test++) {
   $data[] = $year + $test;
+  if ($test > 0) {
+    $priceproduct = $priceproduct - $depresiasi;
+    $price[] = $priceproduct;
+  } else {
+    $price[] = $product[0]["price"];
+  }
 }
-echo join($data, ',');
+
 ?>
 <script>
   var d = new Date();
@@ -55,8 +67,8 @@ echo join($data, ',');
     data: {
       labels: [<?php echo join($data, ',') ?>],
       datasets: [{
-        label: 'Depreciation',
-        data: [12, 30, 3, 23, 2, 3, 4, 2, 1, 4],
+        label: 'Depreciation <?php echo $product[0]["product_name"] ?>',
+        data: [<?php echo join($price, ',') ?>],
         backgroundColor: 'rgba(54, 162, 235, 1)',
       }]
     },

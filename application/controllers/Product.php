@@ -57,12 +57,13 @@ class Product extends CI_Controller
                 $depreciation = $kategori[0]['depreciation'];
                 $expired_year = date('Y', strtotime($purchase_date)) + $depreciation;
                 $Price = $this->input->post('price');
-                $status = $this->input->post('status');
+                $residu = $this->input->post('residu');
+                // $status = $this->input->post('status');
                 $supplier = $this->input->post('supplier');
                 $quantity = $this->input->post('quantity');
                 // echo $expired_year;
                 // echo $category_id;
-                $this->product_model->saverecords($name, $category_id, $purchase_date, $expired_year, $quantity, $Price, $supplier);
+                $this->product_model->saverecords($name, $category_id, $purchase_date, $expired_year, $quantity, $Price, $residu, $supplier);
                 redirect(base_url('Product/index'));
             }
         }
@@ -96,11 +97,12 @@ class Product extends CI_Controller
                     $depreciation = $kategori[0]['depreciation'];
                     $expired_year = date('Y', strtotime($purchase_date)) + $depreciation;
                     $Price = $this->input->post('price');
-                    $status = $this->input->post('status');
+                    // $status = $this->input->post('status');
+                    $residu = $this->input->post('residu');
                     $supplier = $this->input->post('supplier');
                     $quantity = $this->input->post('quantity');
                     // $status = $this->input->post('status');  
-                    $this->product_model->updaterecords($id, $name, $category_id, $purchase_date, $expired_year, $quantity, $Price, $supplier);
+                    $this->product_model->updaterecords($id, $name, $category_id, $purchase_date, $expired_year, $quantity, $Price, $residu, $supplier);
                     redirect(base_url('product/index'));
                 }
             } else {

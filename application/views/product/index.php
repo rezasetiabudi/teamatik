@@ -40,6 +40,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <th>Name</th>
               <th>Category</th>
               <th>Price</th>
+              <th>Residu</th>
               <th>Date Encode</th>
               <th>Date Expired</th>
               <th>Qty</th>
@@ -69,6 +70,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </td>
                 <td>
                   <?php echo $rows['price'] ?>
+                </td>
+                <td>
+                  <?php echo $rows['residu'] ?>
                 </td>
                 <td>
                   <?php echo $rows['date_encode'] ?>

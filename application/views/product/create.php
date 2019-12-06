@@ -31,8 +31,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <input class="form-control input100" type="text" name="product_name" placeholder="Name" ?>
                 <label for="email">Price</label>
                 <input class="form-control input100" type="number" name="price" placeholder="Price" ?>
+                <label for="email">Residu value</label>
+                <input class="form-control input100" type="number" name="residu" placeholder="Residu" ?>
                 <label for="email">Quantity</label>
-                <input class="form-control input100" type="number" name="quantity" placeholder="Price" ?>
+                <input class="form-control input100" type="number" name="quantity" placeholder="Quantity" ?>
                 <label for="phone">Purchase date</label>
                 <input class="form-control input100" type="date" name="purchase_date" placeholder="Purchasing Date" ?>
                 <label for="position">Category</label>

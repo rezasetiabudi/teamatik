@@ -15,8 +15,13 @@ class Home extends CI_Controller
 		} else {
 			$this->load->view('template/header');
 			$this->load->view('template/sidebar');
-			$this->load->view('dashboard/index');
-
+			$this->load->model('product_model');
+			$data['product'] = $this->product_model->getLastProduct();
+			// echo $data['product'][0]["id_category"];
+			$this->load->model('category_model');
+			$data['category'] = $this->category_model->getExpired($data['product'][0]["id_category"]);
+			// echo $data['category'][0]["depreciation"];
+			$this->load->view('dashboard/index', $data);
 			$this->load->view('template/footer');
 		}
 		// echo "test";
