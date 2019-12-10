@@ -26,8 +26,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <section class="content">
     <div class="form-group">
       <form method="post">
-        <label for="name">Nama</label>
-        <input class="form-control input100" type="text" name="department_name" placeholder="Name" value="<?php echo $name ?>" ?>
+        <div class="form-group well form-horizontal">
+          <label for="name">Nama</label>
+          <input class="form-control input100" type="text" name="department_name" placeholder="Name" value="<?php echo $name ?>" ?>
+        </div>
         <input type="submit" name="save" value="save" class="form-control btn btn-info">
       </form>
     </div>

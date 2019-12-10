@@ -39,7 +39,7 @@ $curr_action = $this->uri->segment(1) . '/' . $this->uri->segment(2);
           </div>
         </div>
         <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
+        <!-- <form action="#" method="get" class="sidebar-form">
           <div class="input-group">
             <input type="text" name="q" class="form-control" placeholder="Search...">
             <span class="input-group-btn">
@@ -47,7 +47,7 @@ $curr_action = $this->uri->segment(1) . '/' . $this->uri->segment(2);
               </button>
             </span>
           </div>
-        </form>
+        </form> -->
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
 
@@ -59,6 +59,7 @@ $curr_action = $this->uri->segment(1) . '/' . $this->uri->segment(2);
         $category = ($curr_action == 'Category/index' || $curr_action == 'Category/create' || $curr_action == 'Category/update');
         $products = ($curr_action == 'Product/index' || $curr_action == 'Product/create' || $curr_action == 'Product/update');
         $supplier = ($curr_action == 'Supplier/index' || $curr_action == 'Supplier/create' || $curr_action == 'Supplier/update');
+        $loan = ($curr_action == 'Loan/index' || $curr_action == 'Loan/create' || $curr_action == 'Loan/update');
         ?>
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">Navigation Menu</li>
@@ -66,14 +67,14 @@ $curr_action = $this->uri->segment(1) . '/' . $this->uri->segment(2);
 
           <li class=" <?= $employee ? 'active' : '' ?>">
             <a href="<?php echo base_url() ?>Employee/index">
-              <i class="fa fa-dashboard"></i>
+              <i class="fa fa-users"></i>
               <span> Employee</span>
             </a>
           </li>
 
           <li class="<?= $products || $category || $supplier ? 'active' : '' ?> treeview">
             <a href="#">
-              <i class="fa fa-dashboard"></i> <span>Product</span>
+              <i class="fa fa-archive"></i> <span>Product</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -87,7 +88,7 @@ $curr_action = $this->uri->segment(1) . '/' . $this->uri->segment(2);
 
           <li class="<?= $position || $department ? 'active' : '' ?> treeview">
             <a href="#">
-              <i class="fa fa-dashboard"></i> <span>Position</span>
+              <i class="fa fa-cogs"></i> <span>Position</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -98,16 +99,15 @@ $curr_action = $this->uri->segment(1) . '/' . $this->uri->segment(2);
             </ul>
           </li>
 
-          <li class="<?= $position || $department ? 'active' : '' ?> treeview">
+          <li class="<?= $loan ? 'active' : '' ?> treeview">
             <a href="#">
-              <i class="fa fa-dashboard"></i> <span>Loan</span>
+              <i class="fa fa-exchange"></i> <span>Loan</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="<?= $department ? 'active' : '' ?>"><a href="<?php echo base_url() ?>Department/index"><i class="fa fa-circle-o"></i> <span>Department</span></a></li>
-              <li class="<?= $position ? 'active' : '' ?>"><a href="<?php echo base_url() ?>Position/index"><i class="fa fa-circle-o"></i> <span>List</span></a></li>
+              <li class="<?= $loan ? 'active' : '' ?>"><a href="<?php echo base_url() ?>Loan/index"><i class="fa fa-circle-o"></i> <span>List</span></a></li>
             </ul>
           </li>
 

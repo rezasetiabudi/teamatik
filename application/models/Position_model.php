@@ -39,9 +39,11 @@ class Position_model extends CI_Model
     {
         // $this->db->where($this->id, $id);
         // $this->db->delete($this->table);
+        $this->db->query("SET FOREIGN_KEY_CHECKS=0");
         $this->db->query("DELETE FROM position WHERE id_position = '$id'");
         if ($this->getList() == NULL) {
             $this->db->query("ALTER TABLE position AUTO_INCREMENT = 0");
         }
+        $this->db->query("SET FOREIGN_KEY_CHECKS=1");
     }
 }

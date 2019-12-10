@@ -48,13 +48,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <option value="0">Inactive</option>
               <option value="1">Active</option>
             </select>
-            <div>
-              <div class="box-footer">
-                <a href="<?php echo base_url('Employee/index') ?>" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
-                <div class="pull-right">
-                  <button type="submit" value="save" name="save" class="btn btn-success">Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
-                </div>
-              </div>
+          </div>
+          <div class="box-footer">
+            <a href="<?php echo base_url('Employee/index') ?>" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
+            <div class="pull-right">
+              <button type="submit" value="save" name="save" class="btn btn-success">Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
+            </div>
+          </div>
         </form>
       </div>
   </section>

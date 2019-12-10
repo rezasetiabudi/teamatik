@@ -26,14 +26,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <section class="content">
     <div class="form-group">
       <form method="post">
-        <label for="name">ID</label>
-        <input class="form-control input100" type="text" name="id" placeholder="Id" value="<?php echo $id ?>" ?>
-        <label for="name">Name</label>
-        <input class="form-control input100" type="text" name="name" placeholder="Name" value="<?php echo $name ?>" ?>
-        <label for="name">Contact</label>
-        <input class="form-control input100" type="text" name="contact" placeholder="Contact" value="<?php echo $contact ?>" ?>
-        <label for="name">Address</label>
-        <input class="form-control input100" type="text" name="address" placeholder="Address" value="<?php echo $address ?>" ?>
+        <div class="form-group well form-horizontal">
+          <label for="name">Name</label>
+          <input class="form-control input100" type="text" name="name" placeholder="Name" value="<?php echo $name ?>" ?>
+          <label for="name">Contact</label>
+          <input class="form-control input100" type="text" name="contact" placeholder="Contact" value="<?php echo $contact ?>" ?>
+          <label for="name">Address</label>
+          <input class="form-control input100" type="text" name="address" placeholder="Address" value="<?php echo $address ?>" ?>
+        </div>
         <input type="submit" name="save" value="save" class="form-control btn btn-info">
       </form>
     </div>

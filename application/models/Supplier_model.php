@@ -39,7 +39,10 @@ class Supplier_model extends CI_Model
 
     public function deleterecords($id)
     {
+
+        $this->db->query("SET FOREIGN_KEY_CHECKS=0");
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
+        $this->db->query("SET FOREIGN_KEY_CHECKS=1");
     }
 }
