@@ -7,7 +7,7 @@ class Product_model extends CI_Model
 
     public function getProduct()
     {
-        $data = $this->db->query("SELECT product.id_product, product.product_name, category.category_name, product.date_encode, product.date_expired, product.product_qty, product.price,product.residu, supplier.supplier_name,product.id_category FROM product LEFT JOIN product_category category ON product.id_category = category.id_category LEFT JOIN supplier ON product.id_supplier = supplier.id_supplier ORDER BY product.id_product");
+        $data = $this->db->query("SELECT product.id_product, product.product_name, category.category_name, product.date_encode, product.date_expired, product.product_qty, product.price,product.residu, supplier.supplier_name,product.id_category FROM product LEFT JOIN product_category category ON product.id_category = category.id_category LEFT JOIN supplier ON product.id_supplier = supplier.id_supplier ORDER BY product.product_name");
         return $data->result_array();
     }
 
