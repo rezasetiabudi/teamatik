@@ -63,7 +63,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $date = DateTime::createFromFormat("Y-m-d", $product[0]["date_encode"]);
 $year = $date->format("Y");
 // $idcategory = $product[0]["id_category"];
-$tahundepresiasi = $category[0]["depreciation"];
+$tahundepresiasi = $category[0]["depreciation"] + 1;
 $priceproduct = $product[0]["price"];
 $depresiasi = ($product[0]["price"] - $product[0]["residu"]) / $tahundepresiasi;
 // $year = date("Y");
