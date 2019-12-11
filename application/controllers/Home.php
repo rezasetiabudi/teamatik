@@ -18,6 +18,7 @@ class Home extends CI_Controller
 				$this->load->view('template/sidebar');
 				$this->load->model('product_model');
 				$select = $this->input->post('product');
+				$data['select'] = $select;
 				$data['product'] = $this->product_model->getSelectedProduct($select);
 				$data['allproduct'] = $this->product_model->getProduct();
 				$this->load->model('category_model');

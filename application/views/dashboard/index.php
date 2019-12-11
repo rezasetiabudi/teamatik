@@ -31,11 +31,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="form-group well form-horizontal">
         <label for="department">Product</label>
         <select class="form-control" name="product" id="product">
-          <option>-Select Kategori-</option>
           <?php
           $count = count($allproduct);
-          for ($i = 0; $i < $count; $i++) { ?>
-            <option value="<?php echo $allproduct[$i]["id_product"] ?>"><?php echo $allproduct[$i]["product_name"] ?></option>
+          for ($i = 0; $i < $count; $i++) {
+            if ($select == $allproduct[$i]["id_product"]) { ?>
+              <option selected value="<?php echo $allproduct[$i]["id_product"] ?>"><?php echo $allproduct[$i]["product_name"] ?></option>
+            <?php
+              } else { ?>
+              <option value="<?php echo $allproduct[$i]["id_product"] ?>"><?php echo $allproduct[$i]["product_name"] ?></option>
+            <?php
+              }
+              ?>
           <?php
           }
           ?>
