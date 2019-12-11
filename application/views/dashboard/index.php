@@ -27,6 +27,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </ol>
   </section>
   <section class="content">
+    <form method="post">
+      <div class="form-group well form-horizontal">
+        <label for="department">Product</label>
+        <select class="form-control" name="product" id="product">
+          <option>-Select Kategori-</option>
+          <?php
+          $count = count($allproduct);
+          for ($i = 0; $i < $count; $i++) { ?>
+            <option value="<?php echo $allproduct[$i]["id_product"] ?>"><?php echo $allproduct[$i]["product_name"] ?></option>
+          <?php
+          }
+          ?>
+
+        </select>
+      </div>
+      <input type="submit" name="show" value="SHOW" class="form-control btn btn-info">
+    </form>
     <div class="box box-success" style="width: 100%; height: 90%">
       <!-- <div class="box-body" style="width: 500px;height: 500px"> -->
       <canvas id="myChart"></canvas>

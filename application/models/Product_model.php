@@ -43,4 +43,13 @@ class Product_model extends CI_Model
         $data = $this->db->query("SELECT * FROM product ORDER BY id_product DESC LIMIT 1");
         return $data->result_array();
     }
+    public function updateQuantity($id, $quantity)
+    {
+        $this->db->query("UPDATE product SET product_qty = $quantity WHERE id_product = $id");
+    }
+    public function getSelectedProduct($id)
+    {
+        $data = $this->db->query("SELECT * FROM product WHERE id_product = '$id'");
+        return $data->result_array();
+    }
 }

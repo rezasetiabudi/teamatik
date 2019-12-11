@@ -189,7 +189,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
           </div>
         </div>
-
         <script>
           document.getElementById("PrintAll").onclick = function() {
             checkboxes = document.getElementsByName('item');
@@ -213,7 +212,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
               }
               <?php for ($k = 0; $k < count($list); $k++) { ?>
                 $('.to-print<?php echo $k ?>').remove();
-
               <?php } ?>
               check = 0;
             }

@@ -38,7 +38,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <form class="login100-form validate-form" method="post" action="<?= base_url('/Home/login') ?>">
                     <span class="login100-form-title">
-                        Member Login
+                        Admin Login
                     </span>
 
                     <?= $this->session->flashdata('message'); ?>
@@ -65,14 +65,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </button>
                     </div>
                     <hr>
-                    <div class="text-center p-t-12">
+                    <!-- <div class="text-center p-t-12">
                         <span class="txt1">
                             Forgot
                         </span>
                         <a class="txt2" href="#">
                             Username / Password?
                         </a>
-                    </div>
+                    </div> -->
                     <!-- <div class="text-center p-t-50">
                         <a class="txt2" href="#">
                             Create your Account
