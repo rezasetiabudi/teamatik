@@ -43,10 +43,10 @@ class Product extends CI_Controller
             $this->load->view('login_page');
         } else {
             $this->load->model('category_model');
+            $data['category'] = $this->category_model->getList();
             $this->load->model('supplier_model');
-            $category['category'] = $this->category_model->getList();
-            $category['supplier'] = $this->supplier_model->getList();
-            $this->load->view('product/create', $category);
+            $data['supplier'] = $this->supplier_model->getList();
+            $this->load->view('product/create', $data);
 
             if ($this->input->post('save')) {
                 $this->load->model('product_model');
@@ -58,73 +58,72 @@ class Product extends CI_Controller
                 $purchase_date = $this->input->post('purchase_date');
                 $kategori = $this->category_model->getById($category_id);
                 $depreciation = $kategori[0]['depreciation'];
-                $expired_year = date('Y',strtotime($purchase_date)) + $depreciation;
-                $qty = $this->input->post('price');
+                $expired_year = date('Y', strtotime($purchase_date)) + $depreciation;
+                $Price = $this->input->post('price');
+                $residu = $this->input->post('residu');
+                // $status = $this->input->post('status');
                 $supplier = $this->input->post('supplier');
-
-                
-
-                $this->product_model->saverecords($name, $category_id, $purchase_date, $expired_year, $qty, $supplier, $price);
+                $quantity = $this->input->post('quantity');
+                // echo $expired_year;
+                // echo $category_id;
+                $this->product_model->saverecords($name, $category_id, $purchase_date, $expired_year, $quantity, $Price, $residu, $supplier);
                 redirect(base_url('Product/index'));
             }
         }
     }
 
     public function update($id)
-      {
-            if ($this->session->userdata('status') != "login") {
-                  $this->load->view('login_page');
+    {
+        if ($this->session->userdata('status') != "login") {
+            $this->load->view('login_page');
+        } else {
+            $this->load->model('product_model');
+            $this->load->model('supplier_model');
+            $this->load->model('category_model');
+            $row = $this->product_model->getById($id);
+            // echo var_dump($row);
+            if ($row) {
+                $data = array(
+                    'id' => set_value($row->id_product),
+                    'name' => set_value('name', $row->product_name),
+                    'price' => set_value('price', $row->price),
+                    'supplier' => $this->supplier_model->getList(),
+                    'category' => $this->category_model->getList()
+                );
+                $this->load->view('product/update', $data);
+                if ($this->input->post('save')) {
+                    //get form's data and store in local varable
+                    $name = $this->input->post('name');
+                    $category_id = $this->input->post('category');
+                    $purchase_date = $this->input->post('purchase_date');
+                    $kategori = $this->category_model->getById($category_id);
+                    $depreciation = $kategori[0]['depreciation'];
+                    $expired_year = date('Y', strtotime($purchase_date)) + $depreciation;
+                    $Price = $this->input->post('price');
+                    // $status = $this->input->post('status');
+                    $residu = $this->input->post('residu');
+                    $supplier = $this->input->post('supplier');
+                    $quantity = $this->input->post('quantity');
+                    // $status = $this->input->post('status');  
+                    $this->product_model->updaterecords($id, $name, $category_id, $purchase_date, $expired_year, $quantity, $Price, $residu, $supplier);
+                    redirect(base_url('product/index'));
+                }
             } else {
-                  $this->load->model('product_model');
-                  $this->load->model('category_model');
-                  $row = $this->product_model->getById($id);
-                  if ($row) {
-                        $data = array(
-                              'id' => set_value('id', $row->id),
-                              'name' => set_value('name', $row->name),
-                              'category_id' => set_value('category_id', $row->category_id),
-                              'status' => set_value('status', $row->status),
-                              'price' => set_value('price',$row->price),
-                              'purchase_date' => set_value('purchase_date', $row->purchase_year),
-                              'category' => $this->category_model->getList(),
-                        );
-                        $this->load->view('product/update', $data);
-                        if ($this->input->post('save')) {
-                            //get form's data and store in local varable
-                            $name = $this->input->post('name');
-                            $category_id = $this->input->post('category_id');
-                            if($category_id != $row->category_id){
-                                $prefix_code = $this->product_model->generatePrefix($category_id);
-                                $product_code = $this->product_model->generateCode($prefix_code);
-                            }
-                            else {
-                                $product_code = $row->product_code;
-                                $prefix_code = $row->prefix_code;
-                            }
-                            $purchase_date = $this->input->post('purchase_date');
-                            $price = $this->input->post('price');
-                            $status = $this->input->post('status');
-                            //call saverecords method of Hello_Model and pass variables as parameter
-
-                            $this->product_model->updaterecords($id, $name, $category_id, $prefix_code, $product_code, $purchase_date, $price, $status);
-                            redirect(base_url('product/index'));
-                        }
-                  }
-                  else {
-                        $this->session->set_flashdata('message', 'Record Not Found');
-                        redirect(base_url('product/index'));
-                  }
-            }
-      }
-
-        public function delete($id){
-            if ($this->session->userdata('status') != "login") {
-                    $this->load->view('login_page');
-            } else {
-                    $this->load->model('product_model');
-
-                    $this->product_model->deleterecords($id);
-                    redirect(base_url('Product/index'));
+                $this->session->set_flashdata('message', 'Record Not Found');
+                redirect(base_url('product/index'));
             }
         }
+    }
+
+    public function delete($id)
+    {
+        if ($this->session->userdata('status') != "login") {
+            $this->load->view('login_page');
+        } else {
+            $this->load->model('product_model');
+
+            $this->product_model->deleterecords($id);
+            redirect(base_url('Product/index'));
+        }
+    }
 }

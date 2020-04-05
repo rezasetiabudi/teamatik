@@ -66,14 +66,14 @@ class Employee extends CI_Controller
                   $this->load->model('position_model');
                   $this->load->model('employee_model');
                   $row = $this->employee_model->getById($id);
-                  $position['posisi'] = $this->position_model->getList();
+                  // $position['posisi'] = $this->position_model->getList();
                   if ($row) {
                         $data = array(
                               'id' => set_value('id', $row->id_employees),
                               'name' => set_value('name', $row->employees_name),
                               'email' => set_value('email', $row->employees_address),
-                              'phone' => set_value('email', $row->employees_contact),
-                              'position' => set_value('email', $row->id_position),
+                              'phone' => set_value('phone', $row->employees_contact),
+                              'position' => set_value('position', $row->id_position),
                               'status' => set_value('status', $row->status),
                               'posisi' => $this->position_model->getList(),
                         );

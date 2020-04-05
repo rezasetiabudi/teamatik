@@ -26,26 +26,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <section class="content">
         <div class="form-group">
             <form method="post">
-                <label for="name"> Name</label>
-                <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
-                <label for="department">Department</label>
-                <select class="form-control" name="department" id="department">
-                    <option>-Select Kategori-</option>
-                    <?php
-                    $count = count($department);
-                    for ($i = 0; $i < $count; $i++) {
-                        echo '<option value="' . $department[$i][id_department] . '">' . $department[$i][department_name] . '</option>';
-                    }
-                    ?>
-                </select>
-                <p id="multiple_value"></p>
-                <div id="depts">
+                <div class="form-group well form-horizontal">
+                    <label for="name"> Name</label>
+                    <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
+                    <label for="department">Department</label>
+                    <select class="form-control" name="department" id="department">
+                        <option>-Select Kategori-</option>
+                        <?php
+                        $count = count($department);
+                        for ($i = 0; $i < $count; $i++) {
+                            echo '<option value="' . $department[$i][id_department] . '">' . $department[$i][department_name] . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <p id="multiple_value"></p>
+                    <div id="depts">
 
+                    </div>
+                    <input class="form-control input100" type="hidden" name="penampung" placeholder="penampung" id="penampung" ?>
+                    <p id="validation" style="color:red"></p>
                 </div>
-                <input class="form-control input100" type="hidden" name="penampung" placeholder="penampung" id="penampung" ?>
-                <p id="validation" style="color:red"></p>
-
-                <input type="submit" name="save" value="save" class="form-control btn btn-info">
+                <div class="box-footer">
+                    <a href="<?php echo base_url('Position/index') ?>" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
+                    <div class="pull-right">
+                        <button type="submit" value="save" name="save" class="btn btn-success">Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                    </div>
+                </div>
             </form>
         </div>
     </section>

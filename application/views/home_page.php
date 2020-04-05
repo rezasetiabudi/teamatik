@@ -14,7 +14,7 @@
       </ol>
     </section>
     <section class="content">
-    </section>
-    </div>
+  </section>
+</div>
 
 <?php $this->load->view("template/footer.php") ?>

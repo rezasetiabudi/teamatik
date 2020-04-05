@@ -48,6 +48,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <option value="0">Inactive</option>
               <option value="1">Active</option>
             </select>
+<<<<<<< HEAD
             <div>
               <div class="box-footer">
                 <a href="<?php echo base_url('Employee/index') ?>" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
@@ -55,6 +56,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   <button type="submit" value="save" name="save" class="btn btn-success">Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
                 </div>
               </div>
+=======
+          </div>
+          <div class="box-footer">
+            <a href="<?php echo base_url('Employee/index') ?>" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span> Back</a>
+            <div class="pull-right">
+              <button type="submit" value="save" name="save" class="btn btn-success">Save&nbsp <span class="glyphicon glyphicon-floppy-disk"></span></button>
+            </div>
+          </div>
+>>>>>>> f1b4e6aa3d8094fcb80a053aa8dfd50442868285
         </form>
       </div>
   </section>
