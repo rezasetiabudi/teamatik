@@ -31,6 +31,8 @@ input[type=text]:focus {
                 <input class="form-control input100" type="text" name="name" placeholder="Name" ?>
                 <label for="email">Price</label>
                 <input class="form-control input100" type="text" name="price" placeholder="Price" ?>
+                <label for="email">Quantity</label>
+                <input class="form-control input100" type="number" name="qty" placeholder="Quantity" ?>
                 <label for="phone">Purchase date</label>
                 <input class="form-control input100" type="date" name="purchase_date" placeholder="Purchasing Date" ?>
                 <label for="position">Category</label>
@@ -43,11 +45,16 @@ input[type=text]:focus {
                     }
                     ?>
                 </select>
-                <label for="status">Status</label>
-                <select class="form-control" name="status">
-                    <option>--SELECT STATUS--</option>
-                    <option value="0">Unavailable</option>
-                    <option value="1">Available</option>
+                <label for="status">Supplier</label>
+                <select class="form-control" name="supplier">
+                    <option>--SELECT SUPPLIER--</option>
+                    <?php
+                    $count = count($supplier);
+                    echo $count;
+                    for ($i = 0; $i < $count; $i++) {
+                        echo '<option value="' . $supplier[$i]['id_supplier'] . '">' . $supplier[$i]['supplier_name'] . '</option>';
+                    }
+                    ?>
                 </select>
                 <input type="submit" name="save" value="save" class="form-control btn btn-info">
             </form>

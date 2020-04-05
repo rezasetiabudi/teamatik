@@ -37,7 +37,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <th>id</th>
           <th>Name</th>
           <th>Category</th>
-          <th>Price</th>
           <th>Date Encode</th>
           <th>Date Recorded</th>
           <th>Date Expired</th>
@@ -62,9 +61,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </td>
             <td>
               <?php echo $rows['product_category'] ?>
-            </td>
-            <td>
-              <?php echo $rows['product_price'] ?>
             </td>
             <td>
               <?php echo $rows['date_encode'] ?>

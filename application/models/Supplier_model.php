@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Supplier_model extends CI_Model {
 
     public $table = 'supplier';
-    public $id = 'id_supplier3';
+    public $id = 'id_supplier';
 
     public function getList(){
         $data = $this->db->query("SELECT * FROM $this->table");

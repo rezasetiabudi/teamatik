@@ -43,20 +43,28 @@ class Product extends CI_Controller
             $this->load->view('login_page');
         } else {
             $this->load->model('category_model');
+            $this->load->model('supplier_model');
             $category['category'] = $this->category_model->getList();
+            $category['supplier'] = $this->supplier_model->getList();
             $this->load->view('product/create', $category);
 
             if ($this->input->post('save')) {
                 $this->load->model('product_model');
-                $name = $this->input->post('product_name');
+                $this->load->model('invoice_model');
+                $name = $this->input->post('name');
+                $price = $this->input->post('price');
+                $qty = $this->input->post('qty');
                 $category_id = $this->input->post('category_id');
                 $purchase_date = $this->input->post('purchase_date');
                 $kategori = $this->category_model->getById($category_id);
                 $depreciation = $kategori[0]['depreciation'];
                 $expired_year = date('Y',strtotime($purchase_date)) + $depreciation;
                 $qty = $this->input->post('price');
-                $supplier = $this->input->post('status');
-                $this->product_model->saverecords($name, $category_id, $purchase_date, $expired_year, $qty, $supplier);
+                $supplier = $this->input->post('supplier');
+
+                
+
+                $this->product_model->saverecords($name, $category_id, $purchase_date, $expired_year, $qty, $supplier, $price);
                 redirect(base_url('Product/index'));
             }
         }

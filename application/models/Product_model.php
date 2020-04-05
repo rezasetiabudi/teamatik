@@ -11,9 +11,9 @@ class Product_model extends CI_Model
         return $data->result_array();
     }
 
-    public function saverecords($product_name, $product_category, $product_price, $date_encode, $date_recorded, $date_expired, $product_qty, $id_supplier)
+    public function saverecords($product_name, $product_category, $product_price, $date_encode, $date_expired, $product_qty, $id_supplier)
     {
-        $query = "insert into product(product_name, product_category, product_price, date_encode, date_recorded, date_expired, product_qty, id_supplier) values('$product_name', '$product_category', '$product_price', '$date_encode', '$date_recorded', '$date_expired', '$product_qty', '$id_supplier')";
+        $query = "insert into product(product_name, id_category, price, date_encode, date_expired, product_qty, id_supplier) values('$product_name', '$product_category', '$product_price', '$date_encode','$date_expired', '$product_qty', '$id_supplier')";
 
         $this->db->query($query);
     }
